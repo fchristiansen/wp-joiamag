@@ -2,20 +2,37 @@
 
     <div class="footer-over">
       <div class="home-content">
-        <div class="jumbotron jumbotron-100vh" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/img/bg-jumbo-article.png);">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-md-8">
-                <h1>Lorem ipsum dolor sit amet consectetur elit.</h1>
-                <p>
-                  <a class="btn btn-primary" href="<?php bloginfo('url'); ?>/2017/06/02/hola-mundo/" role="button">
-                    Ver más <i class="fa fa-fw fa-arrow-right" aria-hidden="true"></i>
-                  </a>
-                </p>
+      <?php
+            $args = array (
+                'category_name' => 'destacado',
+                'posts_per_page' => 1
+
+               // 'p' => '83'
+              );
+              $the_query = new WP_Query ($args);
+          ?>
+          <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+            <div class="jumbotron jumbotron-100vh" style="background-image: url(<?php the_post_thumbnail_url() ?>);">
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-md-8">
+                    <h1><?php the_title(); ?></h1>
+
+                    <p>
+                      <a class="btn btn-primary" href="<?php the_permalink();?>" role="button">
+
+                        Ver más <i class="fa fa-fw fa-arrow-right" aria-hidden="true"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          <?php endwhile; else: ?>
+          <?php endif; ?>
+          <?php wp_reset_postdata(); ?>
+
+        <!-- end loop -->
 
         <section class="section news-features">
           <div class="container">
@@ -221,8 +238,19 @@
               </button>
             </div>
           </div>
-        </section>
+        </section> <!-- news-features -->
 
+      <!-- destacado central -->
+        <?php
+            $args = array (
+                'category_name' => 'destacado',
+                'posts_per_page' => 1
+
+               // 'p' => '83'
+              );
+              $the_query = new WP_Query ($args);
+          ?>
+          <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
         <div class="jumbotron jumbotron-hero" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/img/bg-jumbo-article.png);">
           <div class="container">
             <h1>Lorem ipsum dolor sit amet consectetur elit.</h1>
@@ -235,6 +263,8 @@
             </p>
           </div>
         </div>
+
+      <!-- destacado central -->
 
         <section class="section section-joia-tv">
           <div class="container">
