@@ -125,6 +125,7 @@
                         endwhile;
                         }
                       ?>
+                      <?php wp_reset_postdata() ?>
 
                     <a class="nav-link" href="javascript:void(0);" title="Search" data-toggle="modal" data-target="#modal-search">
                         <i class="fa fa-search" aria-hidden="true"></i>

@@ -2,12 +2,11 @@
 
     <div class="footer-over">
       <div class="home-content">
-      <?php
-            $args = array (
-                'category_name' => 'destacado',
-                'posts_per_page' => 1
+          <?php
+              $args = array (
 
-               // 'p' => '83'
+                'cat' => '10',
+                'posts_per_page' => 1
               );
               $the_query = new WP_Query ($args);
           ?>
@@ -17,10 +16,8 @@
                 <div class="row align-items-center">
                   <div class="col-md-8">
                     <h1><?php the_title(); ?></h1>
-
                     <p>
                       <a class="btn btn-primary" href="<?php the_permalink();?>" role="button">
-
                         Ver más <i class="fa fa-fw fa-arrow-right" aria-hidden="true"></i>
                       </a>
                     </p>
@@ -31,12 +28,14 @@
           <?php endwhile; else: ?>
           <?php endif; ?>
           <?php wp_reset_postdata(); ?>
-
         <!-- end loop -->
-
         <section class="section news-features">
           <div class="container">
             <div class="row">
+                      <?php
+                          if (have_posts()) :
+                            while (have_posts()) :
+                              the_post(); ?>
               <div class="col-md mb-5">
                 <div class="card">
                   <div class="card-img-top">
@@ -46,21 +45,33 @@
                   </div>
                   <div class="card-body">
                     <p class="card-meta mb-0">
-                      <a href="http://todo.seo2.cl/clientes/joia/wp/2017/06/30/entrevista/">
-                        <i class="icon-section-features"></i> Entrevista
+                      <a href="<?php the_permalink(); ?>">
+                        <i class="icon-section-features"></i>
+                           <?php
+                            foreach((get_the_category()) as $category){
+                                  echo $category->name;
+                                //echo category_description($category);
+                              }
+                            ?>
                       </a>
                     </p>
                     <h1 class="card-title">
                       <a href="javascript:void(0);">
-                        Lorem ipsum dolor sit amet consectetur elit.
+                        <?php the_title(); ?>
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);"><?php the_author( ); ?> </a> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                     </p>
                   </div>
                 </div>
               </div>
+
+              <?php
+              endwhile;
+              endif;
+              ?>
+<!--
               <div class="col-md mb-5">
                 <div class="card">
                   <div class="card-img-top">
@@ -80,12 +91,15 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
+
+            <!-- destacados -->
+
             <div class="row">
               <div class="col-md-4 mb-3">
                 <div class="card">
@@ -106,7 +120,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                     </p>
                   </div>
                 </div>
@@ -130,7 +144,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                     </p>
                   </div>
                 </div>
@@ -154,7 +168,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                     </p>
                   </div>
                 </div>
@@ -178,7 +192,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                     </p>
                   </div>
                 </div>
@@ -202,7 +216,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                     </p>
                   </div>
                 </div>
@@ -226,7 +240,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                      <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                     </p>
                   </div>
                 </div>
@@ -241,16 +255,7 @@
         </section> <!-- news-features -->
 
       <!-- destacado central -->
-        <?php
-            $args = array (
-                'category_name' => 'destacado',
-                'posts_per_page' => 1
 
-               // 'p' => '83'
-              );
-              $the_query = new WP_Query ($args);
-          ?>
-          <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
         <div class="jumbotron jumbotron-hero" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/img/bg-jumbo-article.png);">
           <div class="container">
             <h1>Lorem ipsum dolor sit amet consectetur elit.</h1>
@@ -284,7 +289,7 @@
                   </a>
                 </h1>
                 <p class="card-author mb-0">
-                  <a href="javascript:void(0);">Adriana Conde</a> Hace 3 dias
+                  <a href="javascript:void(0);">Adriana Conde</a> Hace 3 días
                 </p>
               </div>
             </div>
@@ -627,3 +632,5 @@
     </div>
 
 <?php get_footer(); ?>
+
+

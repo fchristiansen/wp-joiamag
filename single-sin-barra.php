@@ -1,12 +1,12 @@
 <?php get_header(); ?>
-    
+
     <div class="footer-over">
       <div class="site-content">
         <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/bg-jumbo-article.png">
         <article class="single-page single-page-no-sidebar">
           <div class="container">
             <div class="header">
-              <h1>Lorem ipsum dolor sit amet consectetur elit consectetur elit</h1>
+              <h1> Lorem ipsum dolor sit amet consectetur elit consectetur elit</h1>
               <div class="article-meta">
                 En <a href="javascript:void(0);">Musica</a> por <a href="javascript:void(0);">JOIA STAFF</a> hace 5 dias
               </div>
@@ -27,9 +27,9 @@
                   <h2 class="text-center">Curabitur vitae varius arcu.</h2>
                   <p>Nam lacinia felis turpis, eget auctor risus lobortis nec. Ut ante lorem, aliquam et mattis vel, feugiat ac est. Nunc commodo tellus ut lorem vehicula dignissim. Etiam eros dui, viverra nec elit id, pellentesque pretium justo. Cras id tempus nisl.</p>
                   <p>Nunc nisi arcu, bibendum vel commodo quis, finibus vitae lacus. Vestibulum vel tincidunt nisi. Suspendisse tincidunt, risus sed sagittis vestibulum, diam urna pulvinar lectus, non fermentum lorem dolor non ante. Curabitur laoreet enim quis porta pharetra. Proin interdum nulla in leo euismod, id vestibulum orci volutpat. Vivamus imperdiet sapien id convallis venenatis. Nam rhoncus, elit quis suscipit cursus, risus purus volutpat odio, quis venenatis lectus erat a nunc. Nunc ac aliquam nisi. Nullam sit amet lacus eu lacus efficitur auctor. Praesent vel est ac magna ultrices consequat.</p>
-                  <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie.</p>   
-                </div>    
-              </div> 
+                  <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie.</p>
+                </div>
+              </div>
             </div>
             <div class="image-visual with-caption">
               <div class="row justify-content-md-center">
@@ -49,7 +49,7 @@
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
           <div class="image-visual">
             <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/bg-jumbo-article.png">
           </div>
@@ -57,7 +57,7 @@
             <div class="text-block">
               <div class="row justify-content-md-center">
                 <div class="col col-md-8">
-                  <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie, sem nibh dapibus magna, quis scelerisque justo orci a magna. Donec vulputate sodales mauris, nec efficitur eros. Etiam sodales, ex semper convallis fermentum, felis arcu feugiat odio, vitae facilisis lectus lacus eget massa.</p>    
+                  <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie, sem nibh dapibus magna, quis scelerisque justo orci a magna. Donec vulputate sodales mauris, nec efficitur eros. Etiam sodales, ex semper convallis fermentum, felis arcu feugiat odio, vitae facilisis lectus lacus eget massa.</p>
                   <p>Nunc nisi arcu, bibendum vel commodo quis, finibus vitae lacus. Vestibulum vel tincidunt nisi. Suspendisse tincidunt, risus sed sagittis vestibulum, diam urna pulvinar lectus, non fermentum lorem dolor non ante. Curabitur laoreet enim quis porta pharetra. Proin interdum nulla in leo euismod, id vestibulum orci volutpat. Vivamus imperdiet sapien id convallis venenatis. Nam rhoncus, elit quis suscipit cursus, risus purus volutpat odio, quis venenatis lectus erat a nunc. Nunc ac aliquam nisi. Nullam sit amet lacus eu lacus efficitur auctor. Praesent vel est ac magna ultrices consequat.</p>
                 </div>
               </div>
@@ -83,7 +83,7 @@
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </button>
             </div>
-          </div>        
+          </div>
         </article>
       </div>
 

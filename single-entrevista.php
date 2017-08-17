@@ -1,5 +1,5 @@
-<?php get_header(); ?>
-    
+<?php get_header();  ?>
+
     <div class="footer-over">
       <div class="site-content">
         <article class="feature-interview">
@@ -38,7 +38,7 @@
                   <p>Suspendisse mi ex, tincidunt et tincidunt sit amet, mattis ornare nunc. Quisque sollicitudin tincidunt metus. Nam lacinia felis turpis, eget auctor risus lobortis nec. Ut ante lorem, aliquam et mattis vel, feugiat ac est. Nunc commodo tellus ut lorem vehicula dignissim. Etiam eros dui, viverra nec elit id, pellentesque pretium justo. Cras id tempus nisl.</p>
                   <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie.</p>
                   <p><strong>· Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. ¿Mauris convallis dictum turpis quis lobortis?</strong></p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>                
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>
                 </div>
               </div>
-            </div> 
+            </div>
             <div class="text-block text-image-right">
               <div class="row align-items-center">
                 <div class="col-sm">
@@ -63,7 +63,7 @@
                   <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/text-image-right.jpg" alt="">
                 </div>
               </div>
-            </div> 
+            </div>
             <div class="text-block text-image-left">
               <div class="row align-items-center">
                 <div class="col-sm">
@@ -74,7 +74,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. <strong>Donec orci mauris</strong>, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu. elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. <strong>Donec orci mauris</strong>, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu.</p>
                 </div>
               </div>
-            </div>  
+            </div>
             <div class="text-block text-image-right">
               <div class="row align-items-center">
                 <div class="col-sm">
@@ -85,7 +85,7 @@
                   <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/text-image-right.jpg" alt="">
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
           <div class="image-visual">
             <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/image-credit.jpg" alt="">
@@ -170,10 +170,10 @@
                 </div>
 	      </div>
       </div>
-      
+
       <div id="recommended" class="jumbotron mb-0 text-center">
         <p>contenidos recomendados</p>
       </div>
     </div>
-    
+
 <?php get_footer(); ?>
