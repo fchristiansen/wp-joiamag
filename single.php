@@ -4,4 +4,7 @@ if (in_category('2')) {
 }else{
   include (TEMPLATEPATH . '/single-sin-barra.php');
 }
+
 ?>
+
+

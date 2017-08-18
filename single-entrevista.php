@@ -2,24 +2,34 @@
 
     <div class="footer-over">
       <div class="site-content">
+
+
         <article class="feature-interview">
+          <?php
+              if (have_posts()) :
+                while (have_posts()) :
+                  the_post(); ?>
           <header class="feature-header">
-            <section class="jumbotron jumbotron-100vh mb-0" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/img/entrevista.jpg);">
+            <section class="jumbotron jumbotron-100vh mb-0" style="background-image: url(<?php the_post_thumbnail_url();?>);">
               <div class="container">
                 <div class="row align-items-center">
                   <div class="col-md-8">
-                    <h1>
-                      “Lorem ipsum dolor sit amet consectetur elit”<br>
-                      Entrevista a Utah &amp; Ether.
-                    </h1>
+                     <?php the_title( '<h1>', '</h1>' ); ?>
+
                   </div>
                 </div>
               </div>
             </section>
             <div class="article-meta">
-              <div>Entrevista: Adriana Conde</div>
-              <div>Foto / Video: Fernando Liberona</div>
-              <div class="mb-3">en <a href="javascript:void(0);">entrevistas</a> por <a href="javascript:void(0);">JOIA STAFF</a> hace 5 dias</div>
+              <div>Entrevista: <?php echo get('datos_generales_entrevistador'); ?></div>
+              <div>Foto / Video: <?php echo get('datos_generales_foto_video'); ?></div>
+              <div class="mb-3">en
+              <a href="javascript:void(0);"><?php
+                            foreach((get_the_category()) as $category){
+                                  echo $category->name;
+
+                              }
+                            ?></a> por <a href="javascript:void(0);"><?php the_author( ); ?></a> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?></div>
               <div class="share-module share-horizontal">
                 <button type="button" class="sh-btn sh-btn-tw">
                   <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -30,127 +40,122 @@
               </div>
             </div>
           </header>
+
+
+              <?php
+                $i = 1;
+                $e = 0;
+                $bloques = get_order_group('bloque_edicion_tipo'); // guarda el bloque en un array
+                foreach($bloques as $bloque){ // recorre cada bloque de edición
+                  $i = $i +1;
+                  $e = $e +1;
+                    if (get('bloque_edicion_tipo', $bloque)) { // sólo sigue si ha seleccionado un tipo de bloque
+
+                    if(get('bloque_edicion_tipo', $bloque)=="Foto derecha") { ?>
+                        <div class="container">
+                            <div class="text-block text-image-right">
+                            <div class="row align-items-center">
+                              <div class="col-sm">
+                                  <?php echo get('bloque_edicion_texto', $bloque); ?>
+                              </div>
+                              <div class="col-sm">
+                                <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque);?>" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    <? } elseif(get('bloque_edicion_tipo', $bloque)=="Foto izquierda") { ?>
+                        <div class="container">
+                          <div class="text-block text-image-left">
+                            <div class="row align-items-center">
+                              <div class="col-sm">
+                                <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="">
+                              </div>
+                              <div class="col-sm">
+                                  <?php echo get('bloque_edicion_texto', $bloque); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                    <? }elseif(get('bloque_edicion_tipo', $bloque)=="Foto centrada") { ?>
+
+                      <div class="container">
+                        <div class="image-visual with-caption">
+                          <div class="container">
+                            <div class="row justify-content-md-center">
+                              <div class="col col-md-8">
+                                <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="">
+                                <div class="caption">Foto por <a href="javascript:void(0);"> xxxxxx </a></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <? }elseif(get('bloque_edicion_tipo', $bloque)=="Solo texto") { ?>
+
+
+                      <div class="container">
+                        <div class="text-block text-block-center">
+                          <div class="row justify-content-md-center">
+                            <div class="col col-md-8">
+                              <?php echo get('bloque_edicion_texto', $bloque);  ?>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                   <? }elseif(get('bloque_edicion_tipo', $bloque)=="Foto full-width"){ ?>
+                      <div class="image-visual">
+                        <img class="img-fluid" src="<?php echo get('bloque_edicion_imagen', $bloque);?>" alt="">
+                      </div>
+
+                    <? } elseif(get('bloque_edicion_tipo', $bloque)=="Slider") { ?>
+
+                          <div class="container">
+                            <div id="carousel-01" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                  <?
+                                    $fotos = get_order_field('bloque_edicion_imagen', $bloque); // guarda las fotos en un array
+                                    foreach ($fotos as $foto) { ?>
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid" src="<?php echo get('bloque_edicion_imagen',$e,$foto); ?>" alt="">
+                                    </div>
+                                      <? } ?>
+                                </div>
+
+                                <a class="carousel-control-prev" href="#carousel-01" role="button" data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel-01" role="button" data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </div>
+                        </div>
+
+
+                    <? } elseif(get('bloque_edicion_tipo', $bloque)=="Cita grande") { ?>
+
+                      <div class="container">
+                        <div class="lead">
+                          <?php echo get('bloque_edicion_texto', $bloque); ?>
+                        </div>
+                      </div>
+
+                   <? } ?>
+                 <? } ?>
+                <? } ?>
+
+             <?php
+              endwhile;
+              endif;
+              ?>
+
           <div class="container">
-            <div class="text-block text-block-center">
-              <div class="row justify-content-md-center">
-                <div class="col col-md-8">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse pote nti. <strong>Donec orci mauris</strong>, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu.</p>
-                  <p>Suspendisse mi ex, tincidunt et tincidunt sit amet, mattis ornare nunc. Quisque sollicitudin tincidunt metus. Nam lacinia felis turpis, eget auctor risus lobortis nec. Ut ante lorem, aliquam et mattis vel, feugiat ac est. Nunc commodo tellus ut lorem vehicula dignissim. Etiam eros dui, viverra nec elit id, pellentesque pretium justo. Cras id tempus nisl.</p>
-                  <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie.</p>
-                  <p><strong>· Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. ¿Mauris convallis dictum turpis quis lobortis?</strong></p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>
-                </div>
-              </div>
-            </div>
-            <div class="text-block text-image-left">
-              <div class="row align-items-center">
-                <div class="col-sm">
-                  <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/text-image-left.jpg" alt="">
-                </div>
-                <div class="col-sm">
-                  <p><strong>· ¿Mauris convallis dictum turpis quis lobortis?</strong></p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>
-                </div>
-              </div>
-            </div>
-            <div class="text-block text-image-right">
-              <div class="row align-items-center">
-                <div class="col-sm">
-                  <p><strong>· Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus?</strong></p>
-                  <p>Suspendisse mi ex, tincidunt et tincidunt sit amet, mattis ornare nunc. Quisque sollicitudin tincidunt metus. Nam lacinia felis turpis, eget auctor risus lobortis nec. Ut ante lorem, aliquam et mattis vel, feugiat ac est. Nunc commodo tellus ut lorem vehicula dignissim. Etiam eros dui, viverra nec elit id, pellentesque pretium justo. Cras id tempus nisl.</p>
-                </div>
-                <div class="col-sm">
-                  <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/text-image-right.jpg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="text-block text-image-left">
-              <div class="row align-items-center">
-                <div class="col-sm">
-                  <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/text-image-left-2.jpg" alt="">
-                </div>
-                <div class="col-sm">
-                  <p><strong>Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu?</strong></p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. <strong>Donec orci mauris</strong>, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu. elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. <strong>Donec orci mauris</strong>, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu.</p>
-                </div>
-              </div>
-            </div>
-            <div class="text-block text-image-right">
-              <div class="row align-items-center">
-                <div class="col-sm">
-                  <p><strong>· Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. ¿Mauris convallis dictum turpis quis lobortis?</strong></p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. <strong>Donec orci mauris</strong>, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>
-                </div>
-                <div class="col-sm">
-                  <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/text-image-right.jpg" alt="">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="image-visual">
-            <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/image-credit.jpg" alt="">
-          </div>
-          <div class="container">
-            <div class="text-block text-block-center">
-              <div class="row justify-content-md-center">
-                <div class="col col-md-8">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse pote nti. <strong>Donec orci mauris</strong>, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu.</p>
-                  <p>Suspendisse mi ex, tincidunt et tincidunt sit amet, mattis ornare nunc. Quisque sollicitudin tincidunt metus. Nam lacinia felis turpis, eget auctor risus lobortis nec. Ut ante lorem, aliquam et mattis vel, feugiat ac est. Nunc commodo tellus ut lorem vehicula dignissim. Etiam eros dui, viverra nec elit id, pellentesque pretium justo. Cras id tempus nisl.</p>
-                  <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie.</p>
-                  <p><strong>· Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. ¿Mauris convallis dictum turpis quis lobortis?</strong></p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="image-visual with-caption">
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col col-md-8">
-                  <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/text-image-center.jpg" alt="">
-                  <div class="caption">Foto por <a href="javascript:void(0);">Xxxxx Xxxxxxx</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container">
-            <p class="lead">
-              “Nam rhoncus, elit quis suscipit cursus, risus purus volutpat odio, quis venenatis lectus erat a nunc.”
-            </p>
-          </div>
-            <div class="container">
-          <div id="carousel-01" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                  <img class="d-block img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/entrevista-carousel.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/entrevista-carousel.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/entrevista-carousel.jpg" alt="Third slide">
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carousel-01" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carousel-01" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
-          <div class="container">
-            <div class="text-block">
-              <div class="row justify-content-md-center">
-                <div class="col col-md-8">
-                  <p><strong>· Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. ¿Mauris convallis dictum turpis quis lobortis?</strong></p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. </p>
-                </div>
-              </div>
-            </div>
             <div class="share-module share-horizontal mt-3 mb-3">
               <button type="button" class="sh-btn sh-btn-tw">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -161,12 +166,13 @@
             </div>
           </div>
         </article>
+
       </div>
 
       <div id="disqus" class="mt-5 mb-0 text-center">
 	      <div class="row justify-content-md-center">
                 <div class="col col-md-8">
-					<?php comments_template(); ?>
+					         <?php comments_template(); ?>
                 </div>
 	      </div>
       </div>
@@ -175,5 +181,7 @@
         <p>contenidos recomendados</p>
       </div>
     </div>
+
+
 
 <?php get_footer(); ?>
