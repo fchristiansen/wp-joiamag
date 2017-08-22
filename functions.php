@@ -7,6 +7,7 @@ function iniciarTema(){
     // ACTIVA IMAGENES DESTACADAS
     add_theme_support( 'post-thumbnails' );
     add_image_size('preview_programacion', 400, 289, true);
+    add_image_size('imagen-destacada-secundaria', 600, 400, true);
 /*     add_image_size('galeria', 200); */
 
     // Activar Titulo
@@ -56,6 +57,8 @@ function theme_js(){
 
 
 remove_action('welcome_panel', 'wp_welcome_panel');
+
+
 
 // add feed links to header
 if (function_exists('automatic_feed_links')) {
@@ -228,5 +231,16 @@ function wpb_imagelink_setup() {
 	}
 }
 add_action('admin_init', 'wpb_imagelink_setup', 10);
+
+
+//para multiple  post_thumbnails
+
+if (class_exists('MultiPostThumbnails')) {
+  new MultiPostThumbnails(array(
+    'label' => 'Secondary Image',
+    'id' => 'secondary-image',
+    'post_type' => 'post'
+   ));
+ }
 
 ?>

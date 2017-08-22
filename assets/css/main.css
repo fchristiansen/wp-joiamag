@@ -9426,20 +9426,35 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
   /* agregados por christiansen */
 
-  #carousel-home{
-    position: relative;
-    height: 100%;
+  #disqus{
+    overflow: hidden !important;
+  }
+  #disqus #disqus_thread{
+      padding: 30px !important;
   }
 
- /* #carousel-home .align-items-center{
-
-  } */
-#carousel-home .carousel-inner{
-/* height: 100%;*/
+.wpp-thumbnail{
+  margin: 0;
+  float: none;
+  max-width: 100% !important;
+  height: auto !important;
 }
-  .carousel-item{
-    /*background-position: center;
-    background-size: cover;*/
+.attachment-imagen-destacada-secundaria{
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+  ul.wpp-list  {
+  padding: 0;
+  list-style-type:none  !important;
+  }
+@media (min-width: 769px) {
+  ul.wpp-list  {
+   display: inline-flex;
 
   }
+}
+ul.wpp-list li {
+  display: inline-block  !important;
+}
 
