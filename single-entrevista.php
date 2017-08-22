@@ -2,8 +2,6 @@
 
     <div class="footer-over">
       <div class="site-content">
-
-
         <article class="feature-interview">
           <?php
               if (have_posts()) :
@@ -15,7 +13,6 @@
                 <div class="row align-items-center">
                   <div class="col-md-8">
                      <?php the_title( '<h1>', '</h1>' ); ?>
-
                   </div>
                 </div>
               </div>
@@ -119,8 +116,11 @@
                                 <div class="carousel-inner" role="listbox">
                                   <?
                                     $fotos = get_order_field('bloque_edicion_imagen', $bloque); // guarda las fotos en un array
-                                    foreach ($fotos as $foto) { ?>
-                                    <div class="carousel-item">
+                                    $f = 0;
+                                    foreach ($fotos as $foto) {
+                                      $f++;
+                                     ?>
+                                    <div class="carousel-item <? if( $f==1 ){ echo 'active';} ?>" >
                                         <img class="d-block img-fluid" src="<?php echo get('bloque_edicion_imagen',$e,$foto); ?>" alt="">
                                     </div>
                                       <? } ?>
@@ -150,10 +150,13 @@
                  <? } ?>
                 <? } ?>
 
+
              <?php
               endwhile;
               endif;
               ?>
+
+
 
           <div class="container">
             <div class="share-module share-horizontal mt-3 mb-3">

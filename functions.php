@@ -19,6 +19,8 @@ function iniciarTema(){
 // carga css
 function theme_styles() {
     wp_enqueue_style('style-joia', get_template_directory_uri() . '/assets/css/main.css', array(), '1', 'screen' );
+    wp_enqueue_style('style-tienda', get_template_directory_uri() . '/assets/css/tienda.css', array(), '1', 'screen' );
+
 
 }
 

@@ -111,7 +111,7 @@
               </button>
               <div class="form-group">
                 <input type="text" class="form-control" id="searchInput" autofocus>
-                <span id="modal-search-icon" class="sr-only">search</span>
+                <span id="modal-search-icon" class="sr-only">buscar</span>
               </div>
             </form>
           </div>

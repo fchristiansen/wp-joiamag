@@ -9422,3 +9422,24 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   z-index: 1;
   height: 100%;
   width: 100%; }
+
+
+  /* agregados por christiansen */
+
+  #carousel-home{
+    position: relative;
+    height: 100%;
+  }
+
+ /* #carousel-home .align-items-center{
+
+  } */
+#carousel-home .carousel-inner{
+/* height: 100%;*/
+}
+  .carousel-item{
+    /*background-position: center;
+    background-size: cover;*/
+
+  }
+
