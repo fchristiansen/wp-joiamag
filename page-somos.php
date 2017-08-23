@@ -51,6 +51,7 @@ Template name: Somos
                   <div class="col-sm-8 col-md-6 col-lg-5">
                     <div class="media">
                       <img class="d-flex mr-3" src="<?php the_post_thumbnail_url();?>" alt="<?php the_title(); ?>">
+
                       <div class="media-body align-self-center">
                         <?php the_title( '<h5>','</h5>' ); ?>
                         <p><?php echo get('persona_cargo'); ?></p>
