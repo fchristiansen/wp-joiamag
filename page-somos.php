@@ -6,7 +6,7 @@ Template name: Somos
 */
 ?>
 <?php get_header(); ?>
-    
+
     <div class="footer-over">
       <div class="page page-content page-somos">
         <div class="container">
@@ -20,123 +20,82 @@ Template name: Somos
           <div class="text-block text-block-center text-center">
             <div class="row justify-content-md-center">
               <div class="col col-md-8">
-                <?php the_content(); ?>                 
+                <?php the_content(); ?>
               </div>
             </div>
           </div>
           <div class="image-visual">
-            <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/somos.jpg" alt="">
+            <img class="img-fluid" src="<?php the_post_thumbnail_url();?>" alt="">
           </div>
-          <div class="joia-people">
-            <div class="row justify-content-center joia-main-people">
-              <div class="col-sm-8 col-md-6 col-lg-5">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h5>Alvaro Fierro</h5>
-                    <p>Director / Editor General</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>              
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-5">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h5 class="mt-0">Alvaro Fierro</h5>
-                    <p>Director / Editor General</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-5">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h5>Alvaro Fierro</h5>
-                    <p>Director / Editor General</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>              
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-5">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h5 class="mt-0">Alvaro Fierro</h5>
-                    <p>Director / Editor General</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-center joia-other-people">
-              <div class="col-sm-8 col-md-6 col-lg-4">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h6 class="mt-0">Alvaro Fierro</h6>
-                    <p>Comunicación &amp; Marketing</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-4">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h6 class="mt-0">Alvaro Fierro</h6>
-                    <p>Comunicación &amp; Marketing</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-4">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h6 class="mt-0">Alvaro Fierro</h6>
-                    <p>Comunicación &amp; Marketing</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-4">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h6 class="mt-0">Alvaro Fierro</h6>
-                    <p>Comunicación &amp; Marketing</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-4">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h6 class="mt-0">Alvaro Fierro</h6>
-                    <p>Comunicación &amp; Marketing</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-8 col-md-6 col-lg-4">
-                <div class="media">
-                  <img class="d-flex mr-3" src="<?php bloginfo('template_url'); ?>/assets/img/somos-thumb.jpg" alt="Somos">
-                  <div class="media-body align-self-center">
-                    <h6 class="mt-0">Alvaro Fierro</h6>
-                    <p>Comunicación &amp; Marketing</p>
-                    <p><a href="javascript:void(0);">alvaro@joiamagazine.com</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php  	
-          	endwhile;
+
+        <?php
+          endwhile;
           endif;
         ?>
+          <div class="joia-people">
+            <div class="row justify-content-center joia-main-people">
+               <?php
+                  $args = array (
+                      'post_type' => 'equipo',
+                      'tax_query' => array(
+                          array(
+                              'taxonomy' => 'categoria_equipo',
+                              'field'    => 'slug',
+                              'terms' => 'director'
+                        )
+                      )
+                    );
+                   $the_query = new WP_Query ($args);
+                ?>
+               <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                  <div class="col-sm-8 col-md-6 col-lg-5">
+                    <div class="media">
+                      <img class="d-flex mr-3" src="<?php the_post_thumbnail_url();?>" alt="<?php the_title(); ?>">
+                      <div class="media-body align-self-center">
+                        <?php the_title( '<h5>','</h5>' ); ?>
+                        <p><?php echo get('persona_cargo'); ?></p>
+                        <p><a href="mailto:<?php echo get('persona_email'); ?>"><?php echo get('persona_email'); ?></a></p>
+                      </div>
+                    </div>
+                  </div>
+                <?php endwhile; else: ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata() ?>
+            </div><!-- main people -->
+
+            <div class="row justify-content-center joia-other-people">
+
+            <?php
+               $args = array (
+                   'post_type' => 'equipo',
+                   'tax_query' => array(
+                       array(
+                           'taxonomy' => 'categoria_equipo',
+                           'field'    => 'slug',
+                           'terms' => 'colaborador'
+                     )
+                   )
+                 );
+                $the_query = new WP_Query ($args);
+             ?>
+            <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+              <div class="col-sm-8 col-md-6 col-lg-4">
+                <div class="media">
+                  <img class="d-flex mr-3" src="<?php the_post_thumbnail_url();?>" alt="<?php the_title(); ?>">
+                  <div class="media-body align-self-center">
+
+                    <?php the_title( '<h6 class="mt-0">','</h6>' ); ?>
+                    <p><?php echo get('persona_cargo'); ?></p>
+                    <p><a href="mailto:<?php echo get('persona_email'); ?>"><?php echo get('persona_email');?></a></p>
+                  </div>
+                </div>
+              </div>
+              <?php endwhile; else: ?>
+              <?php endif; ?>
+              <?php wp_reset_postdata() ?>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

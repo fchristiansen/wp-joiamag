@@ -8,6 +8,7 @@ function iniciarTema(){
     add_theme_support( 'post-thumbnails' );
     add_image_size('preview_programacion', 400, 289, true);
     add_image_size('imagen-destacada-secundaria', 600, 400, true);
+    add_image_size('store-item', 600, 400, true);
 /*     add_image_size('galeria', 200); */
 
     // Activar Titulo

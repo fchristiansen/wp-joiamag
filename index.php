@@ -3,7 +3,7 @@
     <div class="footer-over">
       <div class="home-content">
             <div id="carousel-home" class="carousel slide " data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
+              <div class="carousel-inner" role="listbox">
                 <?php
                    $args = array (
                        'post_type' => 'home'
@@ -13,38 +13,37 @@
 
                  ?>
                 <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                <?
-                $f = 0;
-                $bloques = get_order_group('slider_imagen'); // guarda el bloque en un array
-                foreach($bloques as $bloque){ // recorre cada bloque de edición
-                 // $i = $i +1;
-                  $e = $e +1;
-                      $f++;
-                      $fotos = get_order_field('slider_imagen', $bloque); // guarda las fotos en un array
-                      foreach ($fotos as $foto) {
-                       ?>
-                        <div class="carousel-item  <? if( $f==1 ){ echo 'active';} ?>">
-                          <div class="jumbotron jumbotron-100vh" style="background-image:url(<?php echo get('slider_imagen',$e ,$foto); ?>);">
-                                <div class="container">
-                                    <div class="row align-items-center">
-                                          <div class="col-md-8">
-                                            <h1><?php echo get('slider_texto',$e ,$foto); ?></h1>
-                                              <p>
-                                                <a class="btn btn-primary" href="<?php echo get('slider_link',$e ,$foto); ?>" role="button">
-                                                  <?php echo get('slider_texto_boton'); ?> <i class="fa fa-fw fa-arrow-right" aria-hidden="true"></i>
-                                                </a>
-                                            </p>
-                                          </div>
-                                    </div>
-                                </div>
+                  <?
+                  $f = 0;
+                  $bloques = get_order_group('slider_imagen'); // guarda el bloque en un array
+                  foreach($bloques as $bloque){ // recorre cada bloque de edición
+                   // $i = $i +1;
+                    $e = $e +1;
+                        $f++;
+                        $fotos = get_order_field('slider_imagen', $bloque); // guarda las fotos en un array
+                        foreach ($fotos as $foto) {
+                         ?>
+                          <div class="carousel-item  <? if( $f==1 ){ echo 'active';} ?>">
+                            <div class="jumbotron jumbotron-100vh" style="background-image:url(<?php echo get('slider_imagen',$e ,$foto); ?>);">
+                                  <div class="container">
+                                      <div class="row align-items-center">
+                                            <div class="col-md-8">
+                                              <h1><?php echo get('slider_texto',$e ,$foto); ?></h1>
+                                                <p>
+                                                  <a class="btn btn-primary" href="<?php echo get('slider_link',$e ,$foto); ?>" role="button">
+                                                    <?php echo get('slider_texto_boton'); ?> <i class="fa fa-fw fa-arrow-right" aria-hidden="true"></i>
+                                                  </a>
+                                              </p>
+                                            </div>
+                                      </div>
+                                  </div>
+                            </div>
                           </div>
-                        </div>
-                        <? } ?>
-
-                  <? } ?>
-                  <?php endwhile; else: ?>
-                  <?php endif; ?>
-                  <?php wp_reset_postdata()?>
+                          <? } ?>
+                    <? } ?>
+                    <?php endwhile; else: ?>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata()?>
 
                 </div>
                 <a class="carousel-control-prev" href="#carousel-home" role="button" data-slide="prev">
@@ -149,9 +148,9 @@
                   </div>
                 </div>
               </div>
-          <?php endwhile; else: ?>
-          <?php endif; ?>
-          <?php wp_reset_postdata() ?>
+            <?php endwhile; else: ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata() ?>
 
             </div><!-- grilla news -->
 
@@ -271,51 +270,36 @@
 
         <section class="section bg-gray-lightest section-store">
           <div class="container">
-            <h2 class="text-uppercase">
-              Tienda
-            </h2>
-            <p class=" mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae neque id libero lacinia mattis
-            sit amet vel tortor. Donec tristique aliquet aliquam.</p>
-            <div class="owl-carousel store-carousel mb-5">
-              <div>
-                <a href="javascript:void(0);">
-                  <img src="<?php bloginfo('template_url'); ?>/assets/img/store-item.jpg" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="javascript:void(0);">
-                  <img src="<?php bloginfo('template_url'); ?>/assets/img/store-item.jpg" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="javascript:void(0);">
-                  <img src="<?php bloginfo('template_url'); ?>/assets/img/store-item.jpg" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="javascript:void(0);">
-                  <img src="<?php bloginfo('template_url'); ?>/assets/img/store-item.jpg" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="javascript:void(0);">
-                  <img src="<?php bloginfo('template_url'); ?>/assets/img/store-item.jpg" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="javascript:void(0);">
-                  <img src="<?php bloginfo('template_url'); ?>/assets/img/store-item.jpg" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="javascript:void(0);">
-                  <img src="<?php bloginfo('template_url'); ?>/assets/img/store-item.jpg" alt="">
-                </a>
-              </div>
+                      <h2 class="text-uppercase"> Tienda </h2>
+          <!--   <?php the_title( '<h2 class="text-uppercase">', '</h2>'); ?> -->
+            <div class="mb-5">
+            <!--   <?php the_content(); ?> -->
+                Lorem ipsum dolor sit amet.
             </div>
-            <button type="button" class="btn btn-white">
+
+              <div class="owl-carousel store-carousel mb-5">
+                      <?php
+                             $args = array (
+                                 'post_type' => 'producto',
+                                 'posts_per_page' => 1
+
+                               );
+                               $the_query = new WP_Query ($args);
+                           ?>
+                          <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+                            <a href="<?php the_permalink(); ?>">
+                              <img src=" <?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" title="<?php the_title(); ?>">
+                            </a>
+                      <?php endwhile; else: ?>
+                      <?php endif; ?>
+                      <?php wp_reset_postdata()  ?>
+              </div>
+
+            <a href="http://joiamagazine.com/tienda/" type="button" class="btn btn-white">
               Ir a la tienda
-            </button>
+            </a>
+
           </div>
         </section>
 
@@ -354,7 +338,7 @@
                               </div>
                               <div class="card-title">
                                 <a href="{url}">
-                                  <h1 class="h6">{title}  </h1>
+                                  <h1 class="h6">{title}</h1>
 
                                 </a>
                               </div>
@@ -404,8 +388,7 @@
                                   </div>
                                   <div class="card-title">
                                     <a href="{url}">
-                                      <h1 class="h6">{title}  </h1>
-
+                                      <h1 class="h6">{title}</h1>
                                     </a>
                                   </div>
                                 </div>
