@@ -20,6 +20,8 @@ function iniciarTema(){
 
 // carga css
 function theme_styles() {
+    wp_enqueue_style('owl', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array(), '1', 'screen' );
+    wp_enqueue_style('owl-theme', get_template_directory_uri() . '/assets/css/owl.theme.default.min.css', array(), '1', 'screen' );
     wp_enqueue_style('style-joia', get_template_directory_uri() . '/assets/css/main.css', array(), '1', 'screen' );
     wp_enqueue_style('style-tienda', get_template_directory_uri() . '/assets/css/tienda.css', array(), '1', 'screen' );
 
@@ -46,7 +48,7 @@ function theme_js(){
     wp_enqueue_script('tether-js', 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', array('jquery'),'', true);
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'),'', true);
     wp_enqueue_script('workaround-js', get_template_directory_uri() . '/assets/js/ie10-viewport-bug-workaround.js', array('jquery'),'', true);
-    wp_enqueue_script('owl', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'),'1.2.2', true);
+    wp_enqueue_script('owl-js', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'),'2.2.1', true);
     wp_enqueue_script('jquery_easing', get_template_directory_uri() . '/assets/js/jquery.easing.min.js', array('jquery'),'1.2.2', true);
     wp_enqueue_script('scrolling-nav', get_template_directory_uri() . '/assets/js/scrolling-nav.jss', array('jquery'),'1', true);
     wp_enqueue_script('joiajs', get_template_directory_uri() . '/assets/js/script.js', array('jquery'),'1', true);
