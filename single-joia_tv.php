@@ -1,8 +1,20 @@
 <?php get_header(); ?>
-    
+
     <div class="footer-over">
       <div class="site-content-tv">
         <div class="container">
+
+        <?php
+           $args = array (
+               'post_type' => 'joia_tv',
+               'posts_per_page' => 1
+
+             );
+            $the_query = new WP_Query ($args);
+         ?>
+        <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+
           <section class="display-big-tv mb-5">
             <a class="carousel-control-prev" href="javascript:void(0);" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,19 +57,15 @@
                 <div class="row justify-content-md-center">
                   <div class="col col-md-8">
                     <div class="header">
-                      <h1>Lorem ipsum dolor sit amet consectetur elit consectetur elit</h1>
-                      <h2>Dirigido por fernando liberona</h2>
+                      <h1><?php the_title(); ?></h1>
+                      <h2>Dirigido por <?php echo get('video_director'); ?></h2>
                       <div class="article-meta">
-                        En <a href="javascript:void(0);">Musica</a> por <a href="javascript:void(0);">JOIA STAFF</a> hace 5 dias
+                        En <a href="">Musica</a> por <a href="javascript:void(0);">JOIA STAFF</a> hace 5 dias
                       </div>
                     </div>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nulla lorem, varius et est at, sagittis interdum ipsum. Cras vitae felis porttitor, vulputate quam vel, porttitor nulla. Aliquam sed hendrerit eros. Duis lacinia augue ac egestas condimentum. Suspendisse potenti. Donec orci mauris, euismod vel fringilla sed, feugiat ac felis. Sed consectetur, est eu vulputate sollicitudin, ligula augue finibus urna, non ultrices lorem felis et augue. Curabitur vitae varius arcu. Vivamus lobortis tristique nunc, facilisis suscipit lectus varius eu.</p>
-                    <p class="lead">“Tincidunt et tincidunt sit amet”.</p>
-                    <p>Nunc nisi arcu, bibendum vel commodo quis, finibus vitae lacus. Vestibulum vel tincidunt nisi. Suspendisse tincidunt, risus sed sagittis vestibulum, diam urna pulvinar lectus, non fermentum lorem dolor non ante. Curabitur laoreet enim quis porta pharetra. Proin interdum nulla in leo euismod, id vestibulum orci volutpat. Vivamus imperdiet sapien id convallis venenatis. Nam rhoncus, elit quis suscipit cursus, risus purus volutpat odio, quis venenatis lectus erat a nunc. Nunc ac aliquam nisi. Nullam sit amet lacus eu lacus efficitur auctor. Praesent vel est ac magna ultrices consequat.</p>
-                    <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae commodo augue. Integer fringilla, turpis vitae mollis molestie.</p>  
-                  </div>    
-                </div> 
+                        <?php the_content(); ?>
+                  </div>
+                </div>
               </div>
               <div class="share-module share-horizontal">
                 <button type="button" class="sh-btn sh-btn-tw">
@@ -69,12 +77,15 @@
               </div>
             </div>
           </article>
+          <?php endwhile; else: ?>
+          <?php endif; ?>
+          <?php wp_reset_postdata() ?>
         </div>
       </div>
 
       <div id="disqus" class="jumbotron mt-5 mb-0 text-center">
-        <p>DISQUS - comentarios</p>
+        <?php comments_template(); ?>
       </div>
     </div>
 
-<?php get_footer(); ?>  
+<?php get_footer(); ?>

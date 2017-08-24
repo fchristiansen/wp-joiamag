@@ -26,7 +26,7 @@
               </div>
               <div class="card-body">
                 <h1 class="card-title">
-                  <a href="javascript:void(0);">
+                  <a href="<?php the_permalink();?>">
                     <?php the_title(); ?>
                   </a>
                 </h1>

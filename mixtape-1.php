@@ -6,7 +6,7 @@ Template name: Mixtape
 */
 ?>
 <?php get_header(); ?>
-    
+
     <div class="footer-over">
       <section class="mixtape-hero" style="background-image: url(assets/img/hero-mixtapes.jpg);">
         <a class="mixtape-control-prev" href="#mixtapesControls" role="button" data-slide="prev">
@@ -116,7 +116,7 @@ Template name: Mixtape
                     <div class="media">
                       <a href="javascript:void(0);">
                         <img class="d-flex mr-3 img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape-thumb.jpg" alt="Generic placeholder image">
-                      </a>  
+                      </a>
                       <div class="media-body">
                         <a class="media-meta" href="javascript:void(0);">
                           Música
@@ -133,7 +133,7 @@ Template name: Mixtape
                     <div class="media">
                       <a href="javascript:void(0);">
                         <img class="d-flex mr-3 img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape-thumb.jpg" alt="Generic placeholder image">
-                      </a>  
+                      </a>
                       <div class="media-body">
                         <a class="media-meta" href="javascript:void(0);">
                           Eventos
@@ -150,8 +150,8 @@ Template name: Mixtape
                     <div class="media">
                       <a href="javascript:void(0);">
                         <img class="d-flex mr-3 img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape-thumb.jpg" alt="Generic placeholder image">
-                      </a>  
-                      
+                      </a>
+
                       <div class="media-body">
                         <a class="media-meta" href="javascript:void(0);">
                           Música
@@ -172,8 +172,8 @@ Template name: Mixtape
       </div>
 
       <div id="disqus" class="jumbotron mt-0 mb-0 text-center">
-        <p>DISQUS - comentarios</p>
+        <?php comments_template(); ?>
       </div>
     </div>
 
-<?php get_header(); ?>
+<?php get_footer(); ?>
