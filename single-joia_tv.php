@@ -4,50 +4,52 @@
       <div class="site-content-tv">
         <div class="container">
 
-        <?php
-           $args = array (
-               'post_type' => 'joia_tv',
-               'posts_per_page' => 1
-
-             );
-            $the_query = new WP_Query ($args);
-         ?>
-        <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-
+          <?php
+          if (have_posts()) :
+            while (have_posts()) :
+              the_post(); ?>
           <section class="display-big-tv mb-5">
-            <a class="carousel-control-prev" href="javascript:void(0);" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="javascript:void(0);" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+            <?php
+              $prev = get_permalink(get_adjacent_post(false,'',false));
+              $next = get_permalink(get_adjacent_post(false,'',true));  ?>
+
+                    <a class="carousel-control-prev" href="<?php echo $prev; ?>" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a class="carousel-control-next" href="<?php echo $next; ?>"  role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+
             <div class="box-video">
-              <div class="bg-video" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/img/big-tv.jpg);">
+              <div class="bg-video" style="background-image: url(<?php echo get ('video_captura_grande') ?>);">
                 <div class="btn btn-primary btn-lg bt-play">Ver</div>
               </div>
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<?php echo get('video_id_video'); ?>?rel=0" allowfullscreen></iframe>
               </div>
             </div>
           </section>
 
           <section class="display-tv-thumbs">
             <div class="row no-gutters">
-              <div class="col">
-                <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/thumb-joia-tv.jpg">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/thumb-joia-tv.jpg">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/thumb-joia-tv.jpg">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/thumb-joia-tv.jpg">
-              </div>
+                  <?
+                  $e=0;
+                  $f = 0;
+                  $bloques = get_order_group('video_miniatura'); // guarda el bloque en un array
+                  foreach($bloques as $bloque){ // recorre cada bloque de edición
+                        $e = $e +1;
+                        $f++;
+                        $fotos = get_order_field('video_miniatura', $bloque); // guarda las fotos en un array
+                        foreach ($fotos as $foto) {
+                      ?>
+                          <div class="col">
+                            <img class="img-fluid" src="<?php echo get('video_miniatura',$e ,$foto); ?>">
+                          </div>
+                       <? } ?>
+                  <? } ?>
             </div>
           </section>
 
@@ -60,7 +62,11 @@
                       <h1><?php the_title(); ?></h1>
                       <h2>Dirigido por <?php echo get('video_director'); ?></h2>
                       <div class="article-meta">
-                        En <a href="">Musica</a> por <a href="javascript:void(0);">JOIA STAFF</a> hace 5 dias
+                        En <a href=""><?php
+                            foreach((get_the_category()) as $category){
+                                  echo $category->name;
+                              }
+                            ?></a> por <a href="javascript:void(0);"><?php the_author(); ?></a> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                       </div>
                     </div>
                         <?php the_content(); ?>
@@ -77,9 +83,10 @@
               </div>
             </div>
           </article>
-          <?php endwhile; else: ?>
-          <?php endif; ?>
-          <?php wp_reset_postdata() ?>
+            <?php
+            endwhile;
+          endif;
+        ?>
         </div>
       </div>
 

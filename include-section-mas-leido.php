@@ -1,6 +1,6 @@
-<section class="section more-recent-reviews">
+    <section class="section more-recent-reviews">
           <div class="container">
-         <p class="text-uppercase">Lo más leído / Esta semana</h1>
+         <p class="text-uppercase">Lo más leído / Esta semana</p>
 
             <div class="row mb-5">
             <?php
@@ -15,7 +15,7 @@
                 'thumbnail_height' => 400,
                 'stats_category' => 1,
                 'post_html' =>'
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                     <li>
                       <article class="card card-section-features">
                         <div class="card-inner">
@@ -50,9 +50,9 @@
             ?>
           </div>
 
-            <p class="text-uppercase">Lo más leído / Este mes</h1>
+            <p class="text-uppercase">Lo más leído / Este mes</p>
 
-            <div class="row">
+            <div class="row mb-5">
                 <?php
                 $args = array(
 
@@ -65,7 +65,7 @@
                     'thumbnail_height' => 400,
                     'stats_category' => 1,
                     'post_html' =>'
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-3">
                         <li>
                           <article class="card card-section-features">
                             <div class="card-inner">
@@ -98,4 +98,4 @@
 
             </div>
           </div>
-        </section>
+    </section>

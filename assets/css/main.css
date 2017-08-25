@@ -9424,7 +9424,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 100%; }
 
 
-  /* agregados por christiansen */
+  /* agregados por Christiansen */
 
   #disqus{
     overflow: hidden !important;
@@ -9451,11 +9451,15 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 @media (min-width: 769px) {
   ul.wpp-list  {
    display: inline-flex;
+   width: 100%;
 
   }
 }
 ul.wpp-list li {
   display: inline-block  !important;
+}
+ul.list-unstyled li{
+  text-transform: capitalize;
 }
 
 .single-page-tv .single-page-content .text-block h3 {
@@ -9466,4 +9470,10 @@ ul.wpp-list li {
   margin: 48px 0;
 }
 
+.more-recent-reviews{
+  padding: 3rem 0 0 0;
+}
+.page.page-ediciones .list-people li.list-inline-item{
+  text-transform: uppercase;
+}
 
