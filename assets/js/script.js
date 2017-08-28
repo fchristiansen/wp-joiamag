@@ -25,6 +25,23 @@ $(document).ready(function(){
         }
     }
 });
+
+    // carousel mixtapes
+  $('.mix-carousel').owlCarousel({
+          center: true,
+          items:2,
+          loop:false,
+          margin:10,
+          nav:false,
+          responsive:{
+              600:{
+                  items:4
+              }
+          }
+      });
+
+
+
 // Expanding Search Bar
 var submitIcon = $('.searchbox-icon');
 var inputBox = $('.searchbox-input');

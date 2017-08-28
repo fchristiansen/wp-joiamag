@@ -1,5 +1,12 @@
+<?
+/*
+
+Template name: Mixtapes
+
+*/
+?>
 <?php get_header(); ?>
-  <body class="mixtapes-2" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
     <div class="container">
       <div class="heading row row align-items-center">
         <div class="col">

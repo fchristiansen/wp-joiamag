@@ -9425,7 +9425,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 
   /* agregados por Christiansen */
-
+.hidden{
+  display: none !important;
+}
   #disqus{
     overflow: hidden !important;
   }

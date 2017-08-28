@@ -1,10 +1,3 @@
-<?
-/*
-
-Template name: Mixtape
-
-*/
-?>
 <?php get_header(); ?>
 
     <div class="footer-over">

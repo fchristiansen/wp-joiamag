@@ -1,4 +1,4 @@
-    <footer class="site-footer">
+    <footer class="site-footer <?php if(is_page('mixtapes')){ ?> hidden<?php } ?>">
       <section class="about">
         <div class="container">
           <div class="row">
