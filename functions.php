@@ -239,11 +239,15 @@ add_action('admin_init', 'wpb_imagelink_setup', 10);
 //para multiple  post_thumbnails
 
 if (class_exists('MultiPostThumbnails')) {
-  new MultiPostThumbnails(array(
-    'label' => 'Secondary Image',
-    'id' => 'secondary-image',
-    'post_type' => 'post'
-   ));
- }
+            $types = array('post', 'mixtape');
+            foreach($types as $type) {
+                new MultiPostThumbnails(array(
+                    'label' => 'Secondary Image',
+                    'id' => 'secondary-image',
+                    'post_type' => $type
+                    )
+                );
+            }
+        }
 
 ?>

@@ -149,15 +149,10 @@
                    <? } ?>
                  <? } ?>
                 <? } ?>
-
-
              <?php
               endwhile;
               endif;
               ?>
-
-
-
           <div class="container">
             <div class="share-module share-horizontal mt-3 mb-3">
               <button type="button" class="sh-btn sh-btn-tw">

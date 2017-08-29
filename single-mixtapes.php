@@ -1,7 +1,13 @@
 <?php get_header(); ?>
 
     <div class="footer-over">
-      <section class="mixtape-hero" style="background-image: url(assets/img/hero-mixtapes.jpg);">
+
+      <?php
+          if (have_posts()) :
+            while (have_posts()) :
+              the_post(); ?>
+
+      <section class="mixtape-hero" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
         <a class="mixtape-control-prev" href="#mixtapesControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -15,15 +21,17 @@
           <span class="sr-only">Mixtapes</span>
         </a>
         <div class="artist-hero">
-          <h1 class="artist-name">Valesuchi</h1>
+          <h1 class="artist-name"><?php the_title(); ?></h1>
           <div class="clearfix"></div>
-          <h2 class="artist-mixtape">JOIA MIXTAPE #004</h2>
+          <h2 class="artist-mixtape"><?php echo get('subtitle'); ?></h2>
         </div>
       </section>
 
       <div id="site-content" class="site-content">
         <section class="bg-gray-lightest mixcloud">
-          <div class="pb-5 pt-5 text-center">Player mixcloud</div>
+          <div class="pb-5 pt-5 text-center">
+                  <?php echo get('mixtape_player_mixcloud'); ?>
+          </div>
         </section>
 
         <section class="mixtape-post">
@@ -33,46 +41,46 @@
                 <div class="row">
                   <div class="col">
                     <div class="article-meta">
-                      Por <a href="javascript:void(0);">JOIA STAFF</a> hace 5 dias
+                      Por <a href="javascript:void(0);"><?php the_author(); ?></a> <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                     </div>
                   </div>
                   <div class="col">
                     <ul class="fa-ul artist-networks">
-                      <li>
-                        <a href="javascript:void(0);">
-                          <i class="fa fa-li fa-circle" aria-hidden="true"></i> Valesuchi.com
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0);">
-                          <i class="fa fa-li fa-circle" aria-hidden="true"></i> @Valesuchi
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0);">
-                          <i class="fa fa-li fa-circle" aria-hidden="true"></i> @Valesuchi
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0);">
-                          <i class="fa fa-li fa-circle" aria-hidden="true"></i> @Valesuchi
-                        </a>
-                      </li>
+                              <?
+                                 $e=0;
+                                 $f = 0;
+                                 $bloques = get_order_group('video_miniatura');
+                                 foreach($bloques as $bloque){
+                                       $e = $e +1;
+                                       $f++;
+                                       $fotos = get_order_field('video_miniatura', $bloque);
+                                       foreach ($fotos as $foto) {
+                                     ?>
+                                  <li>
+                                    <a href="javascript:void(0);">
+                                      <i class="fa fa-li fa-circle" aria-hidden="true"></i> <?php echo get(''); ?>
+                                    </a>
+                                  </li>
+                          <? } ?>
+                        <? } ?>
                     </ul>
                   </div>
                 </div>
                 <div class="mixtape-post-title">
-                  <h3 class="artist-name">Valesuchi</h3>
+                  <h3 class="artist-name"><?php the_title(); ?></h3>
                 </div>
                 <div class="mixtape-post-content">
-                  <p>Vivamus porttitor ipsum at augue porttitor, ac volutpat erat pulvinar. Suspendisse porta aliquet risus, nec viverra lorem iaculis ac. Mauris convallis dictum turpis quis lobortis. Quisque vitae <strong>commodo augue</strong>. Integer fringilla, turpis vitae mollis molestie, sem nibh dapibus magna, quis scelerisque justo orci a magna. Donec vulputate sodales mauris, nec efficitur eros. Etiam sodales, ex semper convallis fermentum, felis arcu feugiat odio, vitae facilisis lectus lacus eget massa.</p>
-                  <p>Nunc nisi arcu, bibendum vel commodo quis, finibus vitae lacus. Vestibulum vel tincidunt nisi. Suspendisse tincidunt, risus sed sagittis vestibulum, diam urna pulvinar lectus, non fermentum lorem dolor non ante. Curabitur laoreet enim quis porta pharetra. Proin interdum nulla in leo euismod, id vestibulum orci volutpat. Vivamus imperdiet sapien id convallis venenatis. Nam rhoncus, elit quis suscipit cursus, risus purus volutpat odio, quis venenatis lectus erat a nunc. Nunc ac aliquam nisi. Nullam sit amet lacus eu lacus efficitur auctor. Praesent vel est ac magna ultrices consequat.</p>
-                  <p>Porta pharetra. Proin interdum nulla in leo euismod, id vestibulum orci volutpat. Vivamus imperdiet sapien id convallis venenatis. Nam rhoncus, elit quis suscipit cursus, risus purus volutpat.</p>
+                  <?php the_content(); ?>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="main-image">
-                  <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape.jpg">
+                   <!-- <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape.jpg"> -->
+                    <?php
+                        if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'secondary-image', NULL,  'imagen-destacada-secundaria');
+                        endif;
+                    ?>
                 </div>
               </div>
             </div>
@@ -102,6 +110,8 @@
                 </ul>
               </div>
             </div>
+
+            <!-- relacionado -->
             <div class="col-md-9">
               <div class="features-related hide">
                 <div class="row">
@@ -122,6 +132,8 @@
                       </div>
                     </div>
                   </div>
+
+
                   <div class="col-lg-6">
                     <div class="media">
                       <a href="javascript:void(0);">
@@ -139,6 +151,8 @@
                       </div>
                     </div>
                   </div>
+
+
                   <div class="col-lg-6">
                     <div class="media">
                       <a href="javascript:void(0);">
@@ -157,8 +171,14 @@
                       </div>
                     </div>
                   </div>
+
+
                 </div>
-              </div>
+              <?php
+              endwhile;
+              endif;
+              ?>
+              </div> <!-- relacionado -->
             </div>
           </div>
         </div>

@@ -26,20 +26,6 @@ $(document).ready(function(){
     }
 });
 
-    // carousel mixtapes
-  $('.mix-carousel').owlCarousel({
-          center: true,
-          items:2,
-          loop:false,
-          margin:10,
-          nav:false,
-          responsive:{
-              600:{
-                  items:4
-              }
-          }
-      });
-
 
 
 // Expanding Search Bar
@@ -71,6 +57,9 @@ $(document).mouseup(function(){
         }
     });
 });
+
+
+
 function buttonUp(){
     var inputVal = $('.searchbox-input').val();
     inputVal = $.trim(inputVal).length;
@@ -194,6 +183,22 @@ $(document).ready(function ()
 
 
 });
+
+    // carousel mixtapes
+  $('.mix-carousel').owlCarousel({
+          center: true,
+          items:2,
+          loop:false,
+          margin:10,
+          nav:false,
+          responsive:{
+              600:{
+                  items:4
+              }
+          }
+      });
+
+
 
 
 

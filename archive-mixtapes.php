@@ -23,74 +23,34 @@ Template name: Mixtapes
     </div>
 
     <div class="mixtapes-carousel row align-items-center">
-      <!-- Set up your HTML -->
+
       <div class="owl-carousel mix-carousel">
+      <?php
+         $args = array (
+             'post_type' => 'mixtape',
+             'posts_per_page' => 10
+           );
+          $the_query = new WP_Query ($args);
+       ?>
+      <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
         <div>
-          <a href="javascript:void(0);">
+          <a href="<?php the_permalink(); ?>">
             <div class="thumb">
-              <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mix-tape-thumb.jpg">
+              <img class="img-fluid" src="<?php echo get('mixtape_caratula'); ?>">
             </div>
             <div class="song-title">
-              BASSBANGERZ
+              <?php the_title(); ?>
             </div>
             <div class="counting">
               01/18
             </div>
           </a>
         </div>
-        <div>
-          <a href="javascript:void(0);">
-            <div class="thumb">
-              <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mix-tape-thumb.jpg">
-            </div>
-            <div class="song-title">
-              BASSBANGERZ
-            </div>
-            <div class="counting">
-              02/18
-            </div>
-          </a>
-        </div>
-        <div>
-          <a href="javascript:void(0);">
-            <div class="thumb">
-              <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mix-tape-thumb.jpg">
-            </div>
-            <div class="song-title">
-              BASSBANGERZ
-            </div>
-            <div class="counting">
-              03/18
-            </div>
-          </a>
-        </div>
-        <div>
-          <a href="javascript:void(0);">
-            <div class="thumb">
-              <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mix-tape-thumb.jpg">
-            </div>
-            <div class="song-title">
-              BASSBANGERZ
-            </div>
-            <div class="counting">
-              04/18
-            </div>
-          </a>
-        </div>
-        <div>
-          <a href="javascript:void(0);">
-            <div class="thumb">
-              <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mix-tape-thumb.jpg">
-            </div>
-            <div class="song-title">
-              BASSBANGERZ
-            </div>
-            <div class="counting">
-              05/18
-            </div>
-          </a>
-        </div>
-      </div>
+      <?php endwhile; else: ?>
+      <?php endif; ?>
+      <?php wp_reset_postdata() ?>
+
+      </div><!-- mix carousel -->
     </div>
 
 <?php get_footer(); ?>
