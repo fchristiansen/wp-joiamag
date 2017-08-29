@@ -23,7 +23,7 @@
         <div class="artist-hero">
           <h1 class="artist-name"><?php the_title(); ?></h1>
           <div class="clearfix"></div>
-          <h2 class="artist-mixtape"><?php echo get('subtitle'); ?></h2>
+          <h2 class="artist-mixtape"><?php echo get('detalles_mixtape_titulo'); ?></h2>
         </div>
       </section>
 
@@ -49,16 +49,16 @@
                               <?
                                  $e=0;
                                  $f = 0;
-                                 $bloques = get_order_group('video_miniatura');
+                                 $bloques = get_order_group('redes_texto_del_enlace');
                                  foreach($bloques as $bloque){
                                        $e = $e +1;
                                        $f++;
-                                       $fotos = get_order_field('video_miniatura', $bloque);
-                                       foreach ($fotos as $foto) {
+                                       $redes = get_order_field('redes_texto_del_enlace', $bloque);
+                                       foreach ($redes as $red) {
                                      ?>
                                   <li>
-                                    <a href="javascript:void(0);">
-                                      <i class="fa fa-li fa-circle" aria-hidden="true"></i> <?php echo get(''); ?>
+                                    <a href="<?php echo get('redes_enlace'); ?>">
+                                      <i class="fa fa-li fa-circle" aria-hidden="true"></i><?php echo get('redes_texto_del_enlace'); ?>
                                     </a>
                                   </li>
                           <? } ?>
