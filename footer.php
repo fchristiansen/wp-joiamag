@@ -1,14 +1,12 @@
-    <footer class="site-footer <?php if(is_page('mixtapes')){ ?> hidden<?php } ?>">
+    <footer class="site-footer <?php if(is_post_type_archive('mixtape')){ ?> hidden <?php } ?>">
       <section class="about">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 offset-lg-3">
-
               <?php
                  $args = array (
                      'post_type' => 'footer',
                      'posts_per_page' => 1
-
                    );
                    $the_query = new WP_Query ($args);
                ?>

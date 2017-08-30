@@ -38,7 +38,6 @@
                 <?php
                    $args = array (
                        'post_type' => 'joia_tv',
-                       'offset' => 1,
                        'posts_per_page' => 8
                      );
                      $the_query = new WP_Query ($args);

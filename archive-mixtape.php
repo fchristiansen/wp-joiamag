@@ -1,10 +1,3 @@
-<?
-/*
-
-Template name: Mixtapes
-
-*/
-?>
 <?php get_header(); ?>
 
     <div class="container">
@@ -25,7 +18,7 @@ Template name: Mixtapes
       <div class="owl-carousel mix-carousel">
         <?php
          $args = array (
-             'post_type' => 'mixtapes',
+             'post_type' => 'mixtape',
              'posts_per_page' => 1
            );
            $the_query = new WP_Query ($args);

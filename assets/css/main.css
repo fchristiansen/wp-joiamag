@@ -9425,6 +9425,12 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 
   /* agregados por Christiansen */
+  body{
+    overflow-x: hidden !important;
+  }
+  .barba-container {
+  position: relative;
+}
 .hidden{
   display: none !important;
 }
@@ -9477,5 +9483,20 @@ ul.list-unstyled li{
 }
 .page.page-ediciones .list-people li.list-inline-item{
   text-transform: uppercase;
+}
+.joia-stores .store-item a.text-direccion{
+  color: black;
+}
+.joia-stores .store-item a.text-direccion:hover,
+.joia-stores .store-item a.text-direccion:focus{
+  color: #a0a0a0;
+
+}
+.joia-stores .store-item a.text-url{
+    color: #a0a0a0;
+}
+.joia-stores .store-item a.text-url:hover,
+.joia-stores .store-item a.text-url:focus{
+  color: black;
 }
 

@@ -1,13 +1,10 @@
 $(document).ready(function(){
 
-  // cambio de capturas
+    // cambio de capturas
     $( ".captura" ).click(function() {
         var captura = $(this).attr('src');
         $('#captura').attr('src', captura);
-
     });
-
-
 	// Carousel store
 	$(".owl-carousel").owlCarousel({
         loop:true,
@@ -56,6 +53,9 @@ $(document).mouseup(function(){
             submitIcon.click();
         }
     });
+
+ Barba.Pjax.start();
+
 });
 
 

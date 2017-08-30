@@ -8,9 +8,7 @@
     <link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/assets/img/favicon.png">
     <title>Joia</title>
     <!-- Bootstrap core CSS -->
-
 	<?php wp_head(); ?>
-
     <!-- Custom styles for this template -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -20,13 +18,12 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body <?php if(is_home()){ ?> class="home" <?php } ?>
         <?php if(is_singular('joia_tv') || is_post_type_archive('joia_tv')){ ?> class="joia-tv" <?php } ?>
-        <?php if(is_post_type_archive('mixtapes')){ ?> class="mixtapes-2" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" <?php } ?>
-        <?php if(is_singular('mixtapes')){ ?> class="mixtapes" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" <?php } ?>>
+        <?php if(is_post_type_archive('mixtape')){ ?> class="mixtapes-2" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" <?php } ?>
+        <?php if(is_singular('mixtape')){ ?> class="mixtapes" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" <?php } ?>>
 
-    <nav class="navbar navbar-toggleable-md fixed-top <?php if(is_post_type_archive('mixtapes')){ ?> hidden <?php } ?><?php if(is_singular('joia_tv') || is_post_type_archive('joia_tv') || is_singular('mixtapes')){ ?>navbar-inverse<?php }else{ ?>navbar-light<?php } ?>">
+    <nav class="navbar navbar-toggleable-md fixed-top <?php if(is_post_type_archive('mixtape')){ ?> hidden <?php } ?><?php if(is_singular('joia_tv') || is_post_type_archive('joia_tv') || is_singular('mixtape')){ ?>navbar-inverse<?php }else{ ?>navbar-light<?php } ?>">
       <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -134,7 +131,6 @@
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </a>
                   </nav>
-
         </div>
       </div>
     </nav>

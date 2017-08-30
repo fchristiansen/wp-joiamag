@@ -31,7 +31,7 @@ Template name: Puntos de Venta
         ?>
         <div class="image-visual">
 <!--           <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/map.jpg" alt=""> -->
-          <div style="height:500px;" id="map-canvas"></div>
+        <div style="height:500px;" id="map-canvas"></div>
         </div>
         <div class="joia-stores">
           <div class="container">
@@ -56,11 +56,11 @@ Template name: Puntos de Venta
 
                 <div class="store-item">
                   <div class="title"><?php the_title(); ?></div>
-                  <a href="<?php echo get('direccion_ubicacion_mapa'); ?>">
-                    <p class="mb-0"><?php echo get('direccion_texto_direccion'); ?></p>
+                  <a class="text-direccion mb-0 clearfix" href="<?php echo get('direccion_ubicacion_mapa'); ?>" target="_blank">
+                    <?php echo get('direccion_texto_direccion'); ?>
                   </a>
 
-                  <p><a href="<?php echo get('web_url_tienda'); ?>"><?php echo get('web_texto_amigable_url'); ?></a></p>
+                  <a class="text-url" href="<?php echo get('web_url_tienda'); ?>" target="_blank"><?php echo get('web_texto_amigable_url'); ?></a>
                 </div>
              <?php endwhile; else: ?>
              <?php endif; ?>
@@ -87,10 +87,11 @@ Template name: Puntos de Venta
 
                    <div class="store-item">
                      <div class="title"><?php the_title(); ?></div>
-                     <a href="<?php echo get('direccion_ubicacion_mapa'); ?>">
-                       <p class="mb-0"><?php echo get('direccion_texto_direccion'); ?></p>
+                     <a class="text-direccion mb-0 clearfix" href="<?php echo get('direccion_ubicacion_mapa'); ?>" target="_blank">
+                      <?php echo get('direccion_texto_direccion'); ?>
                      </a>
-                     <p><a href="<?php echo get('web_url_tienda'); ?>"><?php echo get('web_texto_amigable_url'); ?></a></p>
+
+                     <a  class="text-url" href="<?php echo get('web_url_tienda'); ?>" target="_blank"><?php echo get('web_texto_amigable_url'); ?></a>
                    </div>
                 <?php endwhile; else: ?>
                 <?php endif; ?>

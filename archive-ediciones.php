@@ -1,10 +1,3 @@
-<?
-/*
-
-Template name: Ediciones 1
-
-*/
-?>
 <?php get_header(); ?>
 
     <div class="footer-over">
