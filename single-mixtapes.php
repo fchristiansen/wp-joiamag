@@ -2,7 +2,7 @@
 
     <div class="footer-over">
 
-      <?php
+          <?php
           if (have_posts()) :
             while (have_posts()) :
               the_post(); ?>
@@ -30,7 +30,7 @@
       <div id="site-content" class="site-content">
         <section class="bg-gray-lightest mixcloud">
           <div class="pb-5 pt-5 text-center">
-                  <?php echo get('mixtape_player_mixcloud'); ?>
+             <?php echo get('mixtape_player_mixcloud'); ?>
           </div>
         </section>
 
@@ -174,10 +174,10 @@
 
 
                 </div>
-              <?php
-              endwhile;
-              endif;
-              ?>
+             <?php
+            endwhile;
+          endif;
+        ?>
               </div> <!-- relacionado -->
             </div>
           </div>

@@ -24,13 +24,13 @@ Template name: Mixtapes
     <div class="mixtapes-carousel row align-items-center">
       <div class="owl-carousel mix-carousel">
         <?php
-           $args = array (
-               'post_type' => 'mixtape',
-               'posts_per_page' => 10
-             );
-             $the_query = new WP_Query ($args);
-         ?>
-        <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+         $args = array (
+             'post_type' => 'mixtapes',
+             'posts_per_page' => 1
+           );
+           $the_query = new WP_Query ($args);
+       ?>
+      <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
         <div>
           <a href="<?php the_permalink(); ?>">
             <div class="thumb">
