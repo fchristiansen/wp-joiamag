@@ -38,60 +38,64 @@ Template name: Puntos de Venta
             <div class="row">
               <div class="col-sm-6">
                 <h2>Santiago</h2>
+                <?php
+                   $args = array (
+                       'post_type' => 'punto_de_venta',
+                       'order' => 'DESC',
+                       'tax_query' => array(
+                           array(
+                               'taxonomy' => 'localizacion',
+                               'field'    => 'slug',
+                               'terms' => 'santiago'
+                         )
+                       )
+                     );
+                    $the_query = new WP_Query ($args);
+                 ?>
+                <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
                 <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
+                  <div class="title"><?php the_title(); ?></div>
+                  <a href="<?php echo get('direccion_ubicacion_mapa'); ?>">
+                    <p class="mb-0"><?php echo get('direccion_texto_direccion'); ?></p>
+                  </a>
+
+                  <p><a href="<?php echo get('web_url_tienda'); ?>"><?php echo get('web_texto_amigable_url'); ?></a></p>
                 </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
+             <?php endwhile; else: ?>
+             <?php endif; ?>
+             <?php wp_reset_postdata() ?>
               </div>
               <div class="col-sm-6">
                 <h2>Regiones</h2>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
-                <div class="store-item">
-                  <div class="title">Alta Vida Tienda</div>
-                  <p class="mb-0">Merced #839 (Galería Plaza de Armas) Local 140 (stgo centro)</p>
-                  <p><a href="javascript:void(0);">facebook.com/altavidatienda</a></p>
-                </div>
+
+                   <?php
+                      $args = array (
+                          'post_type' => 'punto_de_venta',
+                          'order' => 'DESC',
+                          'tax_query' => array(
+                              array(
+                                  'taxonomy' => 'localizacion',
+                                  'field'    => 'slug',
+                                  'terms' => 'regiones'
+                            )
+                          )
+                        );
+                       $the_query = new WP_Query ($args);
+                    ?>
+                   <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+                   <div class="store-item">
+                     <div class="title"><?php the_title(); ?></div>
+                     <a href="<?php echo get('direccion_ubicacion_mapa'); ?>">
+                       <p class="mb-0"><?php echo get('direccion_texto_direccion'); ?></p>
+                     </a>
+                     <p><a href="<?php echo get('web_url_tienda'); ?>"><?php echo get('web_texto_amigable_url'); ?></a></p>
+                   </div>
+                <?php endwhile; else: ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata() ?>
+
               </div>
             </div>
           </div>
