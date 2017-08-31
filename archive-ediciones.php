@@ -27,7 +27,6 @@
                   $f = 0;
                   $bloques = get_order_group('detalles_contenido');
                   foreach($bloques as $bloque){
-                        // $i = $i +1;
                         $e = $e +1;
                         $f++;
                         $nombres = get_order_field('detalles_contenido', $bloque); // guarda las fotos en un array

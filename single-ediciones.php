@@ -11,9 +11,8 @@
           <div class="video-hero">
             <!-- 16:9 aspect ratio -->
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo get('detalles_id_video'); ?>" allowfullscreen></iframe>
-<!-- <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/43041966" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
--->
+              <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo get('detalles_id_video'); ?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>
+        <!-- <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/43041966" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
             </div>
           </div>
           <div class="page-heading-title">

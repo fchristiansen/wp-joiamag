@@ -13,9 +13,9 @@
             <div class="row">
               <div class="col-lg-6 offset-lg-3">
                 <h1 class="text-center"><?php echo get('caja_buscar_texto'); ?></h1>
-                <form>
+                <form action="<? bloginfo('url'); ?>" method="get" accept-charset="utf-8">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
+                    <input type="text" name="s" class="form-control" placeholder="Buscar...">
                      <span class="input-group-btn">
                       <button class="btn btn-black" type="button">Enviar</button>
                     </span>

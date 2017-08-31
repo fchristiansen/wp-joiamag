@@ -49,7 +49,6 @@
                   <div class="col">
                     <ul class="fa-ul artist-networks">
                               <?
-
                                  $f = 0;
                                  $bloques = get_order_group('redes_texto_del_enlace');
                                  foreach($bloques as $bloque){
@@ -187,7 +186,10 @@
       </div>
 
       <div id="disqus" class="jumbotron mt-0 mb-0 text-center">
-        <?php comments_template(); ?>
+        <div class="container">
+          <?php comments_template(); ?>
+        </div>
+
       </div>
     </div>
 

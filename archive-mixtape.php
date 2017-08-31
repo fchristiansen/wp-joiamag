@@ -16,12 +16,17 @@
     </div>
     <div class="mixtapes-carousel row align-items-center">
       <div class="owl-carousel mix-carousel">
+
+
+
         <?php
          $args = array (
              'post_type' => 'mixtape',
-             'posts_per_page' => 1
+             'posts_per_page' => -1
+             //'order' => 'DESC'
            );
            $the_query = new WP_Query ($args);
+           $i=1;
        ?>
       <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
         <div>
@@ -33,7 +38,10 @@
               <?php the_title(); ?>
             </div>
             <div class="counting">
-              01/18
+              <?php
+                   echo str_pad($i, 2, "0", STR_PAD_LEFT); ?> / <? the_time('Y');
+                  $i++
+              ?>
             </div>
           </a>
         </div>

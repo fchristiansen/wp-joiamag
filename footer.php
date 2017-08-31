@@ -103,12 +103,12 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col">
-            <form id="modal-search-form">
+            <form id="modal-search-form" action="<? bloginfo('url'); ?>" method="get" accept-charset="utf-8">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                 <i class="fa fa-times" aria-hidden="true"></i>
               </button>
               <div class="form-group">
-                <input type="text" class="form-control" id="searchInput" autofocus>
+                <input type="text" name="s" class="form-control" id="searchInput" autofocus>
                 <span id="modal-search-icon" class="sr-only">buscar</span>
               </div>
             </form>
