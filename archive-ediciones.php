@@ -25,8 +25,8 @@
                 <ul class="list-unstyled">
                   <?
                   $f = 0;
-                  $bloques = get_order_group('detalles_contenido'); // guarda el bloque en un array
-                  foreach($bloques as $bloque){ // recorre cada bloque de edición
+                  $bloques = get_order_group('detalles_contenido');
+                  foreach($bloques as $bloque){
                         // $i = $i +1;
                         $e = $e +1;
                         $f++;

@@ -87,11 +87,22 @@ Template name: Puntos de Venta
 
                    <div class="store-item">
                      <div class="title"><?php the_title(); ?></div>
-                     <a class="text-direccion mb-0 clearfix" href="<?php echo get('direccion_ubicacion_mapa'); ?>" target="_blank">
-                      <?php echo get('direccion_texto_direccion'); ?>
-                     </a>
-
-                     <a  class="text-url" href="<?php echo get('web_url_tienda'); ?>" target="_blank"><?php echo get('web_texto_amigable_url'); ?></a>
+                     <?
+                        $e=0;
+                        $f = 0;
+                        $bloques = get_order_group('direccion_texto_direccion');
+                        foreach($bloques as $bloque){
+                              $e = $e +1;
+                              $f++;
+                              $direcciones = get_order_field('direccion_texto_direccion', $bloque);
+                              foreach ($direcciones as $direccion) {
+                            ?>
+                           <a class="text-direccion mb-0 clearfix" href="<?php echo get('direccion_ubicacion_mapa', $e ,$direccion); ?>" target="_blank">
+                            <?php echo get('direccion_texto_direccion', $e ,$direccion); ?>
+                           </a>
+                        <? } ?>
+                      <? } ?>
+                     <a class="text-url" href="<?php echo get('web_url_tienda'); ?>" target="_blank"><?php echo get('web_texto_amigable_url'); ?></a>
                    </div>
                 <?php endwhile; else: ?>
                 <?php endif; ?>

@@ -29,9 +29,11 @@
 
       <div id="site-content" class="site-content">
         <section class="bg-gray-lightest mixcloud">
+        <div class="container">
           <div class="pb-5 pt-5 text-center">
              <?php echo get('mixtape_player_mixcloud'); ?>
           </div>
+        </div>
         </section>
 
         <section class="mixtape-post">
@@ -47,7 +49,7 @@
                   <div class="col">
                     <ul class="fa-ul artist-networks">
                               <?
-                                 $e=0;
+
                                  $f = 0;
                                  $bloques = get_order_group('redes_texto_del_enlace');
                                  foreach($bloques as $bloque){
@@ -56,13 +58,13 @@
                                        $redes = get_order_field('redes_texto_del_enlace', $bloque);
                                        foreach ($redes as $red) {
                                      ?>
-                                  <li>
-                                    <a href="<?php echo get('redes_enlace'); ?>">
-                                      <i class="fa fa-li fa-circle" aria-hidden="true"></i><?php echo get('redes_texto_del_enlace'); ?>
-                                    </a>
-                                  </li>
-                          <? } ?>
-                        <? } ?>
+                                        <li>
+                                          <a href="<?php echo get('redes_enlace',$e ,$red); ?>">
+                                            <i class="fa fa-li fa-circle" aria-hidden="true"></i><?php echo get('redes_texto_del_enlace',$e ,$red); ?>
+                                          </a>
+                                        </li>
+                              <? } ?>
+                            <? } ?>
                     </ul>
                   </div>
                 </div>
