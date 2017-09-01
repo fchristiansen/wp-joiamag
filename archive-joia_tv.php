@@ -21,7 +21,7 @@
               <span class="sr-only">Next</span>
             </a>
             <div class="box-video">
-              <div class="bg-video" style="background-image: url(<?php bloginfo('template_url'); ?>/assets/img/big-tv.jpg);">
+              <div class="bg-video" style="background-image: url(<?php echo get ('video_captura_grande') ?>);">
                 <div class="btn btn-primary btn-lg bt-play">Ver</div>
               </div>
               <div class="embed-responsive embed-responsive-16by9">
@@ -46,7 +46,7 @@
                   <div class="col-md-3">
                     <div class="card card-video mb-5">
                       <div class="card-img-top">
-                        <a href="<?php bloginfo('url'); ?>/joia_tv/test/">
+                        <a href="<?php the_permalink(); ?>">
                           <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/joia-tv.jpg" alt="">
                         </a>
                       </div>

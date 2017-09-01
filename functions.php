@@ -24,8 +24,6 @@ function theme_styles() {
     wp_enqueue_style('owl-theme', get_template_directory_uri() . '/assets/css/owl.theme.default.min.css', array(), '1', 'screen' );
     wp_enqueue_style('style-joia', get_template_directory_uri() . '/assets/css/main.css', array(), '1', 'screen' );
     wp_enqueue_style('style-tienda', get_template_directory_uri() . '/assets/css/tienda.css', array(), '1', 'screen' );
-
-
 }
 
 // carga js
@@ -238,9 +236,7 @@ function wpb_imagelink_setup() {
 }
 add_action('admin_init', 'wpb_imagelink_setup', 10);
 
-
 //para multiple  post_thumbnails
-
 if (class_exists('MultiPostThumbnails')) {
             $types = array('post', 'mixtape');
             foreach($types as $type) {
