@@ -29,16 +29,15 @@
             </div>
           </div>
 
-<!-- INICIO LOOP  -->
+      <!-- INICIO LOOP  -->
        <?php
          $i = 1;
          $e = 0;
          $bloques = get_order_group('bloque_edicion_tipo'); // guarda el bloque en un array
          foreach($bloques as $bloque){ // recorre cada bloque de edición
-           $i = $i +1;
-           $e = $e +1;
+             $i = $i +1;
+             $e = $e +1;
              if (get('bloque_edicion_tipo', $bloque)) { // sólo sigue si ha seleccionado un tipo de bloque
-
              if(get('bloque_edicion_tipo', $bloque)=="Foto derecha") { ?>
                  <div class="container">
                      <div class="text-block text-image-right">
@@ -67,7 +66,6 @@
                    </div>
                  </div>
 
-
              <? }elseif(get('bloque_edicion_tipo', $bloque)=="Foto centrada") { ?>
 
                <div class="container">
@@ -82,6 +80,8 @@
                    </div>
                  </div>
                </div>
+
+
              <? }elseif(get('bloque_edicion_tipo', $bloque)=="Solo texto") { ?>
 
 
@@ -126,6 +126,7 @@
                            <span class="sr-only">Next</span>
                          </a>
                        </div>
+                       <!-- carousel -->
                  </div>
 
 
