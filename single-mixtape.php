@@ -176,9 +176,9 @@
 
                 </div>
              <?php
-            endwhile;
-          endif;
-        ?>
+             endwhile;
+              endif;
+            ?>
               </div> <!-- relacionado -->
             </div>
           </div>

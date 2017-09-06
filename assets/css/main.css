@@ -9424,7 +9424,17 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 100%; }
 
 
-  /* agregados por Christiansen */
+/* agregados por Christiansen */
+
+.truncate {
+  display:inline-block;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
   body{
     overflow-x: hidden !important;
   }
@@ -9451,8 +9461,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   max-width: 100% !important;
   height: auto !important;
 }
-
-  ul.wpp-list  {
+ul.wpp-list  {
   padding: 0;
   list-style-type:none  !important;
   }
@@ -9469,6 +9478,12 @@ ul.wpp-list li {
 ul.list-unstyled li{
   text-transform: capitalize;
 }
+section.sidebar ul.wpp-list{
+  display: block;
+}
+
+
+
 
 .single-page-tv .single-page-content .text-block h3 {
   font-family: "Work Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

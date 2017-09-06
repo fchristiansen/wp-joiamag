@@ -99,13 +99,13 @@
             </article>
               <?php
               endwhile;
-            endif;
-          ?>
+                endif;
+              ?>
           </div>
         </div>
-        <div id="disqus" class="jumbotron mt-5 mb-0 text-center">
-          <?php comments_template(); ?>
-        </div>
+          <div id="disqus" class="jumbotron mt-5 mb-0 text-center">
+            <?php comments_template(); ?>
+          </div>
           </div>
         <!-- footer-over -->
       </div>
