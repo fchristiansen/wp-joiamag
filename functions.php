@@ -3,17 +3,23 @@
   // remueve adminbar en front
     add_filter( 'show_admin_bar', '__return_false' );
 
+
 function iniciarTema(){
+
     // ACTIVA IMAGENES DESTACADAS
     add_theme_support( 'post-thumbnails' );
     add_image_size('preview_programacion', 400, 289, true);
     add_image_size('imagen-destacada-secundaria', 600, 400, true);
     add_image_size('store-item', 600, 400, true);
+    add_image_size('related-thumb', 600, 600, true);
 /*     add_image_size('galeria', 200); */
 
     // Activar Titulo
     add_theme_support( 'title-tag' );
     register_nav_menu( 'primary', __( 'Menú Principal', 'menu_principal' ) );
+
+
+
   }
   // Cuando ocurra 'after_setup_theme, invocar "iniciarTema"
   add_action( 'after_setup_theme', 'iniciarTema' );
@@ -248,5 +254,9 @@ if (class_exists('MultiPostThumbnails')) {
                 );
             }
         }
+////////////////////////////////////
+
+
+
 
 ?>

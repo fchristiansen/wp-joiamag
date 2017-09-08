@@ -1,12 +1,10 @@
 <?php get_header(); ?>
 
     <div class="footer-over">
-
           <?php
           if (have_posts()) :
             while (have_posts()) :
               the_post(); ?>
-
       <section class="mixtape-hero" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
         <a class="mixtape-control-prev" href="#mixtapesControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -111,12 +109,17 @@
                 </ul>
               </div>
             </div>
+           <?php
+             endwhile;
+              endif;
+            ?>
 
+            <?php include(TEMPLATEPATH . '/helpers/related.php'); ?>
             <!-- relacionado -->
             <div class="col-md-9">
               <div class="features-related hide">
                 <div class="row">
-                  <div class="col-lg-6">
+                  <!-- <div class="col-lg-6">
                     <div class="media">
                       <a href="javascript:void(0);">
                         <img class="d-flex mr-3 img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape-thumb.jpg" alt="Generic placeholder image">
@@ -171,14 +174,9 @@
                         </h5>
                       </div>
                     </div>
-                  </div>
-
+                  </div> -->
 
                 </div>
-             <?php
-             endwhile;
-              endif;
-            ?>
               </div> <!-- relacionado -->
             </div>
           </div>
