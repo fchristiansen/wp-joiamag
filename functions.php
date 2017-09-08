@@ -11,15 +11,12 @@ function iniciarTema(){
     add_image_size('preview_programacion', 400, 289, true);
     add_image_size('imagen-destacada-secundaria', 600, 400, true);
     add_image_size('store-item', 600, 400, true);
-    add_image_size('related-thumb', 600, 600, true);
+    add_image_size('related-thumb', 400, 400, true);
 /*     add_image_size('galeria', 200); */
 
     // Activar Titulo
     add_theme_support( 'title-tag' );
     register_nav_menu( 'primary', __( 'Menú Principal', 'menu_principal' ) );
-
-
-
   }
   // Cuando ocurra 'after_setup_theme, invocar "iniciarTema"
   add_action( 'after_setup_theme', 'iniciarTema' );
@@ -55,7 +52,6 @@ function theme_js(){
     wp_enqueue_script('owl-js', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'),'2.2.1', true);
     wp_enqueue_script('jquery_easing', get_template_directory_uri() . '/assets/js/jquery.easing.min.js', array('jquery'),'1.2.2', true);
     wp_enqueue_script('scrolling-nav', get_template_directory_uri() . '/assets/js/scrolling-nav.js', array('jquery'),'1', true);
-    wp_enqueue_script('barba-js', get_template_directory_uri() . '/assets/js/barba.min.js', array('jquery'),'1', true);
     wp_enqueue_script('nexprev-js', get_template_directory_uri() . '/assets/js/nextprev.js', array('jquery'),'1', true);
     wp_enqueue_script('tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.1/TweenMax.min.js', array('jquery'),'', true);
     wp_enqueue_script('joiajs', get_template_directory_uri() . '/assets/js/script.js', array('jquery'),'1', true);

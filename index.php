@@ -3,7 +3,6 @@
     <div class="footer-over">
       <div class="home-content">
         <?php include(TEMPLATEPATH . '/include-section-carousel-home.php'); ?>
-
         <section class="section news-features">
           <div class="container">
             <!-- posts destacados -->

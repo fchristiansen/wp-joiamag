@@ -4,39 +4,20 @@
             if (have_posts()) :
               while (have_posts()) :
                 the_post(); ?>
-              <?php
-                $prev = get_permalink(get_adjacent_post(false,'',false));
-                $next = get_permalink(get_adjacent_post(false,'',true));  ?>
 
       <div class="barba-container" data-prev="<?php echo $prev; ?>" data-next="<?php echo $next; ?>">
         <div class="footer-over">
         <div class="site-content-tv">
           <div class="container">
             <section class="display-big-tv mb-5">
-            <?php if($prev != get_permalink()) {
-                 $args = array( 'numberposts' => '1', 'post_type'=>'joia_tv', 'order'=>'ASC');
-                 $recent_posts = wp_get_recent_posts( $args );
-                 foreach( $recent_posts as $recent ){
-                    $prev = get_permalink($recent["ID"]);
-                 }
-            } ?>
                       <a class="carousel-control-prev nav prev" href="<?php echo $prev; ?>" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                       </a>
-            <?php if($next != get_permalink()) {
-                 $args = array( 'numberposts' => '1', 'post_type'=>'joia_tv', 'order'=>'DESC');
-                 $recent_posts = wp_get_recent_posts( $args );
-                 foreach( $recent_posts as $recent ){
-                    $prev = get_permalink($recent["ID"]);
-                 }
-
-            } ?>
                       <a class="carousel-control-next nav next" href="<?php echo $next; ?>"  role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                       </a>
-
               <div class="box-video">
                 <div class="bg-video" style="background-image: url(<?php echo get ('video_captura_grande') ?>);">
                   <div class="btn btn-primary btn-lg bt-play">Ver</div>
@@ -46,7 +27,6 @@
                 </div>
               </div>
             </section>
-
             <section class="display-tv-thumbs">
               <div class="row no-gutters">
                     <?

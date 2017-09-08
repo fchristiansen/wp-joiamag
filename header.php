@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="javascript:void(0);">
+            <a class="nav-link" href="javascript:void(0)"  data-toggle="modal" data-target="#modal-categorias">
                 Categorías <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -59,8 +59,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);">
-                Revista
+              <a class="nav-link" href="<?php bloginfo('url'); ?>/joia_tv">
+                joia tv
               </a>
             </li>
             <li class="nav-item">

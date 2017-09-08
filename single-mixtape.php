@@ -113,104 +113,54 @@
              endwhile;
               endif;
             ?>
-
-            <?php //include(TEMPLATEPATH . '/helpers/related.php'); ?>
-            
-
-<?php $orig_post = $post;
-global $post;
-$tags = wp_get_post_tags($post->ID);
-if ($tags) {
-	$tag_ids = array();
-	foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-
-	$args=array(
-		'post_type'			=> array('mixtape','post'),
-		'tag__in' 			=> $tag_ids,
-		'post__not_in' 		=> array($post->ID),
-		'posts_per_page'	=> 5 
-	);
-	//print_r($args);
-	$my_query = new WP_Query( $args );
-	//print_r($my_query);
-	if( $my_query->have_posts() ) {
-		echo '<div id="relatedposts"><h3>Related Posts</h3><ul>';
-		while( $my_query->have_posts() ) {
-		$my_query->the_post(); ?>
-			<li><div class="relatedthumb"><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a></div>
-			<div class="relatedcontent">
-			<h3><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
-			<?php the_time('M j, Y') ?>
-			</div>
-			</li>
-	<? }
-	echo '</ul></div>';
-	}
-}
-$post = $orig_post;
-wp_reset_query(); ?>            
-            
             <!-- relacionado -->
             <div class="col-md-9">
               <div class="features-related hide">
                 <div class="row">
-                  <!-- <div class="col-lg-6">
-                    <div class="media">
-                      <a href="javascript:void(0);">
-                        <img class="d-flex mr-3 img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape-thumb.jpg" alt="Generic placeholder image">
-                      </a>
-                      <div class="media-body">
-                        <a class="media-meta" href="javascript:void(0);">
-                          Música
-                        </a>
-                        <h5 class="mt-0">
-                          <a href="javascript:void(0);">
-                            Lorem ipsum dolor sit amet consectetur elit.
-                          </a>
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
+                      <?php $orig_post = $post;
+                      global $post;
+                      $tags = wp_get_post_tags($post->ID);
+                      if ($tags) {
+                        $tag_ids = array();
+                        foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
 
+                        $args=array(
+                          'post_type'     => array('mixtape','post'),
+                          'tag__in'       => $tag_ids,
+                          'post__not_in'    => array($post->ID),
+                          'posts_per_page'  => 4
+                        );
 
-                  <div class="col-lg-6">
-                    <div class="media">
-                      <a href="javascript:void(0);">
-                        <img class="d-flex mr-3 img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape-thumb.jpg" alt="Generic placeholder image">
-                      </a>
-                      <div class="media-body">
-                        <a class="media-meta" href="javascript:void(0);">
-                          Eventos
-                        </a>
-                        <h5 class="mt-0">
-                          <a href="javascript:void(0);">
-                            Lorem ipsum dolor sit amet consectetur elit.
-                          </a>
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="col-lg-6">
-                    <div class="media">
-                      <a href="javascript:void(0);">
-                        <img class="d-flex mr-3 img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/mixtape-thumb.jpg" alt="Generic placeholder image">
-                      </a>
-
-                      <div class="media-body">
-                        <a class="media-meta" href="javascript:void(0);">
-                          Música
-                        </a>
-                        <h5 class="mt-0">
-                          <a href="javascript:void(0);">
-                            Lorem ipsum dolor sit amet consectetur elit.
-                          </a>
-                        </h5>
-                      </div>
-                    </div>
-                  </div> -->
-
+                        $my_query = new WP_Query( $args );
+                        if( $my_query->have_posts() ) {
+                          while( $my_query->have_posts() ) {
+                          $my_query->the_post(); ?>
+                           <div class="col-lg-6">
+                              <div class="media">
+                                  <a href="<?php the_permalink(); ?>">
+                                        <?php the_post_thumbnail('related-thumb', array('class' => 'd-flex mr-3 img-fluid' ,'title' => get_the_title())); ?>
+                                  </a>
+                                <div class="media-body">
+                                  <a class="media-meta" href="javascript:void(0);">
+                                    <?php
+                                        foreach((get_the_category()) as $category){
+                                              echo $category->name;
+                                          }
+                                      ?>
+                                  </a>
+                                  <h5 class="mt-0">
+                                    <a href="<?php the_permalink(); ?>">
+                                      <?php the_title(); ?>
+                                    </a>
+                                  </h5>
+                                </div>
+                              </div>
+                            </div>
+                        <? }
+                        }
+                      }
+                      $post = $orig_post;
+                      wp_reset_query(); ?>
                 </div>
               </div> <!-- relacionado -->
             </div>

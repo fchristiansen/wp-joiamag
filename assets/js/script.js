@@ -6,24 +6,25 @@ $(document).ready(function(){
         $('#captura').attr('src', captura);
     });
 	// Carousel store
-	$(".owl-carousel").owlCarousel({
+	$(".store-carousel").owlCarousel({
         loop:true,
         margin:20,
-        nav:true,
+        nav:false,
+        autoplay: true,
+        center: true,
+        lazyLoad:true,
         responsive:{
         0:{
             items:2
         },
-        600:{
-            items:3
+        768:{
+            items:4
         },
-        1000:{
+        1200:{
             items:4
         }
     }
 });
-
-
 
 // Expanding Search Bar
 var submitIcon = $('.searchbox-icon');
@@ -53,9 +54,6 @@ $(document).mouseup(function(){
             submitIcon.click();
         }
     });
-
- Barba.Pjax.start();
-
 });
 
 

@@ -117,6 +117,9 @@
       </div>
     </div>
 
+    <!-- menu categorias -->
+    <?php include(TEMPLATEPATH . '/include-section-menu-categorias.php'); ?>
+
     	<?php wp_footer(); ?>
 
   </body>
