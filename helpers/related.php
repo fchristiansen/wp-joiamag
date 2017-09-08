@@ -6,6 +6,7 @@
  {
 
     if ( !is_singular('singular') ) return $content;
+   
 
   $cad      = "";
   $template_li  = '<li>
@@ -68,6 +69,7 @@ add_filter( 'the_content', 'dc_related_after_content');
 
  ?>
 
+<!--
   <?php
            $args = array (
                'post_type' => 'mixtape',
@@ -97,3 +99,4 @@ add_filter( 'the_content', 'dc_related_after_content');
       <?php endwhile; else: ?>
           <?php endif; ?>
           <?php wp_reset_postdata() ?>
+-->
