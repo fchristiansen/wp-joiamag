@@ -196,6 +196,17 @@ $(document).ready(function ()
           }
       });
 
+    $( "a#menu-categorias" ).on( "click", function(e) {
+        e.preventDefault();
+        $('.navbar.navbar-light').addClass('cambia-color-menu');
+        $('a.navbar-brand img').attr('src','assets/img/logo-joia-white.svg')
+    });
+
+     $( "#modal-categorias button.close" ).on( "click", function(e) {
+        e.preventDefault();
+        $('.navbar.navbar-light').removeClass('cambia-color-menu');
+    });
+
 
 
 

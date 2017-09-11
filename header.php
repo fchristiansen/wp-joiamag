@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-            <a class="nav-link" href="javascript:void(0)"  data-toggle="modal" data-target="#modal-categorias">
+            <a id="menu-categorias" class="nav-link" href=""  data-toggle="modal" data-target="#modal-categorias">
                 Categorías <span class="sr-only">(current)</span>
               </a>
             </li>
