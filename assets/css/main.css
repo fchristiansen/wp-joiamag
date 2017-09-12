@@ -9580,26 +9580,7 @@ section.sidebar ul.wpp-list{
     padding: 0;
     text-transform: capitalize;
 }
-/*  .modal-categorias input#searchInput {
-    border: 0 none;
-    border-bottom: 2px solid #000;
-    color: #000;
-    font-family: "Montserrat", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700;
-    font-size: 1.125rem;
-    outline: none;
-    background: transparent; }*/
 
-
-/*    @media (min-width: 576px) {
-      .modal-categorias input#searchInput {
-        font-size: 2rem; } }
-    @media (min-width: 768px) {
-      .modal-categorias input#searchInput {
-        font-size: 4rem; } }
-    @media (min-width: 992px) {
-      .modal-categorias input#searchInput {
-        font-size: 6rem; } }*/
 .col-categoria{
   padding-top: 200px;
 }
@@ -9619,14 +9600,38 @@ section.sidebar ul.wpp-list{
     }
 }
 
+#modal-categorias ul li a:hover{
+      color: #9F9F9F;
+}
+
 .navbar.navbar-light.cambia-color-menu{
     background-color: #b3b3b3;
 }
+
 .navbar.navbar-light.cambia-color-menu ul li a{
     color: white;
 }
+
 .navbar.navbar-light.cambia-color-menu .nav-redes a{
     color: white;
 }
+
+/*nav inverse*/
+.navbar.navbar-inverse.cambia-color-menu{
+    background-color: #b3b3b3;
+}
+
+.navbar.navbar-inverse.cambia-color-menu ul li a{
+    color: white;
+}
+/*.navbar.navbar-inverse.cambia-color-menu ul li a:visited,
+.navbar.navbar-inverse.cambia-color-menu ul li a:hover {
+    color:#464a4c;
+}*/
+
+.navbar.navbar-inverse.cambia-color-menu .nav-redes a{
+    color: white;
+}
+
 
 

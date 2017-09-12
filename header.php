@@ -18,7 +18,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body <?php if(is_home()){ ?> class="home" <?php } ?>
+  <body data-url="<?php bloginfo('template_url'); ?>" <?php if(is_home()){ ?> class="home" <?php } ?>
         <?php if(is_singular('joia_tv') || is_post_type_archive('joia_tv')){ ?> class="joia-tv" <?php } ?>
         <?php if(is_post_type_archive('mixtape')){ ?> class="mixtapes-2" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" <?php } ?>
         <?php if(is_singular('mixtape')){ ?> class="mixtapes" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" <?php } ?>>
@@ -38,7 +38,7 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
             <a id="menu-categorias" class="nav-link" href=""  data-toggle="modal" data-target="#modal-categorias">
                 Categorías <span class="sr-only">(current)</span>
               </a>
@@ -69,7 +69,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);">
+              <a class="nav-link" href="<?php bloginfo('url'); ?>/tienda">
                 Tienda
               </a>
             </li>

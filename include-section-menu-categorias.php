@@ -1,4 +1,4 @@
-    <div id="modal-categorias" class="modal-categorias modal" tabindex="-1">
+    <div id="modal-categorias" class="modal-categorias modal" data-backdrop="static" tabindex="-1">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
       <i class="fa fa-times" aria-hidden="true"></i>
     </button>

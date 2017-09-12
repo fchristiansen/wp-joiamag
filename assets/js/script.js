@@ -148,10 +148,7 @@ function initialize()
 
 }
 
-
 google.maps.event.addDomListener(window, 'load', initialize);
-
-
 function newLocation(newLat,newLng)
 {
 	 map.setCenter({
@@ -177,12 +174,10 @@ $(document).ready(function ()
 	  $('.btn-main').removeClass('activo');
 	  $(this).addClass('activo');
 	});
-
-
-
 });
 
-    // carousel mixtapes
+  // carousel mixtapes
+
   $('.mix-carousel').owlCarousel({
           center: true,
           items:2,
@@ -196,16 +191,34 @@ $(document).ready(function ()
           }
       });
 
-    $( "a#menu-categorias" ).on( "click", function(e) {
+  //CAMBIO DE COLOR BARRA DE NAVEGACION CLICK EN MENU CATEGORIAS.
+
+    $("a#menu-categorias, #modal-categorias button.close").on( "click", function(e) {
         e.preventDefault();
-        $('.navbar.navbar-light').addClass('cambia-color-menu');
-        $('a.navbar-brand img').attr('src','assets/img/logo-joia-white.svg')
+        var url = $('body').data('url');
+        if($('nav.navbar.navbar-light').hasClass('cambia-color-menu')){
+            $('nav.navbar.navbar-light').removeClass('cambia-color-menu');
+             $("a#menu-categorias").css('color','#000');
+            $('a.navbar-brand img').attr('src',url+'/assets/img/logo-joia.svg');
+        }else{
+            $('nav.navbar.navbar-light').addClass('cambia-color-menu');
+            $("a#menu-categorias").css('color','#464a4c');
+            $('a.navbar-brand img').attr('src',url+'/assets/img/logo-joia-white.svg');
+        }
     });
 
-     $( "#modal-categorias button.close" ).on( "click", function(e) {
+    $("a#menu-categorias, #modal-categorias button.close").on( "click", function(e) {
         e.preventDefault();
-        $('.navbar.navbar-light').removeClass('cambia-color-menu');
+        var url = $('body').data('url');
+        if($('nav.navbar.navbar-inverse').hasClass('cambia-color-menu')){
+            $('nav.navbar.navbar-inverse').removeClass('cambia-color-menu');
+
+        }else{
+            $('nav.navbar.navbar-inverse').addClass('cambia-color-menu');
+        }
     });
+
+
 
 
 
