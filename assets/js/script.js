@@ -191,19 +191,21 @@ $(document).ready(function ()
           }
       });
 
-  //CAMBIO DE COLOR BARRA DE NAVEGACION CLICK EN MENU CATEGORIAS.
+  //CAMBIO DE COLOR BARRA DE NAVEGACION CLICK EN MENU CATEGORÍAS.
 
     $("a#menu-categorias, #modal-categorias button.close").on( "click", function(e) {
         e.preventDefault();
         var url = $('body').data('url');
         if($('nav.navbar.navbar-light').hasClass('cambia-color-menu')){
-            $('nav.navbar.navbar-light').removeClass('cambia-color-menu');
-             $("a#menu-categorias").css('color','#000');
             $('a.navbar-brand img').attr('src',url+'/assets/img/logo-joia.svg');
+            $('nav.navbar.navbar-light').removeClass('cambia-color-menu');
+            $("a#menu-categorias").css('color','#000');
+
         }else{
-            $('nav.navbar.navbar-light').addClass('cambia-color-menu');
-            $("a#menu-categorias").css('color','#464a4c');
-            $('a.navbar-brand img').attr('src',url+'/assets/img/logo-joia-white.svg');
+          $('a.navbar-brand img').attr('src',url+'/assets/img/logo-joia-white.svg');
+          $('nav.navbar.navbar-light').addClass('cambia-color-menu');
+          $("a#menu-categorias").css('color','#464a4c');
+
         }
     });
 

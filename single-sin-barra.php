@@ -81,9 +81,7 @@
                  </div>
                </div>
 
-
              <? }elseif(get('bloque_edicion_tipo', $bloque)=="Solo texto") { ?>
-
 
                <div class="container">
                  <div class="text-block text-block-center">
@@ -128,7 +126,6 @@
                        </div>
                        <!-- carousel -->
                  </div>
-
 
              <? } elseif(get('bloque_edicion_tipo', $bloque)=="Cita grande") { ?>
 

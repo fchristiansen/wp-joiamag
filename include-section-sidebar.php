@@ -1,5 +1,4 @@
-
-    <section class="sidebar">
+<section class="sidebar">
       <div class="widget popular-posts">
         <h2 class="title">Lo más visto</h2>
         <?php
