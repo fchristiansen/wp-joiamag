@@ -93,7 +93,12 @@
                              <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="<?php the_title(); ?>">
                              <div class="caption">Foto por <?php echo get('datos_generales_autor_foto', $bloque); ?></div>
 
-                    <? }elseif(get('bloque_edicion_tipo', $bloque)=="Solo texto") { ?>
+                    <? } elseif(get('bloque_edicion_tipo', $bloque)=="Foto full-width"){ ?>
+                         <div class="image-visual">
+                           <img class="img-fluid" src="<?php echo get('bloque_edicion_imagen', $bloque);?>" alt="">
+                         </div>
+
+                    <? } elseif(get('bloque_edicion_tipo', $bloque)=="Solo texto") { ?>
                           <?php echo get('bloque_edicion_texto', $bloque);  ?>
                    <? } elseif(get('bloque_edicion_tipo', $bloque)=="Cita grande") { ?>
                          <div class="lead">
@@ -102,8 +107,6 @@
                    <? } ?>
                  <? } ?>
                 <? } ?>
-
-
                 </div>
               <?php
              endwhile;

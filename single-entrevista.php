@@ -24,7 +24,6 @@
               <a href="javascript:void(0);"><?php
                             foreach((get_the_category()) as $category){
                                   echo $category->name;
-
                               }
                             ?></a> por <a href="javascript:void(0);"><?php the_author( ); ?></a> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?></div>
               <div class="share-module share-horizontal">
@@ -38,6 +37,15 @@
             </div>
           </header>
 
+            <div class="container">
+              <div class="text-block text-block-center">
+                <div class="row justify-content-md-center">
+                  <div class="col col-md-8">
+                    <?php the_content(); ?>
+                  </div>
+                </div>
+              </div>
+            </div>
 
               <?php
                 $i = 1;
