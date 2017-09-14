@@ -27,8 +27,11 @@
                 </button>
               </div>
             </div>
+
           </div>
-      <?php the_content(); ?>
+
+
+
       <!-- INICIO LOOP  -->
        <?php
          $i = 1;
@@ -74,7 +77,7 @@
                      <div class="row justify-content-md-center">
                        <div class="col col-md-8">
                          <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="">
-                         <div class="caption">Foto por <?php echo get('datos_generales_autor_foto', $bloque); ?> </div>
+                       <!--   <div class="caption">Foto por <?php echo get('datos_generales_autor_foto', $bloque); ?> </div> -->
                        </div>
                      </div>
                    </div>
@@ -127,6 +130,8 @@
                        <!-- carousel -->
                  </div>
 
+
+
              <? } elseif(get('bloque_edicion_tipo', $bloque)=="Cita grande") { ?>
 
                <div class="container">
@@ -136,8 +141,21 @@
                </div>
 
             <? } ?>
+                   <div class="container">
+                       <div class="text-block text-block-center">
+                         <div class="row justify-content-md-center">
+                           <div class="col col-md-8">
+                             <?php the_content(); ?>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
           <? } ?>
          <? } ?>
+
+
+
+
 
       <?php
        endwhile;
