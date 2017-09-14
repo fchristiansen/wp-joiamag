@@ -12,23 +12,26 @@
               'thumbnail_height' => 50,
               'stats_category' => 1,
               'post_html' =>'
-              <li><article class="teaser">
-                <div class="media">
-                  <a class="d-flex mr-3" href="{url}">
-                    {thumb}
-                  </a>
-                  <div class="media-body">
-                    <div class="cat">
-                      <a href="{url}">{category}</a>
+              <li class="teaser">
+                  <article>
+                    <div class="media">
+
+                      <div class="d-flex mr-3">
+                          {thumb}
+                      </div>
+                      <div class="media-body">
+                        <div class="cat">
+                          <a href="{url}">{category}</a>
+                        </div>
+                        <h5 class="mt-0 mb-0">
+                          <a href="{url}">
+                            {title}
+                          </a>
+                        </h5>
+                      </div>
                     </div>
-                    <h5 class="mt-0 mb-0">
-                      <a href="{url}">
-                        {title}
-                      </a>
-                    </h5>
-                  </div>
-                </div>
-              </article></li>'
+                   </article>
+             </li>'
           );
             wpp_get_mostpopular( $args );
           ?>

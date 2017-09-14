@@ -9,6 +9,8 @@
 
       <article class="single-page width-sidebar">
       <div class="container">
+
+
       <?php
         $i = 1;
         $e = 0;
@@ -64,7 +66,7 @@
                             foreach((get_the_category()) as $category){
                                   echo $category->name;
                               }
-                            ?></a> por <a href="javascript:void(0);"><?php the_author(); ?></a> Hace <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
+                            ?></a> por <a href="javascript:void(0);"><?php the_author(); ?></a> <br> Hace <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -80,6 +82,8 @@
                       </div>
                   </div>
 
+                    <?php the_content(); ?>
+
                 <?php
                   $i = 1;
                   $e = 0;
@@ -90,8 +94,7 @@
                     if (get('bloque_edicion_tipo', $bloque)) { // sólo sigue si ha seleccionado un tipo de bloque
                     if(get('bloque_edicion_tipo', $bloque)=="Foto centrada") { ?>
 
-                             <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="<?php the_title(); ?>">
-                             <div class="caption">Foto por <?php echo get('datos_generales_autor_foto', $bloque); ?></div>
+                        <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="<?php the_title(); ?>">
 
                     <? } elseif(get('bloque_edicion_tipo', $bloque)=="Foto full-width"){ ?>
                          <div class="image-visual">

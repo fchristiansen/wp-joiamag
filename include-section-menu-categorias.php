@@ -1,9 +1,9 @@
     <div id="modal-categorias" class="modal-categorias modal" data-backdrop="static" tabindex="-1">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-      <i class="fa fa-times" aria-hidden="true"></i>
-    </button>
-      <div class="container">
 
+      <div class="container">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
             <div class="row">
                   <div class="col-categoria col-sm-3">
                       <h2>joia</h2>

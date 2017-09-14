@@ -5,13 +5,16 @@ if (in_category('2')) {
     if (have_posts()) :
        while (have_posts()) :
          the_post();
-        if(get('plantilla_tipo_de_plantilla')=='Con sidebar'){
-            include (TEMPLATEPATH . '/single-con-barra.php');
-        }elseif(get('plantilla_tipo_de_plantilla')=='Sin sidebar'){
-            include (TEMPLATEPATH . '/single-sin-barra.php');
-        }
+         $tipo_plantilla = get('plantilla_tipo_de_plantilla');
     endwhile;
     endif;
+
+        if($tipo_plantilla=='Con sidebar'){
+            include (TEMPLATEPATH . '/single-con-barra.php');
+        }elseif($tipo_plantilla=='Sin sidebar'){
+            include (TEMPLATEPATH . '/single-sin-barra.php');
+        }
+
 }?>
 
 

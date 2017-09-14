@@ -368,17 +368,21 @@ b, strong {
   .sidebar .widget .title {
     font-size: 1rem;
     text-transform: uppercase; }
-  .sidebar .widget.popular-posts .teaser {
+  .sidebar .widget.popular-posts ul li.teaser {
     border-top: 1px solid #a0a0a0;
     padding-top: 0.9375rem;
-    padding-bottom: 0.9375rem; }
-    .sidebar .widget.popular-posts .teaser .media .media-body .cat {
+    padding-bottom: 0.9375rem;
+  }
+    .sidebar .widget.popular-posts ul li.teaser .media .media-body .cat {
       color: #a0a0a0;
-      font-size: 0.6875rem; }
-    .sidebar .widget.popular-posts .teaser .media .media-body h5 a {
-      color: inherit; }
-    .sidebar .widget.popular-posts .teaser:last-child {
-      border-bottom: 1px solid #a0a0a0; }
+      font-size: 0.6875rem;
+    }
+    .sidebar .widget.popular-posts ul li.teaser .media .media-body h5 a {
+      color: inherit;
+    }
+    .sidebar .widget.popular-posts ul li.teaser:last-child {
+      border-bottom: 1px solid #a0a0a0;
+    }
 
 .popular-posts .teaser h5 {
   font-size: 0.875rem; }
