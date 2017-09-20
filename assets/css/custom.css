@@ -1,0 +1,492 @@
+
+.woocommerce-message,
+.woocommerce-info {
+  padding: 20px 20px 15px;
+  margin-bottom: 30px;
+  float: none;
+  position: relative;
+  clear: both;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+
+}
+.woocommerce-message .button,
+.woocommerce-info .button {
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+.woocommerce-info {
+  padding-bottom: 20px;
+}
+/*	Form Row Styles */
+.form-row {
+  width: 46%;
+  margin: 0 2%;
+  position: relative;
+  float: left;
+  margin-bottom: 1rem;
+}
+.form-row:after {
+  content: '.';
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+.form-row.form-row-wide,
+.form-row.notes,
+.form-row.place-order {
+  width: 96%;
+  float: none;
+  clear: both;
+}
+.form-row.place-order {
+  width: auto;
+  margin: 0;
+}
+
+.form-row select,
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #464a4c;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ededed;
+    border-radius: 0;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.form-row textarea {
+  min-height: 200px;
+}
+.form-row input[type="checkbox"],
+.form-row input[type="radio"],
+.form-row input[type="submit"],
+.form-row input[type="button"] {
+  width: auto;
+}
+.form-row select {
+  display: block !important;
+  padding: 0.5rem 0.75rem;
+}
+
+.select2-container--default .select2-selection--single{
+	border-radius: 0 !important;
+	border: 1px solid #ededed;	
+	height: 35px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+	line-height: 35px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+	top: 5px;
+	right: 5px;
+}
+
+.checkout_coupon {
+    margin: 0 -2% 30px;
+    position: relative;
+    overflow: hidden;
+}
+.checkout_coupon .button{
+    width: 100%;
+    max-width: 100%;
+    padding: 11px 15px;
+}
+
+/* ocultar */
+.woocommerce-additional-fields h3{
+	display: none;
+}
+
+/* input formulario */
+.form-control {
+    
+}
+
+/*-------------------------------------------------------------------------*/
+/*  3. Cart */
+/*-------------------------------------------------------------------------*/
+.shop_table {
+  border-spacing: 0;
+  border-collapse: separate;
+  width: 100%;
+  margin: 0;
+  position: relative;
+ 
+}
+.shop_table thead,
+.shop_table tr {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.shop_table thead{
+  background-color: #ededed;
+}
+
+.shop_table th,
+.shop_table td {
+  padding: 15px 5px 15px 25px;
+  vertical-align: middle;
+  position: relative;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #ededed;
+  text-align: left;
+  overflow: hidden;
+}
+.shop_table td.product-name a{
+  color: #000;
+}
+
+.shop_table td.product-name a:hover{
+  color: #464a4c;
+}
+
+.shop_table td.product-remove .remove {
+  line-height: 26px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.shop_table td.product-thumbnail img {
+  width: 70px;
+  height: auto;
+}
+.shop_table td.actions {
+  padding: 15px 20px;
+  text-align: right;
+}
+.shop_table td.actions .coupon {
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+.shop_table td.actions .coupon label {
+  display: none;
+}
+.shop_table td.actions .coupon .input-text, .shop_table td.product-quantity .quantity .input-text {
+
+  border: 1px solid #ededed;
+    background-color: #fff;
+        padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+}
+.shop_table td.actions .button {
+    font-family: "Montserrat", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: inline-block;
+    font-weight: normal;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    max-width: 100%;
+    margin-left: 10px;
+    border-radius: 0;
+    background-color: #fff;
+    border: 2px solid #a0a0a0;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.shop_table td.actions .button:hover{
+    background-color: #a0a0a0;
+    border-color: #a0a0a0;
+    color: #fff;
+}
+
+.cart-collaterals {
+  margin: 0 -2%;
+}
+.cart-collaterals > * {
+  width: 96%;
+  float: none;
+  margin: 0 2%;
+  clear: both;
+}
+.cart-collaterals .cross-sells {
+  margin-bottom: 50px;
+}
+.cart-collaterals .cross-sells > h2 {
+  margin: 0;
+}
+.cart_totals {
+  position: relative;
+  overflow: hidden;
+}
+.cart_totals > h2 {
+  position: relative;
+  display: none;
+}
+.cart_totals .wc-proceed-to-checkout {
+  padding: 20px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cart_totals .wc-proceed-to-checkout a {
+    background-color: #ededed;
+    text-transform: none;
+    font-size: 16px;
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    border-radius: none;
+    border: none;
+    width: 50%;
+    padding: 20px;
+    display: block;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    float: right;
+    transition: all 0.2s ease-in-out;
+}
+
+.cart_totals .wc-proceed-to-checkout a:hover{
+  background-color: #000 !important; color: white !important;
+}
+
+
+.cart_totals table {
+  border-spacing: 0;
+  border-collapse: separate;
+  width: 100%;
+  position: relative;
+  
+}
+.cart_totals table tr {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.cart_totals table tr th,
+.cart_totals table tr td {
+  width: 43%;
+  padding: 15px 20px;
+  vertical-align: middle;
+  position: relative;
+
+  text-align: left;
+  overflow: hidden;
+}
+.cart_totals table tr td {
+  width: 57%;
+  text-align: right;
+}
+.cart_totals table tr.cart-subtotal th,
+.cart_totals table tr.order-total th {
+  font-weight: bold;
+}
+.cart_totals table tr.cart-subtotal td,
+.cart_totals table tr.order-total td,
+.cart_totals table tr.cart-subtotal td strong,
+.cart_totals table tr.order-total td strong {
+  font-weight: normal;
+}
+.cart_totals table tr.shipping #shipping_method {
+  padding: 0;
+  margin: 0;
+}
+.cart_totals table tr.shipping #shipping_method li:before {
+  content: none;
+}
+.cart_totals table tr.shipping #shipping_method input[type="checkbox"],
+.cart_totals table tr.shipping #shipping_method input[type="radio"] {
+  left: auto;
+  right: 0;
+  float: right;
+}
+.cart_totals table tr.shipping #shipping_method input[type="checkbox"] + label,
+.cart_totals table tr.shipping #shipping_method input[type="radio"] + label {
+  padding-left: 0 !important;
+  padding-right: 25px !important;
+  float: right;
+}
+.cart_totals table tr.shipping #shipping_method input[type="checkbox"] + label:before,
+.cart_totals table tr.shipping #shipping_method input[type="radio"] + label:before {
+  left: auto;
+  right: 0;
+}
+.cart_totals table tr.shipping #shipping_method input[type="checkbox"] + label:after {
+  left: auto;
+  right: 3px;
+}
+.cart_totals table tr.shipping #shipping_method input[type="radio"] + label:after {
+  left: auto;
+  right: 4px;
+}
+.woocommerce-shipping-calculator {
+  padding: 10px 0 0;
+}
+.woocommerce-shipping-calculator > p {
+  padding: 0;
+}
+.woocommerce-shipping-calculator .shipping-calculator-form {
+  padding: 10px 0 0;
+  margin: 0 -2%;
+}
+.woocommerce-shipping-calculator .shipping-calculator-form > * {
+  width: 96%;
+  margin: 0 2%;
+  clear: both;
+}
+.woocommerce-shipping-calculator .shipping-calculator-form input,
+.woocommerce-shipping-calculator .shipping-calculator-form select,
+.woocommerce-shipping-calculator .shipping-calculator-form textarea,
+.woocommerce-shipping-calculator .shipping-calculator-form button {
+  width: 100%;
+  max-width: 100%;
+}
+.woocommerce-shipping-calculator .shipping-calculator-form input[type="checkbox"],
+.woocommerce-shipping-calculator .shipping-calculator-form input[type="radio"] {
+  width: auto;
+}
+.woocommerce-shipping-calculator .shipping-calculator-form .button {
+  padding: 6px 15px;
+  cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------*/
+/*  4. Checkout */
+/*-------------------------------------------------------------------------*/
+#customer_details abbr[title]{
+text-decoration: none;
+}
+/*botones*/
+#place_order {
+    width: 100%;
+    
+    cursor: pointer;
+    background-color: black;
+    font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif;
+    font-size: 1.3125rem;
+    color: white;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    transition: all 0.2s ease-in-out;
+}
+
+   #place_order:hover, #place_order:focus {
+      background-color: #464a4c;
+      border-color: #464a4c;
+      color: #fff; }
+
+/*tablas*/
+#order_review_heading {
+    font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-size: 1.25rem;
+    color: white;
+    width: 100%;
+    padding: 15px 0 15px 30px;
+    background-color: black;
+    font-weight: normal;
+    margin-bottom: 0;
+
+}
+
+#order_review .shop_table {
+
+  border-left-width: 0;
+  border-left-style: solid;
+  width: 100%;
+}
+#order_review .shop_table th,
+#order_review .shop_table td {
+  
+ /* border-left-width: 1px;
+  border-left-style: solid; */
+  padding: 0.75rem;
+  padding-left: 30px;
+  border-top: 2px solid #ededed;
+  width: 30%;
+}
+
+#order_review .shop_table tr:first-child td {
+	width: 70%;
+}
+
+#order_review .shop_table thead{
+background-color: #ededed;
+}
+
+
+#order_review .shop_table thead th {
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+#order_review .shop_table tbody td {
+    padding: 15px;
+    padding-left: 30px;
+	vertical-align: middle;
+	font-size: 1rem;
+  border-bottom: 0;
+}
+
+#order_review .shop_table tfoot tr{
+background-color: #ededed;
+}
+
+
+#order_review .shop_table tfoot th, #order_review .shop_table tfoot td{
+    padding: 30px;
+    font-size: 1rem;
+    border-top: 2px solid #fff;
+}
+
+#order_review .shop_table tfoot th{
+	padding-left: 40px;
+	text-transform: none !important;
+}
+
+
+
+#order_review .shop_table td.product-name,
+#order_review .shop_table td.product-name * {
+  font-weight: normal;
+  text-transform: none;
+
+}
+#order_review .shop_table tr.cart-subtotal th,
+#order_review .shop_table tr.order-total th,
+#order_review .shop_table tr.cart-subtotal td,
+#order_review .shop_table tr.order-total td {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#ship-to-different-address{
+  padding-left: 0.50rem;
+}
+
+#ship-to-different-address label{
+    font-family: "brandon_text_regular", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem;
+  font-weight: normal;
+  
+}

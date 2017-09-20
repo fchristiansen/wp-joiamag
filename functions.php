@@ -1,5 +1,10 @@
 <?php // custom functions.php template @ digwp.com
 
+// Woocommerce functions
+  if (class_exists('woocommerce')) {
+    require_once(get_template_directory() . '/woocommerce/cmsms-woo-functions.php');
+  }
+
   // remueve adminbar en front
     add_filter( 'show_admin_bar', '__return_false' );
 
@@ -27,6 +32,7 @@ function theme_styles() {
     wp_enqueue_style('owl-theme', get_template_directory_uri() . '/assets/css/owl.theme.default.min.css', array(), '1', 'screen' );
     wp_enqueue_style('style-joia', get_template_directory_uri() . '/assets/css/main.css', array(), '1', 'screen' );
     wp_enqueue_style('style-tienda', get_template_directory_uri() . '/assets/css/tienda.css', array(), '1', 'screen' );
+    wp_enqueue_style('style-custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1', 'screen' );
 }
 
 // carga js
@@ -55,6 +61,7 @@ function theme_js(){
     wp_enqueue_script('nexprev-js', get_template_directory_uri() . '/assets/js/nextprev.js', array('jquery'),'1', true);
     wp_enqueue_script('tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.1/TweenMax.min.js', array('jquery'),'', true);
     wp_enqueue_script('joiajs', get_template_directory_uri() . '/assets/js/script.js', array('jquery'),'1', true);
+    wp_enqueue_script('cmsms-woo-js', get_template_directory_uri() . '/assets/js/cmsms-woo.js', array('jquery'),'1', true);
 
 }
   add_action('wp_enqueue_scripts', 'theme_styles');
