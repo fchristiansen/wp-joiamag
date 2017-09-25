@@ -35,7 +35,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);"><?php the_author(); ?></a>Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
+                      <a href="javascript:void(0);"><?php the_author(); ?></a> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                     </p>
                   </div>
                 </div>
