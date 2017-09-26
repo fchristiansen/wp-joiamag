@@ -101,7 +101,11 @@
                  <img class="img-fluid" src="<?php echo get('bloque_edicion_imagen', $bloque);?>" alt="">
                </div>
 
-             <? } elseif(get('bloque_edicion_tipo', $bloque)=="Slider") { ?>
+           <? } elseif(get('bloque_edicion_tipo', $bloque)=="Video") { ?>
+                  <div class="video-container">
+                      <?php echo get('bloque_edicion_texto', $bloque);  ?>
+                  </div>
+          <? }elseif(get('bloque_edicion_tipo', $bloque)=="Slider") { ?>
 
                    <div class="container">
                      <div id="carousel-01" class="carousel slide" data-ride="carousel">

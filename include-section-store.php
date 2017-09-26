@@ -2,7 +2,7 @@
           <div class="container">
           <?php
                  $args = array (
-                     'page_id' => 52
+                     'page_id' => 214
                      //'posts_per_page' => 4
 
                    );
@@ -38,8 +38,8 @@
                       <?php wp_reset_postdata()  ?>
 
               </div>
-
-            <a href="http://joiamagazine.com/tienda/" rol="button" class="btn btn-white">
+              <!-- store carousel -->
+            <a href="<?php bloginfo('url') ?>/tienda" rol="button" class="btn btn-white">
               Ir a la tienda
             </a>
 
