@@ -47,7 +47,7 @@
                     <div class="card card-video mb-5">
                       <div class="card-img-top">
                         <a href="<?php the_permalink(); ?>">
-                          <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/joia-tv.jpg" alt="">
+                          <img class="img-fluid" src="<?php echo get('video_captura_grande'); ?>" alt="<?php the_title(); ?>">
                         </a>
                       </div>
                       <div class="card-body">
