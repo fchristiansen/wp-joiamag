@@ -58,7 +58,7 @@
                 Ediciones
               </a>
             </li>
-            <li class="nav-item hidden">
+            <li class="nav-item">
               <a class="nav-link" href="<?php bloginfo('url'); ?>/joia_tv">
                 joia tv
               </a>
