@@ -40,39 +40,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
 
-			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+			<div class="row no-gutters box_gris">
 
-				<li class="woocommerce-order-overview__order order">
+				<div class="col-lg-2">
 					<?php _e( 'Order number:', 'woocommerce' ); ?>
-					<strong><?php echo $order->get_order_number(); ?></strong>
-				</li>
+					<?php echo $order->get_order_number(); ?>
+				</div>
 
-				<li class="woocommerce-order-overview__date date">
+				<div class="col-lg-3">
 					<?php _e( 'Date:', 'woocommerce' ); ?>
-					<strong><?php echo wc_format_datetime( $order->get_date_created() ); ?></strong>
-				</li>
+					<?php echo wc_format_datetime( $order->get_date_created() ); ?>
+				</div>
 
-				<li class="woocommerce-order-overview__total total">
+				<div class="col-lg-3">
 					<?php _e( 'Total:', 'woocommerce' ); ?>
-					<strong><?php echo $order->get_formatted_order_total(); ?></strong>
-				</li>
+					<?php echo $order->get_formatted_order_total(); ?>
+				</div>
 
 				<?php if ( $order->get_payment_method_title() ) : ?>
 
-				<li class="woocommerce-order-overview__payment-method method">
+				<div class="col-lg-4">
 					<?php _e( 'Payment method:', 'woocommerce' ); ?>
-					<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
-				</li>
+					<?php echo wp_kses_post( $order->get_payment_method_title() ); ?>
+				</div>
 
 				<?php endif; ?>
 
-			</ul>
+			</div>
 
 		<?php endif; ?>
-
+		<div class="texto_indicaciones">
 		<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
+		</div>
 		<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
-
+		<div class="clear"></div>
 	<?php else : ?>
 
 		<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>

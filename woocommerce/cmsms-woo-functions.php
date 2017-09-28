@@ -193,3 +193,98 @@ function remove_title_from_shipping_label($label, $method) {
 $new_label = preg_replace( '/^.+:/', '', $label );
 return $new_label;
 }
+
+// Display variation's price even if min and max prices are the same
+add_filter('woocommerce_available_variation', function ($value, $object = null, $variation = null) {
+  if ($value['price_html'] == '') {
+    $value['price_html'] = '<span class="price">' . $variation->get_price_html() . '</span>';
+  }
+  return $value;
+}, 10, 3);
+
+
+add_action( 'woocommerce_after_shop_loop_item_title', 'obox_woocommerce_product_content', 35, 2); 
+if (!function_exists('obox_woocommerce_product_content'))  
+{ 
+     function lk_woocommerce_product_content()  
+     {     
+     the_content(); 
+     } 
+}
+
+/**
+ * custom_woocommerce_template_loop_add_to_cart
+*/
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
+ 
+function woo_custom_cart_button_text() {
+ 
+        return esc_html__( 'agregar al carro de compra', 'woocommerce' );
+ 
+}
+
+function my_custom_endpoints() {
+    add_rewrite_endpoint( 'lista-de-deseos', EP_ROOT | EP_PAGES );
+}
+
+add_action( 'init', 'my_custom_endpoints' );
+
+function my_custom_query_vars( $vars ) {
+    $vars[] = 'lista-de-deseos';
+
+    return $vars;
+}
+
+add_filter( 'query_vars', 'my_custom_query_vars', 0 );
+
+function my_custom_flush_rewrite_rules() {
+    flush_rewrite_rules();
+}
+
+add_action( 'after_switch_theme', 'my_custom_flush_rewrite_rules' );
+
+function my_custom_my_account_menu_items( $items ) {
+    $items = array(
+        'dashboard'         => __( 'Dashboard', 'woocommerce' ),
+        'orders'            => __( 'Orders', 'woocommerce' ),
+        //'downloads'       => __( 'Downloads', 'woocommerce' ),
+        //'payment-methods' => __( 'Payment Methods', 'woocommerce' ),
+        'edit-account'      => __( 'Mi Cuenta', 'woocommerce' ),
+        'edit-address'    => __( 'Direcciones', 'woocommerce' ),
+        'lista-de-deseos'      => 'Lista de deseos',
+        'customer-logout'   => __( 'Logout', 'woocommerce' ),
+    );
+
+    return $items;
+}
+
+add_filter( 'woocommerce_account_menu_items', 'my_custom_my_account_menu_items' );
+
+function my_custom_endpoint_content() {
+    wc_get_template('myaccount/lista-de-deseos.php'); 
+}
+
+add_action( 'woocommerce_account_lista-de-deseos_endpoint', 'my_custom_endpoint_content' );
+
+// filter the array that is sent to the breadcrumbs template
+add_filter( 'woocommerce_get_breadcrumb', function( $crumbs ){
+    // remove the last element (this is the page name by default)
+    $page_crumb = array_pop( $crumbs );
+
+    // add it back to the beginning of the array. 
+    // you can change this to whatever you want, it's an array( 'Text', '/link' )
+    array_unshift( $crumbs, $page_crumb );
+
+    // return the modified array
+    return $crumbs;
+} );
+
+add_action('woocommerce_archive_description', 'woocommerce_category_description', 2);
+
+function woocommerce_category_description() {
+    if (is_product_category()) {
+        global $wp_query;
+        $cat = $wp_query->get_queried_object();
+        return($cat); // the category needed.
+    }
+}

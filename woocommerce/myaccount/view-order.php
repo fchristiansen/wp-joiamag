@@ -54,3 +54,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_view_order', $order_id ); ?>
+<div class="clear"></div>

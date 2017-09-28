@@ -21,25 +21,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 wc_print_notices(); ?>
-
+<section class="resumen_compra clearfix">
 <form method="post" class="woocommerce-ResetPassword lost_reset_password">
-
+<div class="row">
+	<div class="col-lg-12">
 	<p><?php echo apply_filters( 'woocommerce_lost_password_message', __( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p>
-
-	<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-6">
+	<div class="form-group">
 		<label for="user_login"><?php _e( 'Username or email', 'woocommerce' ); ?></label>
-		<input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login" id="user_login" />
-	</p>
+		<input class="woocommerce-Input woocommerce-Input--text input-text form-control" type="text" name="user_login" id="user_login" />
+	</div>
 
 	<div class="clear"></div>
 
 	<?php do_action( 'woocommerce_lostpassword_form' ); ?>
 
-	<p class="woocommerce-form-row form-row">
+	<div class="form-group">
 		<input type="hidden" name="wc_reset_password" value="true" />
-		<input type="submit" class="woocommerce-Button button" value="<?php esc_attr_e( 'Reset password', 'woocommerce' ); ?>" />
-	</p>
+		<input type="submit" class="woocommerce-Button button btn btn-primary btn_form_gris" value="<?php esc_attr_e( 'Reset password', 'woocommerce' ); ?>" />
+	</div>
 
 	<?php wp_nonce_field( 'lost_password' ); ?>
-
+	</div>
+</div>
 </form>
+</section>

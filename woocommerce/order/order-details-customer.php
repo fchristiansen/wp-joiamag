@@ -54,9 +54,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
 
-	<section class="woocommerce-columns woocommerce-columns--2 woocommerce-columns--addresses col2-set addresses">
-
-		<div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-1">
+	<section class="order_details-customer-adress">
+		<div class="row">
+		<div class="col-lg-6">
 
 			<?php endif; ?>
 
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div><!-- /.col-1 -->
 
-		<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2">
+		<div class="col-lg-6">
 
 			<h3 class="woocommerce-column__title"><?php _e( 'Shipping address', 'woocommerce' ); ?></h3>
 
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</address>
 
 		</div><!-- /.col-2 -->
-
+		</div>
 	</section><!-- /.col2-set -->
 
 	<?php endif; ?>

@@ -7,7 +7,7 @@ if ( !$pagename && $id > 0 ) {
 }
 $show_shop_footer = false;
 //echo $pagename;
-if(is_page('carrito') || is_page('finalizar-compra')){
+if(is_page('carrito') || is_page('finalizar-compra') || is_page('mi-cuenta')) {
 	$show_shop_footer = true;
 	get_header( 'shop' ); ?>
     <div class="footer-over">
@@ -19,11 +19,12 @@ if(is_page('carrito') || is_page('finalizar-compra')){
 <?
 }
 ?>
-<h1 class="entry-title"><?php the_title(); ?></h1>
+<h1 class="entry-title <?php echo $pagename;?>"><?php the_title(); ?></h1>
 <p><?php the_content(); ?></p>
 
 <?php if($show_shop_footer) : ?>
 </div><!-- container -->
 </div><!-- page-resultados -->
+<div class="clear"></div>
 </div><!-- footer-over -->
 <?php endif;?>

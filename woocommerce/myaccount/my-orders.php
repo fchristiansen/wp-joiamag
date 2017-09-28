@@ -27,8 +27,9 @@ $customer_orders = get_posts( apply_filters( 'woocommerce_my_account_my_orders_q
 
 if ( $customer_orders ) : ?>
 
-	<h2><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', __( 'Recent orders', 'woocommerce' ) ); ?></h2>
-
+	<div class="title_tabla">
+	                          Historial de pedidos
+	                        </div>
 	<table class="shop_table shop_table_responsive my_account_orders">
 
 		<thead>
@@ -76,7 +77,7 @@ if ( $customer_orders ) : ?>
 										),
 										'view'   => array(
 											'url'  => $order->get_view_order_url(),
-											'name' => __( 'View', 'woocommerce' ),
+											'name' => __( ' ', 'woocommerce' ),
 										),
 										'cancel' => array(
 											'url'  => $order->get_cancel_order_url( wc_get_page_permalink( 'myaccount' ) ),

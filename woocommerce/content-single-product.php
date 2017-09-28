@@ -14,44 +14,40 @@
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     3.0.0
+ * 
+ * @cmsms_package 	EcoNature
+ * @cmsms_version 	1.3.2
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 global $product;
+
+$category = get_term_by( 'slug', 'destacados', 'product_cat' );
+$term_id = $category->term_id;
+
+//echo $term_id;
+
+/**
+ * woocommerce_before_single_product hook
+ *
+ * @hooked wc_print_notices - 10
+ */
+do_action( 'woocommerce_before_single_product' );
+
+
+if ( post_password_required() ) {
+	echo get_the_password_form();
+	return;
+}
 ?>
 
-<?php
-	/**
-	 * woocommerce_before_single_product hook.
-	 *
-	 * @hooked wc_print_notices - 10
-	 */
-	 do_action( 'woocommerce_before_single_product' );
-
-	 if ( post_password_required() ) {
-	 	echo get_the_password_form();
-	 	return;
-	 }
-?>
-
-<section id="product-<?php the_ID(); ?>" class="section producto_detalle">
-
-	<?php
-		/**
-		 * woocommerce_before_single_product_summary hook.
-		 *
-		 * @hooked woocommerce_show_product_sale_flash - 10
-		 * @hooked woocommerce_show_product_images - 20
-		 */
-		//do_action( 'woocommerce_before_single_product_summary' );
-	?>
-
-	<div class="row">
+<div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class('cmsms_single_product'); ?>>
+<section class="section producto_detalle">
+          <div class="row">
               <div class="col-sm-12 col-lg-8">
                 <div class="img_detalle_producto">
-                 <?php 
+                  <?php 
 					woocommerce_show_product_loop_sale_flash();
 					
 					$availability = $product->get_availability();
@@ -60,80 +56,77 @@ global $product;
 						echo apply_filters('woocommerce_stock_html', '<span class="' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</span>', $availability['availability']);
 					}
 					
-				?>
-				<?php if ( has_post_thumbnail( $product->id ) ) {
+					if ( $product->is_type( 'variable' ) ) {
+					woocommerce_show_product_images();
+					}else{ 
+						if ( has_post_thumbnail( $product->id ) ) {
                         $attachment_ids[0] = get_post_thumbnail_id( $product->id );
                          $attachment = wp_get_attachment_image_src($attachment_ids[0], 'full' ); ?>    
-                        <img class="img-fluid" src="<?php echo $attachment[0] ; ?>" alt="">
-                    <?php } ?>
+                        <img src="<?php echo $attachment[0] ; ?>" class="img-fluid"  />
+                    <?php } 
+					}
+					?>
 
-		
                 </div>
               </div>
-	<div class="col-sm-12 col-lg-4">
-		<div class="summary entry-summary descripcion">
-			<h3><?php echo $product->get_title();?></h3>
-			<h2><?php woocommerce_template_single_meta();?></h2></p>
-			<p class="precio"><?php echo $product->get_price_html();?></p>
-	<?php 
-		
-		
-		//cmsms_woocommerce_rating('cmsms-icon-star-empty', 'cmsms-icon-star-1');
-		
-		
-		
-		woocommerce_template_single_excerpt();
-		
-		
-		
-		
-		
-		//woocommerce_template_single_sharing();
-	?> 
+              <div class="col-sm-12 col-lg-4">
+                  <div class="descripcion">
 
-			<div class="box_select">
-				<?php
+                    <?php woocommerce_template_single_title();?>
+					<?php
+					$categorias_html = "";
+					$terms = get_the_terms( $post->ID, 'product_cat' );
+					    foreach ( $terms as $term ) {
+					    	$term_link = get_term_link( $term );
+					        if( $term->name == 'Destacados' ){
+					          // print_r($term_id);
+					        }else{
+					            $categorias_html.= ' <a href="' . esc_url( $term_link ) . '">' . $term->name . '</a>, ';
+					        }
+					    }
+					
+					 
+					$categorias_html = rtrim($categorias_html, ", ");
+					?>
+                    <h2><?php echo $categorias_html?></h2>
+                      
+                    <?php woocommerce_template_single_price();?>
+                    <?php lk_woocommerce_product_content();?>
+                    <div class="box_select">
+						<?php woocommerce_template_single_add_to_cart();?>
+                    </div>
+					<div class="button_wishlist">
+						<?php 
+						if(is_user_logged_in()){
+							$data_logged = 1;
+						}else{
+							$data_logged = 0;
+						}?>
+						<a href="<?php bloginfo('url')?>/add-to-wishlist" data-product-id="<?php echo $product->id;?>" data-logged="<?php echo $data_logged;?>" class="add_to_wishlist">Agregar a Lista de deseos</a>
+						<div class="mssg-wishlist"></div>
+					</div>
+                  </div><!-- end descripcion -->
 
-				woocommerce_template_single_add_to_cart();
-				?>
-			</div>
-		</div><!-- .summary -->
-	</div>
-	</div><!-- .row -->
-
-	       <div class="box_thumbs">
+              </div>
+          </div>
+          <div class="box_thumbs">
             <div class="row">
-                <div class="col-md-2 mb-2">
-                   <img class="img-fluid" src="assets/img/producto1.jpg" alt="">
-                </div>
-                 <div class="col-md-2 mb-2">
-                   <img class="img-fluid" src="assets/img/producto1.jpg" alt="">
-                </div>
-                 <div class="col-md-2 mb-2">
-                   <img class="img-fluid" src="assets/img/producto1.jpg" alt="">
-                </div>
-                 <div class="col-md-2 mb-2">
-                   <img class="img-fluid" src="assets/img/producto1.jpg" alt="">
-                </div>
-                <div class="col-md-2 mb-2">
-                   <img class="img-fluid" src="assets/img/producto1.jpg" alt="">
-                </div>
-                 <div class="col-md-2 mb-2">
-                   <img class="img-fluid" src="assets/img/producto1.jpg" alt="">
-                </div>
+            	<?php
+                 $attachment_ids = $product->get_gallery_attachment_ids();
+                 foreach( $attachment_ids as $attachment_id ) 
+                 {
+                 $image_src = wp_get_attachment_image_src( $attachment_id,'store-item' );
+                 $image_link = wp_get_attachment_url( $attachment_id );
+                 ?>
+	                <div class="col-md-2 mb-2">
+	                   <img class="img-fluid" src="<?php echo $image_src[0]?>" alt="">
+	                </div>
+      			<?php }   ?>
             </div>
           </div>
 
-</section><!-- #product-<?php the_ID(); ?> -->
-	<?php
-		/**
-		 * woocommerce_after_single_product_summary hook.
-		 *
-		 * @hooked woocommerce_output_product_data_tabs - 10
-		 * @hooked woocommerce_upsell_display - 15
-		 * @hooked woocommerce_output_related_products - 20
-		 */
-		do_action( 'woocommerce_after_single_product_summary' );
-	?>
 
+          </section> <!-- producto detalle -->
+          <?php woocommerce_output_related_products();?>
+</div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>

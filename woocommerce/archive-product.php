@@ -20,7 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header( 'shop' ); 
+?>
 
 
 
@@ -31,7 +32,12 @@ get_header( 'shop' ); ?>
             <h1 class="title-tienda">JOIA tienda</h1>
         </div>
 		
-		 <?php
+		<?php
+		if(is_product_category()){
+			 $cat = woocommerce_category_description();
+			 echo "<h2 class='title-category'>".$cat->name."</h2>";
+		}else{
+
         $args = array( 'post_type' => 'product', 'posts_per_page' => 4, 'product_cat' => 'destacados', 'orderby' => 'rand' );
         $loop = new WP_Query( $args );
         $i = 1;
@@ -101,7 +107,7 @@ get_header( 'shop' ); ?>
                </div><!-- productos -->
           </section>
           <!-- ==== end grilla productos destacados ==== -->
-
+		<?php } ?>
 		<?php if ( have_posts() ) : ?>
 
 			<?php
