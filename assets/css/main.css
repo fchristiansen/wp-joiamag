@@ -9656,6 +9656,30 @@ section.sidebar ul.wpp-list{
     height: 100%;
 }
 
+.card-img-top{
+  position: relative;
+}
+.card-img-top a i.play-icon,
+.card-img-top a i.play-icon-lg{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease;
+}
+.card-img-top a i.play-icon{
+  font-size: 2rem;
+}
+.card-img-top a i.play-icon-lg{
+  font-size: 6rem !important;
+}
+.card-img-top a:hover i.play-icon,
+.card-img-top a:hover i.play-icon-lg{
+    color: #464A4C;
+
+}
+
 
 
 

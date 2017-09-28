@@ -47,6 +47,7 @@
                     <div class="card card-video mb-5">
                       <div class="card-img-top">
                         <a href="<?php the_permalink(); ?>">
+                          <i class="fa fa-play-circle-o play-icon" aria-hidden="true"></i>
                           <img class="img-fluid" src="<?php echo get('video_captura_grande'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
                         </a>
                       </div>
