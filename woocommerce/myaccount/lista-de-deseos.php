@@ -21,11 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 global $wpdb;
 $token = wp_get_session_token();
+if(is_user_logged_in()){
+$user_id = get_current_user_id();
+}else{
+  $user_id = 0;
+}
+
                       $prefix = $wpdb->prefix;
                       //echo $prefix;
                       $query = "SELECT ".$prefix."posts.ID, ".$prefix."posts.post_title FROM ".$prefix."posts 
                       INNER JOIN wp_crm_wish_list wl ON wl.prod_id = ".$prefix."posts.ID 
-                      WHERE post_type = 'product' AND wl.user_id = 1 ORDER BY dateadded DESC";
+                      WHERE post_type = 'product' AND wl.user_id = $user_id ORDER BY dateadded DESC";
 
                       $myrows = $wpdb->get_results( $query );
                       
