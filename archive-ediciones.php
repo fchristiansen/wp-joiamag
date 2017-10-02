@@ -1,11 +1,20 @@
+<?php
+/*
+
+Template name: Ediciones
+
+*/
+?>
 <?php get_header(); ?>
 
     <div class="footer-over">
       <div class="page page-content page-ediciones">
         <div class="container">
+        <?php wc_print_notices();?>
         <?php
            $args = array (
-               'post_type' => 'ediciones',
+               'post_type' => 'product',
+               'product_cat' => 'ediciones',
                'posts_per_page' => 1
              );
              $the_query = new WP_Query ($args);
@@ -21,23 +30,28 @@
               <div class="col-md-6">
 
                 <?php the_title('<h1>','</h1>'); ?>
-                <p><?php echo get('detalles_fecha'); ?></p>
+                <p><?php echo get('ediciones_fecha'); ?></p>
                 <ul class="list-unstyled">
                   <?
                   $f = 0;
-                  $bloques = get_order_group('detalles_contenido');
+                  $bloques = get_order_group('ediciones_contenido');
                   foreach($bloques as $bloque){
                         $e = $e +1;
                         $f++;
-                        $nombres = get_order_field('detalles_contenido', $bloque); // guarda las fotos en un array
+                        $nombres = get_order_field('ediciones_contenido', $bloque); // guarda las fotos en un array
                         foreach ($nombres as $nombre) {
                          ?>
-                              <li><?php echo get('detalles_contenido',$e ,$nombre); ?></li>
+                              <li><?php echo get('ediciones_contenido',$e ,$nombre); ?></li>
                          <? } ?>
                     <? } ?>
                 </ul>
                 <div>
-                  <button type="button" class="btn btn-black">Comprar ahora</button>
+                  <!--<button type="button" class="btn btn-black">Comprar ahora</button>-->
+                   <form action="" method="post">
+                    <input name="add-to-cart" type="hidden" value="<?php echo $post->ID ?>" />
+                    <input name="quantity" type="hidden" value="1" min="1"  />
+                    <input name="submit" type="submit" value="Comprar ahora" class="btn btn-black" />
+                  </form>
                 </div>
               </div>
             </div>
@@ -50,7 +64,8 @@
           <div class="row">
           <?php
              $args = array (
-                 'post_type' => 'ediciones',
+                 'post_type' => 'product',
+                 'product_cat' => 'ediciones',
                  'offset' => 1,
                  'posts_per_page' => 8
                );
@@ -66,7 +81,7 @@
                 </div>
                 <div class="card-body">
                   <h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                  <p class="date"><?php echo get('detalles_fecha'); ?></p>
+                  <p class="date"><?php echo get('ediciones_fecha'); ?></p>
                 </div>
               </div>
             </div>
