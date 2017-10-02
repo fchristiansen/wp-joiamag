@@ -41,7 +41,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="article-meta">
-                      Por <a href="javascript:void(0);"><?php the_author(); ?></a> <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
+                      Por <?php the_author_posts_link(); ?> <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                     </div>
                   </div>
                   <div class="col">
@@ -80,7 +80,12 @@
                         MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'secondary-image', NULL,  'imagen-destacada-secundaria');
                         endif;
                     ?>
+
                 </div>
+                <div class="caja-embed">
+                   <?php echo get('detalles_mixtape_codigo_embed'); ?>
+                </div>
+                <!-- caja embed -->
               </div>
             </div>
           </div>
@@ -101,11 +106,11 @@
                       <i class="fa fa-facebook" aria-hidden="true"></i>
                     </button>
                   </li>
-                  <li>
+                 <!--  <li>
                     <button type="button" class="sh-btn sh-btn-yt">
                       <i class="fa fa-youtube" aria-hidden="true"></i>
                     </button>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
               <!-- share modules -->
@@ -142,13 +147,10 @@
                                         <?php the_post_thumbnail('related-thumb', array('class' => 'd-flex mr-3 img-fluid' ,'title' => get_the_title())); ?>
                                   </a>
                                 <div class="media-body">
-                                  <a class="media-meta" href="javascript:void(0);">
-                                    <?php
-                                        foreach((get_the_category()) as $category){
-                                              echo $category->name;
-                                          }
-                                      ?>
-                                  </a>
+                                  <div class="media-meta">
+                                    <?php the_category( ', ', '', false); ?>
+                                  </div>
+
                                   <h5 class="mt-0">
                                     <a href="<?php the_permalink(); ?>">
                                       <?php the_title(); ?>
