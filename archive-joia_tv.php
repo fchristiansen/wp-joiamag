@@ -38,7 +38,8 @@
                 <?php
                    $args = array (
                        'post_type' => 'joia_tv',
-                       'posts_per_page' => 8
+                       'posts_per_page' => 8,
+                       'offset' => 1
                      );
                      $the_query = new WP_Query ($args);
                  ?>
@@ -47,7 +48,8 @@
                     <div class="card card-video mb-5">
                       <div class="card-img-top">
                         <a href="<?php the_permalink(); ?>">
-                          <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/joia-tv.jpg" alt="">
+                          <i class="fa fa-play-circle-o play-icon" aria-hidden="true"></i>
+                          <img class="img-fluid" src="<?php echo get('video_captura_grande'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
                         </a>
                       </div>
                       <div class="card-body">

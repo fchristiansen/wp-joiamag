@@ -1,12 +1,4 @@
-<?php get_header(); ?>
-
-    <div class="footer-over">
-      <div class="page page-content page-resultados">
-        <div class="container">
-          <div class="page-heading-title">
-            <h1>Resultados para: <span><?= $_GET['s']; ?></span></h1>
-          </div>
-          <section class="section news-features">
+ <section class="section news-features">
             <div class="row">
                   <?php
                       if (have_posts()) :
@@ -26,8 +18,8 @@
                           </div>
                           <div class="card-body">
                             <p class="card-meta mb-0">
-                              <a href="javascript:void(0);">
-                                <i class="icon-section-features"></i> Noticias
+                              <a href="<?php the_permalink(); ?>">
+                                <i class="icon-section-features"></i> <?php echo single_cat_title(); ?>
                               </a>
                             </p>
                             <h1 class="card-title">
@@ -49,8 +41,3 @@
               Cargar más
             </button>
           </div>
-        </div>
-      </div>
-    </div>
-
-<?php get_footer(); ?>

@@ -80,9 +80,9 @@
                           </div>
                         </div>
                       </div>
-                  </div>
 
-                    <?php the_content(); ?>
+                        <?php the_content(); ?>
+
 
                 <?php
                   $i = 1;
@@ -103,6 +103,10 @@
 
                     <? } elseif(get('bloque_edicion_tipo', $bloque)=="Solo texto") { ?>
                           <?php echo get('bloque_edicion_texto', $bloque);  ?>
+                     <? } elseif(get('bloque_edicion_tipo', $bloque)=="Video") { ?>
+                          <div class="video-container">
+                           <?php echo get('bloque_edicion_texto', $bloque);  ?>
+                          </div>
                    <? } elseif(get('bloque_edicion_tipo', $bloque)=="Cita grande") { ?>
                          <div class="lead">
                            <?php echo get('bloque_edicion_texto', $bloque); ?>
@@ -111,6 +115,7 @@
                  <? } ?>
                 <? } ?>
                 </div>
+             </div> <!-- single page content -->
               <?php
              endwhile;
              endif;

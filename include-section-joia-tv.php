@@ -19,8 +19,10 @@
              ?>
             <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
             <div class="card card-tv card-big-tv mb-5">
+
               <div class="card-img-top">
                 <a href="<?php the_permalink(); ?>">
+                  <i class="fa fa-play-circle-o play-icon-lg" aria-hidden="true"></i>
                   <img class="img-fluid" src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" title="<?php the_title(); ?>">
                 </a>
               </div>
@@ -52,6 +54,7 @@
                 <div class="card card-tv card-small-tv mb-5">
                   <div class="card-img-top">
                     <a href="<?php the_permalink(); ?>">
+                      <i class="fa fa-play-circle-o play-icon" aria-hidden="true"></i>
                       <img class="img-fluid" src="<?php the_post_thumbnail_url();?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
                     </a>
                   </div>

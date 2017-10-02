@@ -2,7 +2,8 @@
              <?php
                  $args = array (
                      'post_type' => 'post',
-                     'offset' => -2
+                      'posts_per_page' => 6,
+                     'offset' => 3
 
                    );
                    $the_query = new WP_Query ($args);
@@ -22,11 +23,7 @@
                   <div class="card-body">
                     <p class="card-meta mb-0">
                       <a href="javascript:void(0);">
-                        <i class="icon-section-features"></i> <?php
-                            foreach((get_the_category()) as $category){
-                                  echo $category->name;
-                              }
-                            ?>
+                        <i class="icon-section-features"></i> <?php the_category( ', ', '', false); ?>
                       </a>
                     </p>
                     <h1 class="card-title">
@@ -35,7 +32,7 @@
                       </a>
                     </h1>
                     <p class="card-author mb-0">
-                      <a href="javascript:void(0);"><?php the_author(); ?></a>Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
+                       <?php the_author_posts_link(); ?> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                     </p>
                   </div>
                 </div>
