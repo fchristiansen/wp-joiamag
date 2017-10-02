@@ -9,8 +9,6 @@
 
       <article class="single-page width-sidebar">
       <div class="container">
-
-
       <?php
         $i = 1;
         $e = 0;
@@ -62,11 +60,8 @@
                       <div class="row mt-3 mb-3">
                         <div class="col-md-6">
                           <div class="article-meta">
-                            En <a href="javascript:void(0);"><?php
-                            foreach((get_the_category()) as $category){
-                                  echo $category->name;
-                              }
-                            ?></a> por <a href="javascript:void(0);"><?php the_author(); ?></a> <br> Hace <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
+                            En <?php the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?>
+                            <br> Hace <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                           </div>
                         </div>
                         <div class="col-md-6">

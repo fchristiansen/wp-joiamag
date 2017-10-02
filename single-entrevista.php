@@ -20,12 +20,9 @@
             <div class="article-meta">
               <div>Entrevista: <?php echo get('datos_generales_entrevistador'); ?></div>
               <div>Foto / Video: <?php echo get('datos_generales_foto_video'); ?></div>
-              <div class="mb-3">en
-              <a href="javascript:void(0);"><?php
-                            foreach((get_the_category()) as $category){
-                                  echo $category->name;
-                              }
-                            ?></a> por <a href="javascript:void(0);"><?php the_author( ); ?></a> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?></div>
+              <div class="mb-3">
+                En <?php the_category( ', ', '', false); ?>
+                por <?php the_author_posts_link(); ?> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?></div>
               <div class="share-module share-horizontal">
                 <button type="button" class="sh-btn sh-btn-tw">
                   <i class="fa fa-twitter" aria-hidden="true"></i>

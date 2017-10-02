@@ -56,11 +56,7 @@
                         <h1><?php the_title(); ?></h1>
                         <h2>Dirigido por <?php echo get('video_director'); ?></h2>
                         <div class="article-meta">
-                          En <a href=""><?php
-                              foreach((get_the_category()) as $category){
-                                    echo $category->name;
-                                }
-                              ?></a> por <a href="javascript:void(0);"><?php the_author(); ?></a> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
+                          En <?php the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                         </div>
                       </div>
                           <?php the_content(); ?>
