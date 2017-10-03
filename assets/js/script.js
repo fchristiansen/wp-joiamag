@@ -26,6 +26,33 @@ $(document).ready(function(){
     }
 });
 
+  // Carousel con thumbs de producto
+
+  $(".img_detalle_producto").owlCarousel({
+        loop:true,
+        margin:0,
+        nav:false,
+        dots:false,
+        responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+});
+
+    $('#muestra1').click(function() {
+        $('.owl-carousel').trigger('to.owl.carousel', 0);
+      });
+    $('#muestra2').click(function() {
+        $('.owl-carousel').trigger('to.owl.carousel', 1);
+      });
+
 // Expanding Search Bar
 var submitIcon = $('.searchbox-icon');
 var inputBox = $('.searchbox-input');
