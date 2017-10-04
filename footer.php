@@ -4,17 +4,20 @@
           <div class="row">
             <div class="col-lg-6 offset-lg-3">
               <?php
-                 $args = array (
+
+                 $args_footer = array (
                      'post_type' => 'footer',
                      'posts_per_page' => 1
                    );
-                   $the_query = new WP_Query ($args);
+                   $the_query = new WP_Query ($args_footer);
+
                ?>
-                <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                   <div class="logo mb-5">
                     <a href="javascript:void(0);">
                       <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/logo-joia.svg">
                     </a>
+
                   </div>
                 <?php the_content(); ?>
                 <?php echo get('datos_direccion'); ?> <br><?php echo get('datos_mail'); ?> / <?php echo get('datos_telefono'); ?>

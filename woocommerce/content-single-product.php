@@ -46,25 +46,36 @@ if ( post_password_required() ) {
 <section class="section producto_detalle">
           <div class="row">
               <div class="col-sm-12 col-lg-8">
-                <div class="img_detalle_producto">
-                  <?php 
-					woocommerce_show_product_loop_sale_flash();
+              	<?php	woocommerce_show_product_loop_sale_flash();
 					
 					$availability = $product->get_availability();
 
 					if (esc_attr($availability['class']) == 'out-of-stock') {
 						echo apply_filters('woocommerce_stock_html', '<span class="' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</span>', $availability['availability']);
 					}
-					
-					if ( $product->is_type( 'variable' ) ) {
-					woocommerce_show_product_images();
-					}else{ 
+				?>
+                <div class="owl-carousel owl-theme img_detalle_producto">
+                  <?php 
+					//if ( $product->is_type( 'variable' ) ) {
+					//woocommerce_show_product_images();
+					//}else{ 
 						if ( has_post_thumbnail( $product->id ) ) {
-                        $attachment_ids[0] = get_post_thumbnail_id( $product->id );
-                         $attachment = wp_get_attachment_image_src($attachment_ids[0], 'full' ); ?>    
-                        <img src="<?php echo $attachment[0] ; ?>" class="img-fluid"  />
+
+                         $attachment_ids[0] = get_post_thumbnail_id( $product->id );
+                         $attachment = wp_get_attachment_image_src($attachment_ids[0], 'full' ); 
+                         ?>    
+                        <img src="<?php echo $attachment[0] ; ?>" class="owl-item img-fluid"  />
                     <?php } 
-					}
+                    	$gallery_attachment_ids = $product->get_gallery_attachment_ids();
+                    		if($gallery_attachment_ids){
+	                    		foreach( $gallery_attachment_ids as $attachment_id ) 
+				                {
+				                $image_src = wp_get_attachment_image_src( $attachment_id,'full' );
+				                $image_link = wp_get_attachment_url( $attachment_id ); ?>
+	                    		<img src="<?php echo $image_src[0] ; ?>" class="owl-item img-fluid"  />
+                    <?php 		}
+                    		}
+					//}
 					?>
 
                 </div>
@@ -89,7 +100,9 @@ if ( post_password_required() ) {
 					$categorias_html = rtrim($categorias_html, ", ");
 					?>
                     <h2><?php echo $categorias_html?></h2>
-                      
+                    <p class="autor">Por: 
+					<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
+                    </p>  
                     <?php woocommerce_template_single_price();?>
                     <?php lk_woocommerce_product_content();?>
                     <div class="box_select">
@@ -102,7 +115,7 @@ if ( post_password_required() ) {
 						}else{
 							$data_logged = 0;
 						}?>
-						<a href="<?php bloginfo('url')?>/add-to-wishlist" data-product-id="<?php echo $product->id;?>" data-logged="<?php echo $data_logged;?>" class="add_to_wishlist">Agregar a Lista de deseos</a>
+						<a href="<?php bloginfo('url')?>/add-to-wishlist" data-product-id="<?php echo $product->id;?>" data-logged="<?php echo $data_logged;?>" class="add_to_wishlist">Agregar a Favoritos</a>
 						<div class="mssg-wishlist"></div>
 					</div>
                   </div><!-- end descripcion -->
@@ -112,14 +125,24 @@ if ( post_password_required() ) {
           <div class="box_thumbs">
             <div class="row">
             	<?php
-                 $attachment_ids = $product->get_gallery_attachment_ids();
-                 foreach( $attachment_ids as $attachment_id ) 
+            	  $contador = 0;
+            	  if ( has_post_thumbnail( $product->id ) ) {
+	                $attachment_ids[0] = get_post_thumbnail_id( $product->id );
+	                $attachment = wp_get_attachment_image_src($attachment_ids[0], 'store-item' ); 
+	                ?>    
+	                <div class="col-md-2 mb-2">
+	                <img class="img-fluid" src="<?php echo $attachment[0] ; ?>" id="<?php echo "muestra".$contador;?>" alt=""/>
+                	</div>
+                 <?php
+             	   }
+                 foreach( $gallery_attachment_ids as $attachment_id ) 
                  {
+                 $contador++;
                  $image_src = wp_get_attachment_image_src( $attachment_id,'store-item' );
                  $image_link = wp_get_attachment_url( $attachment_id );
                  ?>
 	                <div class="col-md-2 mb-2">
-	                   <img class="img-fluid" src="<?php echo $image_src[0]?>" alt="">
+	                   <img class="img-fluid" src="<?php echo $image_src[0]?>" id="<?php echo "muestra".$contador;?>" alt=""/>
 	                </div>
       			<?php }   ?>
             </div>
@@ -130,3 +153,34 @@ if ( post_password_required() ) {
           <?php woocommerce_output_related_products();?>
 </div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+
+<script type="text/javascript">
+$(document).ready(function(){	
+	// Carousel con thumbs de producto
+
+  $(".img_detalle_producto").owlCarousel({
+        loop:true,
+        margin:0,
+        nav:false,
+        dots:false,
+        responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+});
+
+<?php 
+	for($i=0;$i<=$contador;$i++) : ?>
+    $('#muestra<?php echo $i;?>').click(function() {
+        $('.owl-carousel').trigger('to.owl.carousel', <?php echo $i;?>);
+      });
+<?php endfor;?>
+});
+</script>

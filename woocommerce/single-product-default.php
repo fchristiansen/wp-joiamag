@@ -25,7 +25,7 @@ get_header( 'shop' ); ?>
       <div class="page page-content page-resultados">
         <div class="container">
           <div class="page-heading-title page-heading-title-tienda">
-            <h1 class="title-tienda">JOIA tienda</h1>
+            <?php custom_tienda_title();?>
           </div>
 
 

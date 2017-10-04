@@ -1,10 +1,8 @@
 <?php
 /**
- * My Account Dashboard
+ * My Account page
  *
- * Shows the first intro screen on the account dashboard.
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/dashboard.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/my-account.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -12,51 +10,23 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @author      WooThemes
- * @package     WooCommerce/Templates
- * @version     2.6.0
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @author  WooThemes
+ * @package WooCommerce/Templates
+ * @version 2.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-  exit; // Exit if accessed directly
+	exit;
 }
-
-do_action( 'woocommerce_account_dashboard' );
 global $wpdb;
-
+$token = wp_get_session_token();
 if(is_user_logged_in()){
 $user_id = get_current_user_id();
 }else{
   $user_id = 0;
 }
-?>
-<section class="section resumen_compra my-account-section clearfix">
-              <div class="row">
-                  <div class="col-lg-5">
-                      
-                      <p><?php
-                      /* translators: 1: user display name 2: logout url */
-                      printf(
-                        __( 'Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce' ),
-                        '<strong>' . esc_html( $current_user->display_name ) . '</strong>',
-                        esc_url( wc_logout_url( wc_get_page_permalink( 'myaccount' ) ) )
-                      );
-                    ?></p>
 
-                    <p><?php
-                      printf(
-                        __( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a> and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' ),
-                        esc_url( wc_get_endpoint_url( 'orders' ) ),
-                        esc_url( wc_get_endpoint_url( 'edit-address' ) ),
-                        esc_url( wc_get_endpoint_url( 'edit-account' ) )
-                      );
-                    ?></p>
-                  </div>
-                  <div class="col-lg-1"></div>
-                  <!-- col derecha -->
-                  <div class="col-lg-6">
-                    <?
                       $prefix = $wpdb->prefix;
                       //echo $prefix;
                       $query = "SELECT ".$prefix."posts.ID, ".$prefix."posts.post_title FROM ".$prefix."posts 
@@ -66,12 +36,16 @@ $user_id = get_current_user_id();
                       $myrows = $wpdb->get_results( $query );
                       
                     ?>
-                    <div class="box_tabla_resumen tabla_checkout">
+       <section class="section resumen_compra my-account-section clearfix">
+              <div class="row">
+                  <div class="col-lg-12">
+                    <div class="box_tabla_resumen tabla_checkout tabla_deseos">
                         <div class="title_tabla">
                           Lista de favoritos
                         </div>
                         <div class="container_tabla_resumen tabla_checkout ">
-                          <table class="table table_lista_productos tabla_checkout tabla_perfil">
+                          <div class="container-processing"></div>
+                          <table class="table table_lista_productos tabla_checkout ">
                             <thead>
                               <?php if($myrows) : 
                                
@@ -79,9 +53,10 @@ $user_id = get_current_user_id();
                               <tr>
                                 <th class="padding-left-th" colspan="2">producto</th>
                                 <th>valor</th>
+                                <th>&nbsp;</th>
                               </tr>
                               <?php else : ?>
-                              <tr><td colspan="2">No hay productos en lista de favoritos.</td></tr>
+                              <tr><td colspan="2">No hay productos en lista de deseos.</td></tr>
                               <?php endif;?>
                             </thead>
                             <?php if($myrows) : ?>
@@ -91,28 +66,21 @@ $user_id = get_current_user_id();
                                 $url = get_permalink( $prod->ID );
                                 $thumbnail = get_the_post_thumbnail_url( $prod->ID );
                               ?>
-                              <tr>
+                              <tr class="item-<?php echo $prod->ID;?>">
                                 <th scope="row">
                                    <a href="<?php echo $url;?>"><img class="img-fluid" src="<?php echo $thumbnail;?>" alt="<?php echo $prod->post_title;?>" title="<?php echo $prod->post_title;?>"></a>
                                  </th>
                                 <td><?php echo $prod->post_title;?></td>
                                 <td><?php echo $_product->get_price_html();?></td>
+                                <td><a href="<?php bloginfo('url')?>/add-to-wishlist?remove_item=<?php echo $token;?>" class="remove wish-item" aria-label="Borrar este artículo" data-product_id="<?php echo $prod->ID;?>">×</a></td>
                               </tr>
                              <?php endforeach;?>
 
                             </tbody>
                           <?php endif;?>
                           </table> <!-- tabla lista productos -->
-
-                       
-                        </div><!-- container tabla resumen -->
+                          </div><!-- container tabla resumen -->
                         </div><!-- box tabla resumen -->
-
-                        <div class="box_tabla_resumen tabla_checkout">
-                        <?php wc_get_template( 'myaccount/my-orders.php', array( 'order_count' => $order_count ) ); ?>
-                        </div><!-- box tabla resumen -->
-
-
-                  </div>
+         </div>
               </div>
           </section> <!-- resumen compra -->

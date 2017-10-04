@@ -146,7 +146,7 @@ function custom_pre_get_posts_query( $q ) {
     $tax_query[] = array(
            'taxonomy' => 'product_cat',
            'field' => 'slug',
-           'terms' => array( 'destacados' ), // Don't display products in the clothing category on the shop page.
+           'terms' => array( 'destacados', 'ediciones' ), // Don't display products in the clothing category on the shop page.
            'operator' => 'NOT IN'
     );
 
@@ -224,13 +224,13 @@ function woo_custom_cart_button_text() {
 }
 
 function my_custom_endpoints() {
-    add_rewrite_endpoint( 'lista-de-deseos', EP_ROOT | EP_PAGES );
+    add_rewrite_endpoint( 'favoritos', EP_ROOT | EP_PAGES );
 }
 
 add_action( 'init', 'my_custom_endpoints' );
 
 function my_custom_query_vars( $vars ) {
-    $vars[] = 'lista-de-deseos';
+    $vars[] = 'favoritos';
 
     return $vars;
 }
@@ -251,7 +251,7 @@ function my_custom_my_account_menu_items( $items ) {
         //'payment-methods' => __( 'Payment Methods', 'woocommerce' ),
         'edit-account'      => __( 'Mi Cuenta', 'woocommerce' ),
         'edit-address'    => __( 'Direcciones', 'woocommerce' ),
-        'lista-de-deseos'      => 'Lista de deseos',
+        'favoritos'      => 'Favoritos',
         'customer-logout'   => __( 'Logout', 'woocommerce' ),
     );
 
@@ -261,10 +261,10 @@ function my_custom_my_account_menu_items( $items ) {
 add_filter( 'woocommerce_account_menu_items', 'my_custom_my_account_menu_items' );
 
 function my_custom_endpoint_content() {
-    wc_get_template('myaccount/lista-de-deseos.php'); 
+    wc_get_template('myaccount/favoritos.php'); 
 }
 
-add_action( 'woocommerce_account_lista-de-deseos_endpoint', 'my_custom_endpoint_content' );
+add_action( 'woocommerce_account_favoritos_endpoint', 'my_custom_endpoint_content' );
 
 // filter the array that is sent to the breadcrumbs template
 add_filter( 'woocommerce_get_breadcrumb', function( $crumbs ){
@@ -287,4 +287,30 @@ function woocommerce_category_description() {
         $cat = $wp_query->get_queried_object();
         return($cat); // the category needed.
     }
+}
+
+add_action('init', 'function_to_add_author_woocommerce', 999 );
+
+function function_to_add_author_woocommerce() {
+  add_post_type_support( 'product', 'author' );
+  }
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_product_author', 6);
+function woocommerce_product_author() {
+    the_author();
+}
+
+add_role('creador', __(
+ 'Creador'),
+ array(
+ 'read' => true, // Allows a user to read
+ 'create_posts' => true, // Allows user to create new posts
+ 'edit_posts' => true, // Allows user to edit their own posts
+ )
+);
+
+
+
+function custom_tienda_title() {
+ echo "<h1 class='title-tienda'>JOIA Tienda</h1>"; //this works fine
 }

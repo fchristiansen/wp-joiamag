@@ -3,7 +3,7 @@ global $woocommerce;
 $aUrl = $woocommerce->cart->get_cart_url();
 $shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
 $micuenta_url = get_permalink( get_option('woocommerce_myaccount_page_id') );
-$favoritos_url = $micuenta_url."lista-de-deseos";
+$favoritos_url = $micuenta_url."favoritos";
 ?>
 <!-- nav tienda -->
     <div id="barra-top-tienda" class="navbar fixed-top">
