@@ -31,13 +31,13 @@ if ( is_user_logged_in() ) {
 
 	<?php echo ( $message ) ? wpautop( wptexturize( $message ) ) : ''; ?>
 
-	<p class="form-row form-row-first">
+	<p class="form-row form-row-first form-group">
 		<label for="username"><?php _e( 'Username or email', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input type="text" class="input-text" name="username" id="username" />
+		<input type="text" class="input-text form-control" name="username" id="username" />
 	</p>
-	<p class="form-row form-row-last">
+	<p class="form-row form-row-last form-group">
 		<label for="password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input class="input-text" type="password" name="password" id="password" />
+		<input class="input-text form-control" type="password" name="password" id="password" />
 	</p>
 	<div class="clear"></div>
 
@@ -45,7 +45,7 @@ if ( is_user_logged_in() ) {
 
 	<p class="form-row">
 		<?php wp_nonce_field( 'woocommerce-login' ); ?>
-		<input type="submit" class="button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
+		<input type="submit" class="button btn btn-primary btn_form_gris" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
 		<input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>" />
 		<label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
 			<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php _e( 'Remember me', 'woocommerce' ); ?></span>

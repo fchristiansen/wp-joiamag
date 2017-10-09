@@ -853,6 +853,25 @@ background-color: #ededed;
   
 }
 
+#createaccount, input#rememberme{
+  display: inline-block;
+}
+
+.form-row.form-row-wide.create-account.woocommerce-validated{
+font-weight: bold;
+}
+
+.woocommerce-billing-fields h3{
+  font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+
+.woocommerce-shipping-fields h3{
+  display: none;
+}
+
 #payment .payment_methods {
     margin: 0!important;
     padding: 0!important;
@@ -1020,6 +1039,48 @@ background-color: #ededed;
 
 h2.woocommerce-order-details__title, .woocommerce-customer-details h2{
   font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif; font-size: 1.5rem; color: black; margin: 0 0 3px 0;
+}
+
+.entry-title.finalizar-compra{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 70px;
+    font-weight: normal;
+}
+
+ul.order_details{
+  width: 100%;
+  list-style: none;
+  display: block;
+  clear: both;
+      margin-bottom: 40px;
+      float: left;
+      background-color: #ededed;
+}
+
+ul.order_details li{
+  float: left;
+  list-style: none;
+  
+  width: 25%;
+  padding: 20px;
+}
+
+ul.order_details li> strong{
+
+}
+
+ul.woocommerce-error{
+  display: block;
+  padding: 20px;
+  background: #FFECEC;
+  border: 1px solid #E98886;
+  list-style-position: inside;
+      font-size: 1rem;
+}
+
+ul.woocommerce-error li{
+
 }
 
 /*--- datos de despacho --*/
