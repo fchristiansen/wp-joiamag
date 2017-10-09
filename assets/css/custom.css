@@ -1074,6 +1074,16 @@ ul.order_details li{
   padding: 20px;
 }
 
+@media only screen and (max-width : 991px) {
+
+  ul.order_details li{
+  width: 100%;
+
+}
+
+    }
+
+
 ul.order_details li> strong{
 
 }
