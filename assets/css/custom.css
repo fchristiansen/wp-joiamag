@@ -861,7 +861,7 @@ background-color: #ededed;
 font-weight: bold;
 }
 
-.woocommerce-billing-fields h3{
+.woocommerce-billing-fields h3, h3.woocommerce-column__title{
   font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
     font-weight: normal;
@@ -870,6 +870,14 @@ font-weight: bold;
 
 .woocommerce-shipping-fields h3{
   display: none;
+}
+
+.woocommerce-customer-details address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: inherit;
+    border: 2px solid #ededed;
+    padding: 15px;
 }
 
 #payment .payment_methods {
