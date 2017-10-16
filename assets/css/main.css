@@ -16,6 +16,27 @@
   font-weight: normal;
   font-style: normal; }
 
+  @font-face {
+    font-family: 'walsheim-bold';
+    src: url('../fonts/gt-walsheim-bold.ttf') format('ttf'),
+         url('../fonts/gt-walsheim-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+  @font-face {
+    font-family: 'walsheim-medium';
+    src: url('../fonts/gt-walsheim-medium.ttf') format('ttf'),
+         url('../fonts/gt-walsheim-medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+
+
 /*!
  * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -9695,6 +9716,31 @@ section.sidebar ul.wpp-list{
 .mixtape-post-content p {
   font-size: 0.875rem;
 }
+
+
+/*NUEVAS TIPOGRAFIAS*/
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+   font-family: 'walsheim-bold', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+.nav-link{
+  text-transform: none !important;
+  font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.nav-link .fa {
+font-size: 0.8125rem;
+}
+.btn{
+ font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/*seccion post*/
+.card .card-body .card-meta, .card .card-body .card-author {
+  font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+
+
 
 
 

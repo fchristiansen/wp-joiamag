@@ -60,7 +60,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php bloginfo('url'); ?>/joia_tv">
-                joia tv
+                Joia TV
               </a>
             </li>
             <li class="nav-item">
