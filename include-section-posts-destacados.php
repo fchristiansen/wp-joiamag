@@ -1,4 +1,4 @@
-  <div class="row">
+    <div class="row">
               <?php
                  $args = array (
                      'cat' => 10,
@@ -8,7 +8,7 @@
                ?>
               <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
               <div class="col-md mb-5">
-                <div class="card">
+                <div class="card post-destacado">
                   <div class="card-img-top">
                     <a href="<?php the_permalink(); ?>">
                         <?php
@@ -32,7 +32,7 @@
                         <?php the_author_posts_link(); ?> Hace <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                     </p>
                   </div>
-                </div>
+                </div> <!-- destacado -->
               </div>
             <?php endwhile; else: ?>
             <?php endif; ?>

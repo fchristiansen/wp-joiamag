@@ -9723,6 +9723,9 @@ section.sidebar ul.wpp-list{
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
    font-family: 'walsheim-bold', Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
+.article-meta{
+   font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 .nav-link{
   text-transform: none !important;
   font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -9737,10 +9740,44 @@ font-size: 0.8125rem;
 /*seccion post*/
 .card .card-body .card-meta, .card .card-body .card-author {
   font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+}
+.card .card-body .card-meta{
+  margin: 10px 0 10px 0 !important;
+  /*font-size: 0.75rem;*/
+}
+.card.card-tv{
+  margin-bottom: 5rem !important;
 }
 
+.card.post-general p.card-meta,
+.card.post-general p.card-author,
+.card-section-features .card-meta{
+    font-size: 0.75rem !important;
+}
 
+.card.post-general h1.card-title{
+    font-size: 1.563rem !important;
+}
 
+.sidebar .widget .title {
+    font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    color: #a0a0a0;
+}
+
+.sidebar .widget.popular-posts ul li.teaser .media .media-body .cat{
+      font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+}
+.sidebar .widget.popular-posts ul li.teaser .media .media-body h5 a{
+     font-family: 'walsheim-bold', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+}
+
+.page{
+  font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+}
 
 
 

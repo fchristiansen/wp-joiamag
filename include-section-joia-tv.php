@@ -41,17 +41,17 @@
             <?php endif; ?>
             <?php wp_reset_postdata() ?>
 
-            <div class="row mb-5">
+            <div class="row">
               <?php
                  $args = array (
                      'post_type' => 'joia_tv',
-                     'posts_per_page' => 8
+                     'posts_per_page' => 3
                    );
                   $the_query = new WP_Query ($args);
                ?>
               <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
               <div class="col-md-4">
-                <div class="card card-tv card-small-tv mb-5">
+                <div class="card card-tv card-small-tv">
                   <div class="card-img-top">
                     <a href="<?php the_permalink(); ?>">
                       <i class="fa fa-play-circle-o play-icon" aria-hidden="true"></i>

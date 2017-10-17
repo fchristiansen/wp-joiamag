@@ -57,7 +57,7 @@
                 <div class="col-md-8">
                   <div class="single-page-content">
                       <?php the_title('<h1>','</h1>'); ?>
-                      <div class="row mt-3 mb-3">
+                      <div class="row mt-3 mb-5">
                         <div class="col-md-6">
                           <div class="article-meta">
                             En <?php the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?>

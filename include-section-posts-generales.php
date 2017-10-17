@@ -1,16 +1,15 @@
       <div class="row">
              <?php
                  $args = array (
-                     'post_type' => 'post',
-                      'posts_per_page' => 6,
-                     'offset' => 3
-
+                    'post_type' => 'post',
+                    'posts_per_page' => 6,
+                    'offset' => 3
                    );
                    $the_query = new WP_Query ($args);
                ?>
               <?php if ( have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
               <div class="col-md-4 mb-3">
-                <div class="card">
+                <div class="card post-general">
                   <div class="card-img-top">
                     <a href="<?php the_permalink(); ?>">
                            <?php
@@ -35,7 +34,7 @@
                        <?php the_author_posts_link(); ?> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                     </p>
                   </div>
-                </div>
+                </div> <!-- general -->
               </div>
             <?php endwhile; else: ?>
             <?php endif; ?>
@@ -43,7 +42,7 @@
 
       </div><!-- grilla news -->
             <div class="text-center mt-3">
-              <button type="button" class="btn btn-secondary btn-lg">
+              <button type="button" class="btn btn-secondary btn-md">
                 Cargar más
               </button>
             </div>
