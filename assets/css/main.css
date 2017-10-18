@@ -9778,6 +9778,10 @@ font-size: 0.8125rem;
   font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
 
 }
-
-
+#modal-categorias ul li a {
+  font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+.share-module .sh-btn{
+  border-radius: 0 !important;
+}
 

@@ -92,7 +92,7 @@ Template name: Ediciones
           </div>
 
           <div class="text-center mt-3">
-            <button type="button" class="btn btn-secondary btn-lg">
+            <button type="button" class="btn btn-secondary btn-md">
               Cargar más
             </button>
           </div>

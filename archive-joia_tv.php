@@ -61,14 +61,12 @@
                       </div>
                     </div>
                   </div>
-
                 <?php endwhile; else: ?>
                 <?php endif; ?>
                 <?php wp_reset_postdata() ?>
-
             </div>
             <div class="text-center mt-3 mb-3">
-              <button type="button" class="btn btn-primary btn-lg">
+              <button type="button" class="btn btn-primary btn-md">
                 Cargar más
               </button>
             </div>
