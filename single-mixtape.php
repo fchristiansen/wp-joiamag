@@ -163,7 +163,7 @@
                       }
                       $post = $orig_post;
                       wp_reset_query(); ?>
-                </div>
+                </div> <!-- row -->
               </div> <!-- relacionado -->
             </div>
           </div>

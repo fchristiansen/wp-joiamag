@@ -180,11 +180,7 @@
 	      </div>
       </div>
 
-      <div id="recommended" class="jumbotron mb-0 text-center">
-        <p>contenidos recomendados</p>
-      </div>
+      <!-- posts recommendados -->
+        <?php include(TEMPLATEPATH . '/include-section-posts-recomendados.php'); ?>
     </div>
-
-
-
 <?php get_footer(); ?>
