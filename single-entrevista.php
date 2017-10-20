@@ -89,8 +89,8 @@
                           <div class="container">
                             <div class="row justify-content-md-center">
                               <div class="col col-md-8">
-                                <img class="img-fluid" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="">
-                                <div class="caption">Foto por <a href="javascript:void(0);"> xxxxxx </a></div>
+                                <img class="img-fluid d-block mx-auto" src="<? echo get('bloque_edicion_imagen', $bloque); ?>" alt="">
+                                <div class="caption">Foto por <?php echo get('datos_generales_autor_foto'); ?></div>
                               </div>
                             </div>
                           </div>

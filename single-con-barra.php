@@ -75,10 +75,7 @@
                           </div>
                         </div>
                       </div>
-
                         <?php the_content(); ?>
-
-
                 <?php
                   $i = 1;
                   $e = 0;
@@ -115,9 +112,9 @@
              endwhile;
              endif;
              ?>
-                <div class="col-md-4">
-                    <?php include(TEMPLATEPATH . '/include-section-sidebar.php'); ?>
-                </div>
+            <div class="col-md-4">
+              <?php include(TEMPLATEPATH . '/include-section-sidebar.php'); ?>
+            </div>
           </div>
           </div>
         </article>
@@ -127,9 +124,7 @@
                 <?php comments_template(); ?>
         </div>
       </div>
-
          <!-- posts recommendados -->
         <?php include(TEMPLATEPATH . '/include-section-posts-recomendados.php'); ?>
-
     </div>
 <?php get_footer(); ?>
