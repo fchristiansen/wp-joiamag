@@ -264,8 +264,8 @@ function clean_custom_menu( $theme_location ) {
         $menu = get_term( $locations[$theme_location], 'nav_menu' );
         $menu_items = wp_get_nav_menu_items($menu->term_id);
  
-        $menu_list  = '<nav>' ."\n";
-        $menu_list .= '<ul class="main-nav">' ."\n";
+        $menu_list  = '<div class="row">' ."\n";
+       
  
         $count = 0;
         $submenu = false;
@@ -278,19 +278,19 @@ function clean_custom_menu( $theme_location ) {
             if ( !$menu_item->menu_item_parent ) {
                 $parent_id = $menu_item->ID;
                  
-                $menu_list .= '<li class="item">' ."\n";
-                $menu_list .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
+                $menu_list .= '<div class="col-categoria col-sm-3">' ."\n";
+                $menu_list .= '<h2>'.$title.'</h2>' ."\n";
             }
  
             if ( $parent_id == $menu_item->menu_item_parent ) {
  
                 if ( !$submenu ) {
                     $submenu = true;
-                    $menu_list .= '<ul class="sub-menu">' ."\n";
+                    $menu_list .= '<ul>' ."\n";
                 }
  
-                $menu_list .= '<li class="item">' ."\n";
-                $menu_list .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
+                $menu_list .= '<li>' ."\n";
+                $menu_list .= '<a href="'.$link.'">'.$title.'</a>' ."\n";
                 $menu_list .= '</li>' ."\n";
                      
  
@@ -302,15 +302,15 @@ function clean_custom_menu( $theme_location ) {
             }
  
             if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) { 
-                $menu_list .= '</li>' ."\n";      
+                $menu_list .= '</div>' ."\n";      
                 $submenu = false;
             }
  
             $count++;
         }
          
-        $menu_list .= '</ul>' ."\n";
-        $menu_list .= '</nav>' ."\n";
+        
+        $menu_list .= '</div>' ."\n";
  
     } else {
         $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';

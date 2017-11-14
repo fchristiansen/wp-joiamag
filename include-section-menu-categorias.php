@@ -4,11 +4,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
           <i class="fa fa-times" aria-hidden="true"></i>
         </button>
-            <div class="row">
+            
                 <?php 
-                wp_get_nav_menu_items("menu_categorias");
+                clean_custom_menu("my-custom-menu");
+               
                 ?>
-
+              <!--
                   <div class="col-categoria col-sm-3">
                       <h2>joia</h2>
                       <ul>
@@ -65,11 +66,11 @@
                         <li><a href="">opinión</a></li>
                         <li><a href="">varios</a></li>
                       </ul>
-                  </div>
+                  </div>-->
             <!--   <div class="col">
 
               </div> -->
-            </div>
+           
 
 
 
