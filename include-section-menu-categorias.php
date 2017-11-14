@@ -6,7 +6,7 @@
         </button>
             <div class="row">
                 <?php 
-                clean_custom_menu("menu_categorias");
+                wp_get_nav_menu_items("menu_categorias");
                 ?>
 
                   <div class="col-categoria col-sm-3">
