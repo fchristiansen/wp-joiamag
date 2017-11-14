@@ -113,12 +113,12 @@ form.cart select{
   padding-right: 0;
 }
 
-.variations .label label{ 
-  font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif; 
-  font-size: 0.95rem; 
-  color: black; 
-  text-transform: uppercase; 
- 
+.variations .label label{
+  font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: black;
+  text-transform: uppercase;
+
 }
 
 .variations .value select:not([size]):not([multiple]) {
@@ -135,7 +135,7 @@ form.cart select{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     content: "\f0e2";
-   
+
 }
 
 .woocommerce-variation-price{
@@ -303,7 +303,7 @@ form.cart select{
 
 .select2-container--default .select2-selection--single{
 	border-radius: 0 !important;
-	border: 1px solid #ededed;	
+	border: 1px solid #ededed;
 	height: 35px;
 }
 
@@ -366,12 +366,12 @@ label.rememberme{
   width: 100%;
   position: relative;
   overflow: hidden;
-  
+
 }
 
 .shop_table thead{
   /*background-color: #ededed;*/
-  
+
     text-transform: uppercase;
 }
 
@@ -444,7 +444,7 @@ table.shop_table_responsive tr td{
 
 
  @media only screen and (max-width : 767px) {
-  
+
   .shop_table td.product-quantity .quantity .input-text{
     width: 100%;
   }
@@ -461,7 +461,7 @@ table.shop_table_responsive tr td{
 
   .cart-collaterals{
     margin-top: 35px;
-  }  
+  }
 
 }
 
@@ -579,7 +579,7 @@ table.shop_table_responsive tr td{
 .cart_totals table tr.cart-subtotal th,
 .cart_totals table tr.order-total th {
   font-weight: bold;
-  
+
 }
 
 .cart_totals table tr.order-total th{
@@ -730,7 +730,7 @@ text-decoration: none;
 /*botones*/
 #place_order {
     width: 100%;
-    
+
     cursor: pointer;
     background-color: black;
     font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif;
@@ -771,12 +771,12 @@ text-decoration: none;
 }
 #order_review .shop_table th,
 #order_review .shop_table td {
-  
+
  /* border-left-width: 1px;
   border-left-style: solid; */
   padding: 0.75rem;
   padding-left: 30px;
-  
+
   width: 30%;
 }
 
@@ -816,7 +816,7 @@ background-color: #ededed;
 }
 
 #order_review .shop_table tfoot th{
-	padding-left: 40px;  
+	padding-left: 40px;
 }
 
 #order_review .shop_table tr.order-total th, #order_review .shop_table tr.order-total td{
@@ -850,7 +850,7 @@ background-color: #ededed;
     font-family: "brandon_text_regular", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1.125rem;
   font-weight: normal;
-  
+
 }
 
 #createaccount, input#rememberme{
@@ -900,7 +900,7 @@ font-weight: bold;
     margin-left: 0;
     position: relative;
     border-bottom: 0.1rem solid #ededed;
-    
+
 }
 
 #payment .payment_methods li img {
@@ -1016,12 +1016,12 @@ font-weight: bold;
 .texto_indicaciones p{
   margin-bottom: 30px;
 }
- 
+
 .texto_indicaciones p:nth-child(2){
     font-weight: bold;
     color: black;
     text-align: center;
-   
+
 }
 
 
@@ -1069,7 +1069,7 @@ ul.order_details{
 ul.order_details li{
   float: left;
   list-style: none;
-  
+
   width: 25%;
   padding: 20px;
 }
@@ -1191,7 +1191,7 @@ table.shop_table.shop_table_responsive.my_account_orders thead {
     background-color: #ececec;
 }
 
-table.shop_table.shop_table_responsive.my_account_orders td, 
+table.shop_table.shop_table_responsive.my_account_orders td,
 table.shop_table.shop_table_responsive.my_account_orders th{
   padding: 15px 10px;
 }
@@ -1212,7 +1212,7 @@ table.shop_table.shop_table_responsive.my_account_orders th{
     .cart-collaterals{
       margin-top: 70px;
     }
-      
+
     .cart-collaterals:after,
     .cart-collaterals:before {
         content: "";
@@ -1271,3 +1271,30 @@ table.shop_table.shop_table_responsive.my_account_orders th{
     }
 
 }
+
+/*==== etiqueta oferta ====*/
+
+.producto span.onsale {
+  background-color:#A29061;
+  color: black;
+  display:block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  /*border: 1px solid red;*/
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 21px;
+
+}
+
+
+
+
+
+
+
+
