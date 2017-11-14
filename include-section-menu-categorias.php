@@ -5,6 +5,10 @@
           <i class="fa fa-times" aria-hidden="true"></i>
         </button>
             <div class="row">
+                <?php 
+                clean_custom_menu("menu_categorias");
+                ?>
+
                   <div class="col-categoria col-sm-3">
                       <h2>joia</h2>
                       <ul>
