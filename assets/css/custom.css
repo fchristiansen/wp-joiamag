@@ -1290,7 +1290,12 @@ table.shop_table.shop_table_responsive.my_account_orders th{
   padding-top: 21px;
 
 }
-
+.wpifs-loading {
+  width: 100% !important;
+  display: block !important;
+  /*background-color: red !important;*/
+  text-align: center !important;
+}
 
 
 
