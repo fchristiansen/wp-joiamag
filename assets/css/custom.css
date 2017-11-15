@@ -1299,7 +1299,31 @@ table.shop_table.shop_table_responsive.my_account_orders th{
 
 
 
+/*===== formulario contacto contact-form-7 =====*/
+.wpcf7-form-control.wpcf7-submit {
+    font-family: 'walsheim-medium', Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    cursor: pointer;
+}
 
-
+.wpcf7-form-control.wpcf7-submit:hover{
+    background-color: #464a4c;
+    border-color: #464a4c;
+    color: #fff;
+}
 
 
