@@ -27,7 +27,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="col-md-3 mb-4">
+<div class="col-md-3 mb-4 post">
 	
 	<?php 
 		

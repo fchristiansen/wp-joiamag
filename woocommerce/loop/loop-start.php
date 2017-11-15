@@ -16,5 +16,5 @@
  * @version     2.0.0
  */
 ?>
-<section class="grilla-productos">
+<section class="grilla-productos posts">
 <div class="row">
