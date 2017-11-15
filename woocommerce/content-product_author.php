@@ -19,40 +19,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-$curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
-
-$author_id = $curauth->ID;
-$user_roles=$curauth->roles; 
-$display_name = $curauth->data->display_name;
-
-
-
-get_header( 'shop' ); 
-
-
-?>
-   <div class="footer-over">
-      <div class="page page-content page-resultados">
-        <div class="container">
-         <div class="page-heading-title page-heading-title-tienda">
-            <?php custom_tienda_title();?>
-         </div>
-		 <h2 class="title-author">Mostrando productos de: <?php echo $display_name;?></h2>
-		
-		 <?php
-		    $args1 = array(
-			    'author'     =>  $author_id,
-			    'post_type'  => 'product'
-			);
-
-						
-			$loop = new WP_Query( $args1 );
-		 	if ($loop->have_posts() ) : 
-			while ( $loop->have_posts() ) : $loop->the_post(); global $product; 
+get_header( 'shop' ); ?>
+<?php
+		 	if (have_posts() ) : 
+			while ( have_posts() ) : the_post(); global $product; 
 			//echo "aca van los otros 3";
-			$image2 = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'store-item' );
-			$_product = wc_get_product( $loop->post->ID );
+			$image2 = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'store-item' );
+			$_product = wc_get_product( get_the_ID() );
 
 			if( $_product->is_on_sale() ) {
 				$onsale = apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $loop->post, $_product );
@@ -60,7 +33,7 @@ get_header( 'shop' );
 				$onsale = "";
 			}
 
-			$contenido.='<div class="col-md-3 mb-4">
+			$contenido.='<div class="col-md-3 mb-4 post">
                          <div class="producto">
 						 '.$onsale.'
                           <div class="producto-image">
@@ -82,18 +55,15 @@ get_header( 'shop' );
 		 $i++;
 		 endwhile; 
 		 endif;
-    	 wp_reset_postdata(); ?>
-
+     ?>
     	 <!-- grilla productos -->
-          <section class="grilla-productos">
+          <section class="grilla-productos posts">
                <div class="row">
                       <?php echo $contenido;?>
-                 </div> <!-- row -->
+                </div> <!-- row -->
+              
           </section>
-          <!-- ==== end grilla productos ==== -->		
-		</div>
-	</div>
-</div>
-
-
-<?php get_footer( 'shop' );
+          
+            <nav class="woocommerce-pagination">
+              <?php posts_nav_link( ' &#183; ', '<', '>' ); ?>
+            </nav>
