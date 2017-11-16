@@ -103,8 +103,7 @@ function initialize()
     }
   ];
 
-  var myLatLng1 = {lat: -33.4452642, lng: -70.6299445};
-  var myLatLng2 = {lat: -12.1046709, lng: -77.0401796};
+  var myLatLng1 = {lat: -33.4379797, lng: -70.6511553};
   var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -116,66 +115,102 @@ function initialize()
     }
   });
 
+  var infoWindow = new google.maps.InfoWindow();
+
+
   //Associate the styled map with the MapTypeId and set it to display.
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
 
 
-  var marker = new google.maps.Marker({
-    position: myLatLng1,
-    map: map,
-    title: 'Alta Chile',
-    icon: "2017/images/location-pointer.png?ver=2"
+  //cargar los puntos en el mapa
+  $( "#puntoslist li" ).each(function() {
+        var cx = parseFloat($(this).attr("data-x"));
+        var cy = parseFloat($(this).attr("data-y"));
+        var local = $(this).attr("data-name").toString();
+        var direccion = $(this).text();
+        var urlMaps = $(this).attr("data-url-maps");
+        var urlTienda = $(this).attr("data-url-tienda");
+
+        var LatLng = {lat: cx, lng: cy};
+        var imageIcon = "http://todo.seo2.cl/clientes/joia/wp/wp-content/uploads/2017/11/marker-1.png";
+        
+        var contentString = '<div class="contentInfoWindow">'+
+        '<h6 id="firstHeading" class="firstHeading">'+local+'</h6>'+
+        '<div id="bodyContent">'+
+        '<p>'+ direccion + '</p>' +
+        '<p><a href="'+urlTienda+'" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i> Ir a Tienda</a> '+
+        '<a href="' + urlMaps + '" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Ver en Google Maps</a></p>' +
+        '</div></div>';
+
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
   });
 
 
-  var marker2 = new google.maps.Marker({
-    position: myLatLng2,
-    map: map,
-    title: 'Alta Perú',
-    icon: "2017/images/location-pointer.png?ver=2"
+          var marker = new google.maps.Marker({
+          position: LatLng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: local,
+          icon: imageIcon
+        });
+
+        marker.setMap(map);
+        //marker.addListener('click', toggleBounce);
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
   });
 
-  	marker.setMap(map);
-  	marker2.setMap(map);
-	url = "https://www.google.com/maps/place/Modo+Publicidad+Ltda/@-33.4454544,-70.6297842,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cbf1adfc9305:0x377b9704ba1e871e!8m2!3d-33.4454589!4d-70.6275955?hl=es-ES";
-	url2 = "https://www.google.cl/maps/place/Calle+Los+Libertadores+680,+San+Isidro+15073,+Per%C3%BA/@-12.1046709,-77.0401796,17z/data=!3m1!4b1!4m5!3m4!1s0x9105c8413cc6e9d9:0xa1c7d2312e09edfb!8m2!3d-12.1046762!4d-77.0379909?hl=es";
-	marker.addListener('click', function() {
-		window.open(url, '_blank');
-	});
-	marker2.addListener('click', function() {
-		window.open(url2, '_blank');
-	});
 
 
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
 function newLocation(newLat,newLng)
 {
 	 map.setCenter({
 		lat : newLat,
 		lng : newLng
 	});
+
+}
+
+function toggleBounce() {
+  if (this.getAnimation() != null) {
+    this.setAnimation(null);
+  } 
+  else {
+    this.setAnimation(google.maps.Animation.BOUNCE);
+  }
+
+
+
+
+
+
+
 }
 
 //Setting Location with jQuery
 $(document).ready(function ()
 {
 
-    $("#1").on('click', function ()
-    {
-	  newLocation(-33.4452642,-70.6299445);
-	  $('.btn-main').removeClass('activo');
-	  $(this).addClass('activo');
-	});
+    $('.text-direccion').on('click', function (){
+        var x = parseFloat($(this).attr('data-x'));
+        var y = parseFloat($(this).attr('data-y'));
+        newLocation(x,y);
 
-	$("#2").on('click', function ()
-    {
-	  newLocation(-12.1046709,-77.0401796);
-	  $('.btn-main').removeClass('activo');
-	  $(this).addClass('activo');
-	});
+        $('html, body').animate({
+          scrollTop: $("#map-canvas").offset().top
+        }, 1000);
+
+        return false;
+    });
+
+ 
 });
 
   // carousel mixtapes

@@ -1326,4 +1326,31 @@ table.shop_table.shop_table_responsive.my_account_orders th{
     color: #fff;
 }
 
+/*==== Google Maps ====*/
+.contentInfoWindow{
+  width: 100%;
+  max-width: 300px;
+  font-family: 'brandon_text_regular';
+  font-size: 0.85rem;
+  line-height: 16px;
+}
 
+.contentInfoWindow p{
+  margin-bottom: 5px;
+}
+
+
+.contentInfoWindow a{
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: .65rem;
+    font-weight: bold;
+    margin-right: 5px;
+    padding-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .contentInfoWindow {
+    max-width: 400px;
+  }
+}
