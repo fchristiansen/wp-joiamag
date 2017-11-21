@@ -3,28 +3,47 @@
          <?php
             if (have_posts()) :
               while (have_posts()) :
-                the_post(); ?>
+                the_post(); 
 
-      <div class="barba-container" data-prev="<?php echo $prev; ?>" data-next="<?php echo $next; ?>">
+                 // Previous/next post navigation.
+          
+          # get_adjacent_post( $in_same_cat = false, $excluded_categories = '', $previous = true )
+          $next_post_obj  = get_adjacent_post( '', '', false );
+          $next_post_ID   = isset( $next_post_obj->ID ) ? $next_post_obj->ID : '';
+          $next_post_link     = get_permalink( $next_post_ID );
+          $next_post_title    = 'Next ❯'; // equals "»"
+
+          $previous_post_obj  = get_adjacent_post( '', '', true );
+          $previous_post_ID   = isset( $previous_post_obj->ID ) ? $previous_post_obj->ID : '';
+          $previous_post_link     = get_permalink( $previous_post_ID );
+          $previous_post_title    = '❮ Previous'; // equals "❮"
+
+
+                ?>
+
+      <div class="barba-container" data-prev="<?php echo $previous_post_link; ?>" data-next="<?php echo $next_post_link; ?>">
         <div class="footer-over">
         <div class="site-content-tv">
           <div class="container">
             <section class="display-big-tv mb-5">
-                      <a class="carousel-control-prev nav prev" href="<?php echo $prev; ?>" role="button" data-slide="prev">
+                      <a class="carousel-control-prev nav prev" href="<?php echo $previous_post_link; ?>" role="button" rel="previous">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                       </a>
-                      <a class="carousel-control-next nav next" href="<?php echo $next; ?>"  role="button" data-slide="next">
+                      <a class="carousel-control-next nav next" href="<?php echo $next_post_link; ?>"  role="button" rel="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                       </a>
               <div class="box-video">
-                <div class="bg-video" style="background-image: url(<?php echo get ('video_captura_grande') ?>);">
+                <div class="bg-video">
+                  <img src="<?php echo get ('video_captura_grande') ?>" class="img-fluid" id="video-img">
                   <div class="btn btn-primary btn-lg bt-play">Ver</div>
                 </div>
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<?php echo get('video_id_video'); ?>?rel=0" allowfullscreen></iframe>
-                </div>
+       
+              <div class="embed-responsive embed-responsive-16by9">
+               <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<?php echo get('video_id_video'); ?>?rel=0" allowfullscreen></iframe>
+              </div>
+              
               </div>
             </section>
             <section class="display-tv-thumbs">
@@ -33,6 +52,8 @@
                     $e=0;
                     $f = 0;
                     $bloques = get_order_group('video_miniatura'); // guarda el bloque en un array
+                    $nuevos="h=160&w=278&zc=1&q=100";
+
                     foreach($bloques as $bloque){ // recorre cada bloque de edición
                           $e = $e +1;
                           $f++;
@@ -40,7 +61,7 @@
                           foreach ($fotos as $foto) {
                         ?>
                             <div class="col">
-                              <img class="img-fluid" src="<?php echo get('video_miniatura',$e ,$foto); ?>">
+                              <img class="img-fluid" src="<?php echo get_image('video_miniatura', $e, $foto, 0, NULL, $nuevos); ?>">
                             </div>
                          <? } ?>
                     <? } ?>
@@ -208,7 +229,13 @@
         </div>
 
       <?php wp_footer(); ?>
+<script type="text/javascript">
+ var tag = document.createElement('script');
 
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+</script>
 </body>
 </html>
-
