@@ -3,13 +3,31 @@
           <?php
           if (have_posts()) :
             while (have_posts()) :
-              the_post(); ?>
+              the_post(); 
+
+          // Previous/next post navigation.
+          
+          # get_adjacent_post( $in_same_cat = false, $excluded_categories = '', $previous = true )
+          $next_post_obj  = get_adjacent_post( '', '', false );
+          $next_post_ID   = isset( $next_post_obj->ID ) ? $next_post_obj->ID : '';
+          $next_post_link     = get_permalink( $next_post_ID );
+          $next_post_title    = 'Next ❯'; // equals "»"
+
+          $previous_post_obj  = get_adjacent_post( '', '', true );
+          $previous_post_ID   = isset( $previous_post_obj->ID ) ? $previous_post_obj->ID : '';
+          $previous_post_link     = get_permalink( $previous_post_ID );
+          $previous_post_title    = '❮ Previous'; // equals "❮"
+
+  ?>
+<main id="barba-wrapper">
+  <div class="barba-container" data-prev="<?php echo $previous_post_link; ?>" data-next="<?php echo $next_post_link; ?>">
+
       <section class="mixtape-hero" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
-        <a class="mixtape-control-prev" href="#mixtapesControls" role="button" data-slide="prev">
+        <a class="mixtape-control-prev nav prev" href="<?php echo $previous_post_link; ?>" role="button" rel="previous">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="mixtape-control-next" href="#mixtapesControls" role="button" data-slide="next">
+        <a class="mixtape-control-next nav next" href="<?php echo $next_post_link; ?>" role="button" rel="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -176,6 +194,8 @@
         </div>
 
       </div>
+  </div>
+</main>
     </div>
 
 <?php get_footer(); ?>

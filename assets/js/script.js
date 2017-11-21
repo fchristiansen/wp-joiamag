@@ -71,11 +71,13 @@ function buttonUp(){
     }
 }
 
-
+/*
 $(".box-video").click(function(){
   $('iframe',this)[0].src += "&amp;autoplay=1";
   $(this).addClass('open');
 });
+*/
+
 
 var map;
 function initialize()
@@ -256,6 +258,8 @@ $(document).ready(function ()
             $('nav.navbar.navbar-inverse').addClass('cambia-color-menu');
         }
     });
+
+
 
 
 

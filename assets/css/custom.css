@@ -3,6 +3,10 @@
   clear: both;
 }
 
+.barba-container {
+    position: relative;
+}
+
 h1.entry-title {
   font-family: 'Apercu-Regular', Helvetica, Arial, sans-serif;
     font-size: 2.617924em;
