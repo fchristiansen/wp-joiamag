@@ -24,10 +24,10 @@
                 En <?php the_category( ', ', '', false); ?>
                 por <?php the_author_posts_link(); ?> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?></div>
               <div class="share-module share-horizontal">
-                <button type="button" class="sh-btn sh-btn-tw">
+                <button type="button" class="sh-btn sh-btn-tw" data-title="<?php echo get_the_title();?>">
                   <i class="fa fa-twitter" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="sh-btn sh-btn-fb">
+                <button type="button" class="sh-btn sh-btn-fb" data-url="<?php the_permalink();?>">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </button>
               </div>
@@ -160,10 +160,10 @@
               ?>
           <div class="container">
             <div class="share-module share-horizontal mt-3 mb-3">
-              <button type="button" class="sh-btn sh-btn-tw">
+              <button type="button" class="sh-btn sh-btn-tw" data-title="<?php echo get_the_title();?>">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
               </button>
-              <button type="button" class="sh-btn sh-btn-fb">
+              <button type="button" class="sh-btn sh-btn-fb" data-url="<?php the_permalink();?>">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </button>
             </div>

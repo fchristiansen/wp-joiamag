@@ -762,7 +762,7 @@ b, strong {
 .mixtapes-2 .heading {
   height: 10vh;
   width: 100%; }
-  .mixtapes-2 .heading button.close {
+  .mixtapes-2 .heading a.close {
     color: #fff;
     text-shadow: none;
     line-height: 1.75rem;

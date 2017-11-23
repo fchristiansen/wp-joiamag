@@ -7,11 +7,11 @@
             <img class="img-fluid" src="<?php bloginfo('template_url'); ?>/assets/img/logo-joia-mixtapes.svg">
           </div>
         </div>
-      <!--   <div class="col text-right">
-          <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
+        <div class="col text-right">
+          <a href="javascript:history.back();" class="close" aria-label="Close">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
     </div>
     <div class="mixtapes-carousel row align-items-center">

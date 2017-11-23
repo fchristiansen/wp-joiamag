@@ -8,12 +8,12 @@
           // Previous/next post navigation.
           
           # get_adjacent_post( $in_same_cat = false, $excluded_categories = '', $previous = true )
-          $next_post_obj  = get_adjacent_post( '', '', false );
+          $next_post_obj  = get_adjacent_post( '', '', true );
           $next_post_ID   = isset( $next_post_obj->ID ) ? $next_post_obj->ID : '';
           $next_post_link     = get_permalink( $next_post_ID );
           $next_post_title    = 'Next ❯'; // equals "»"
 
-          $previous_post_obj  = get_adjacent_post( '', '', true );
+          $previous_post_obj  = get_adjacent_post( '', '', false );
           $previous_post_ID   = isset( $previous_post_obj->ID ) ? $previous_post_obj->ID : '';
           $previous_post_link     = get_permalink( $previous_post_ID );
           $previous_post_title    = '❮ Previous'; // equals "❮"
@@ -23,15 +23,15 @@
   <div class="barba-container" data-prev="<?php echo $previous_post_link; ?>" data-next="<?php echo $next_post_link; ?>">
 
       <section class="mixtape-hero" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
-        <a class="mixtape-control-prev nav prev" href="<?php echo $previous_post_link; ?>" role="button" rel="previous">
+        <a class="mixtape-control-prev nav prev" href="<?php echo $previous_post_link; ?>">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="mixtape-control-next nav next" href="<?php echo $next_post_link; ?>" role="button" rel="next">
+        <a class="mixtape-control-next nav next" href="<?php echo $next_post_link; ?>">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-        <a class="mixtape-control-down page-scroll" href="#site-content">
+        <a class="mixtape-control-down" href="#site-content">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Mixtapes</span>
         </a>
@@ -114,12 +114,12 @@
               <div class="share-module share-vertical">
                 <ul class="list-unstyled">
                   <li>
-                    <button type="button" class="sh-btn sh-btn-tw">
+                    <button type="button" class="sh-btn sh-btn-tw" data-title="<?php echo get_the_title();?>">
                       <i class="fa fa-twitter" aria-hidden="true"></i>
                     </button>
                   </li>
                   <li>
-                    <button type="button" class="sh-btn sh-btn-fb">
+                    <button type="button" class="sh-btn sh-btn-fb" data-url="<?php the_permalink();?>">
                       <i class="fa fa-facebook" aria-hidden="true"></i>
                     </button>
                   </li>

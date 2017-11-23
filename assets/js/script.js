@@ -72,7 +72,12 @@ function buttonUp(){
 }
 
 $(".box-video").click(function(){
+  var hostVideo = $(this).attr("data-host");
+  if(hostVideo == 'Youtube') {
   $('iframe',this)[0].src += "&amp;autoplay=1";
+  }else{
+    $('iframe',this)[0].src += "&amp;autoplay=1";
+  }
   $(this).addClass('open');
 });
 
@@ -104,7 +109,11 @@ function initialize()
     }
   ];
 
-  var myLatLng1 = {lat: -33.4379797, lng: -70.6511553};
+  //var myLatLng1 = {lat: -33.4379797, lng: -70.6511553};
+
+  var myLatLng1 = new google.maps.LatLng(-33.4379797, -70.6511553);
+
+
   var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -133,7 +142,9 @@ function initialize()
         var urlMaps = $(this).attr("data-url-maps");
         var urlTienda = $(this).attr("data-url-tienda");
 
-        var LatLng = {lat: cx, lng: cy};
+        //var LatLng = {lat: cx, lng: cy};
+        var LatLng = new google.maps.LatLng(cx, cy);
+
         var imageIcon = "http://todo.seo2.cl/clientes/joia/wp/wp-content/uploads/2017/11/marker-1.png";
         
         var contentString = '<div class="contentInfoWindow">'+
@@ -211,8 +222,62 @@ $(document).ready(function ()
         return false;
     });
 
+    $('.mixtape-control-down').on('click', function (){
+
+         $('html, body').animate({
+          scrollTop: $("#site-content").offset().top
+        }, 1000);
+
+        return false;
+    });
+
+    //SHARE FB
+        $('.sh-btn-fb').on('click', function (){
+
+        console.log("compartir facebook");
+
+        var currentLocation = $(this).attr("data-url");
+         console.log("URL: "+currentLocation);
+
+          FB.ui({
+            method: 'share',
+            display: 'popup',
+            href: currentLocation,
+          }, function(response){});
+
+    });
+
+    //SHARE TW
+     $('.sh-btn-tw').on('click', function (e){
+        var twtTitle = $(this).attr("data-title");
+        var twtUrl = location.href;
+        
+        e.preventDefault();
+        showSharePopup(this, twtUrl, twtTitle);
+
+      });
  
 });
+
+
+function showSharePopup(item, url, texto){
+
+    var w = 500;
+    var h = 300;
+    var left = (screen.width/2)-(w/2);
+    var top = (screen.height/4)-(h/2);
+    var shareWindowTitle = "";
+    var sharelink = "";
+
+  
+      shareWindowTitle = 'Compartir en Twitter';
+      sharelink = "https://twitter.com/share?url=" + url + "&text=" + texto + "&via=joiamagazine";
+    
+
+    window.open(sharelink, shareWindowTitle, 'top=' + top + ', left=' + left + ', width=' + w + ', height=' + h);
+    return false;
+  }
+
 
   // carousel mixtapes
 
