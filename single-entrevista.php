@@ -21,7 +21,7 @@
               <div>Entrevista: <?php echo get('datos_generales_entrevistador'); ?></div>
               <div>Foto / Video: <?php echo get('datos_generales_foto_video'); ?></div>
               <div class="mb-3">
-                En <?php the_category( ', ', '', false); ?>
+                En <?php exclude_post_categories("10");//the_category( ', ', '', false); ?>
                 por <?php the_author_posts_link(); ?> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?></div>
               <div class="share-module share-horizontal">
                 <button type="button" class="sh-btn sh-btn-tw" data-title="<?php echo get_the_title();?>">

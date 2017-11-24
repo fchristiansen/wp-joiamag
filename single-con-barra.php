@@ -60,7 +60,7 @@
                       <div class="row mt-3 mb-5">
                         <div class="col-md-6">
                           <div class="article-meta">
-                            En <?php the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?>
+                            En <?php exclude_post_categories("10"); //the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?>
                             <br> Hace <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                           </div>
                         </div>

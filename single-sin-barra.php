@@ -12,7 +12,7 @@
             <div class="header">
               <?php the_title( '<h1>', '</h1>' ); ?>
               <div class="article-meta">
-                  En <?php the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?>
+                  En <?php exclude_post_categories("10");//the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?>
                   <br> hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
               </div>
               <div class="share-module share-horizontal">

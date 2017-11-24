@@ -165,7 +165,7 @@
                                   </a>
                                 <div class="media-body">
                                   <div class="media-meta">
-                                    <?php the_category( ', ', '', false); ?>
+                                    <?php exclude_post_categories("10");//the_category( ', ', '', false); ?>
                                   </div>
 
                                   <h5 class="mt-0">

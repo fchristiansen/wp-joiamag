@@ -82,7 +82,7 @@
                         <h1><?php the_title(); ?></h1>
                         <h2>Dirigido por <?php echo get('video_director'); ?></h2>
                         <div class="article-meta">
-                          En <?php the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
+                          En <?php exclude_post_categories("10");//the_category( ', ', '', false); ?> por <?php the_author_posts_link(); ?> Hace <?php echo  human_time_diff( get_the_time('U'), current_time('timestamp') ) ; ?>
                         </div>
                       </div>
                           <?php the_content(); ?>

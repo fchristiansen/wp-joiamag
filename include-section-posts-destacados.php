@@ -21,7 +21,8 @@
                   <div class="card-body">
                     <p class="card-meta mb-0">
                         <i class="icon-section-features"></i>
-                          <?php the_category( ', ', '', false); ?>
+                          <?php //the_category( ', ', '', false); ?>
+                          <?php exclude_post_categories("10"); ?>
                     </p>
                     <h1 class="card-title">
                       <a href="<?php the_permalink(); ?>">

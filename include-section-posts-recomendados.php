@@ -34,7 +34,7 @@
                        <div class="card-body">
                          <p class="card-meta mb-0">
                            <a href="javascript:void(0);">
-                             <i class="icon-section-features"></i> <?php the_category( ', ', '', false); ?>
+                             <i class="icon-section-features"></i> <?php exclude_post_categories("10");//the_category( ', ', '', false); ?>
                            </a>
                          </p>
                          <h1 class="card-title">
