@@ -6,7 +6,9 @@
               if (have_posts()) :
                 while (have_posts()) :
                   the_post(); ?>
+        <?php if ( has_post_thumbnail() ) : ?>
         <img class="img-fluid" src="<?php the_post_thumbnail_url();?>">
+        <?php endif;?>
         <article class="single-page single-page-no-sidebar">
           <div class="container">
             <div class="header">

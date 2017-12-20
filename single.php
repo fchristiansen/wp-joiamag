@@ -13,6 +13,8 @@ if (in_category('2')) {
             include (TEMPLATEPATH . '/single-con-barra.php');
         }elseif($tipo_plantilla=='Sin sidebar'){
             include (TEMPLATEPATH . '/single-sin-barra.php');
+        }else{
+            include (TEMPLATEPATH . '/single-sin-barra.php');
         }
 
 }?>
