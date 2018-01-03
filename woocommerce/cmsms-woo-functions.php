@@ -314,3 +314,15 @@ add_role('creador', __(
 function custom_tienda_title() {
  echo "<h1 class='title-tienda'>JOIA Tienda</h1>"; //this works fine
 }
+
+
+function sww_change_wc_currency_symbol( $currency_symbol, $currency ) {
+     switch( $currency ) {
+          case 'USD': $currency_symbol = 'USD $'; break;
+          // Can use this for any currency symbol
+          // ref https://github.com/woothemes/woocommerce/blob/master/includes/wc-core-functions.php#L314
+     }
+     return $currency_symbol;
+}
+add_filter('woocommerce_currency_symbol', 'sww_change_wc_currency_symbol', 10, 2);
+
